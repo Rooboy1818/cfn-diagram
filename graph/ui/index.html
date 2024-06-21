@@ -100,6 +100,11 @@
 
         network.on("afterDrawing", function (ctx) {
           console.log('marcel data', data);
+
+          data.nodes.forEach(((node, i) => {
+            console.log('marcel node', i, node);
+          });
+
           var nodeId = 'root.backendrule9543CED5';
           var nodeBBox = network.getBoundingBox(nodeId);
           console.log('marcel afterDrawing', nodeBBox);
