@@ -125,7 +125,7 @@ function addnodes(
       hidden: prefix != "root" && !renderAll,
       type: type,
       label: resource,
-      shape: "dot",
+      shape: "image",
       image: createImage(type),
       title: `${
         useJson
