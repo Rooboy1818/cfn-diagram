@@ -128,7 +128,7 @@ function addEdges(from, to, dependencyNode, fromNode) {
           //type: "cubicBezier",
           roundness: 1
         },
-        width: 2,
+        width: 3,
         arrowStrikethrough: false
       });
     }
