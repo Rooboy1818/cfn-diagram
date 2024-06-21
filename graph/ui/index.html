@@ -66,7 +66,6 @@
           nodes: nodes,
           edges: edges,
         };
-        
         var options = {
           nodes: {
             shape: "dot",
@@ -100,7 +99,7 @@
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
         network.on("afterDrawing", function (ctx) {
-          console.log('marcel nodes', nodes);
+          console.log('marcel data', data);
           var nodeId = 'root.backendrule9543CED5';
           var nodeBBox = network.getBoundingBox(nodeId);
           console.log('marcel afterDrawing', nodeBBox);
