@@ -104,7 +104,13 @@ function addEdges(from, to, dependencyNode, fromNode) {
           //color: colorHash.hex(descriptor),
           color: "grey"
         },
-        type: "circle"
+        arrows: {
+          to: {
+            enabled: true,
+            scaleFactor: 1,
+            type: "circle"
+          },
+        },
       });
     }
   }
