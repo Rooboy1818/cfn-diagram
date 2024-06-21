@@ -76,10 +76,7 @@
             arrows: {
               to: {
                 enabled: true,
-                imageHeight: undefined,
-                imageWidth: undefined,
                 scaleFactor: 1,
-                src: undefined,
                 type: "arrow",
               },
             },
@@ -106,7 +103,7 @@
           var nodeId = 'root.backendrule9543CED5';
           var nodeBBox = network.getBoundingBox(nodeId);
           console.log('marcel afterDrawing', nodeBBox);
-          ctx.drawImage(imageObj, nodeBBox.right - 40, nodeBBox.top, 40, 40);
+          ctx.drawImage(imageObj, nodeBBox.right - 40, nodeBBox.top - (nodeBBox.bottom - nodeBBox.top - 40) / 2, 40, 40);
         });
 
         network.body.emitter.emit("_dataChanged");
