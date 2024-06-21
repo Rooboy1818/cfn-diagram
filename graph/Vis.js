@@ -104,6 +104,7 @@ function addEdges(from, to, dependencyNode, fromNode) {
           //color: colorHash.hex(descriptor),
           color: "grey"
         },
+        type: "circle"
       });
     }
   }
