@@ -84,6 +84,7 @@
           },*/
           nodes: {
             ctxRenderer: function({ ctx, x, y, state: { selected, hover }, style }) {
+              console.log('marcel', x, y);
               const r = style.size;
               ctx.beginPath();
               const sides = 6;
