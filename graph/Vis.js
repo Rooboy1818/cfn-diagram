@@ -116,10 +116,10 @@ function addEdges(from, to, dependencyNode, fromNode) {
             type: "circle"
           },
         },
-        smooth: {
-          type: "cubicBezier",
-          roundness: 1
-        }
+        //smooth: {
+        //  type: "cubicBezier",
+        //  roundness: 1
+        //}
       });
     }
   }
