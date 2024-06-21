@@ -138,7 +138,7 @@ function addnodes(
       hidden: prefix != "root" && !renderAll,
       type: type,
       //label: resource,
-      label: "hello",
+      label: resource.length > 10 ? resource.slice(0, 10) + '..' : resource,
       //shape: "image",
       //image: createImage(type),
       shape: "box",
