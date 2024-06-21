@@ -124,10 +124,10 @@ function addEdges(from, to, dependencyNode, fromNode) {
           },*/
         },
         smooth: {
-        //  type: "cubicBezier",
+          type: "cubicBezier",
           roundness: 1
         },
-        width: 5
+        width: 3
       });
     }
   }
