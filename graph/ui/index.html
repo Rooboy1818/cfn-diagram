@@ -98,6 +98,18 @@
           },
         };
         network = new vis.Network(container, data, options);
+
+        var imageObj = new Image();
+        imageObj.src = 'http://localhost:3030/assets/logo.svg';
+
+        network.on("afterDrawing", function (ctx) {
+          var nodeId = 'root.backendrule9543CED5';
+          var nodePosition = network.getPositions([nodeId]);
+          console.log('marcel afterDrawing', nodePosition);
+    
+          ctx.drawImage(imageObj, nodePosition[nodeId].x - 20, nodePosition[nodeId].y - 20, 40, 40);
+        });
+
         network.body.emitter.emit("_dataChanged");
       }
       function populateFilters(conatainerName, data, checked, func) {
