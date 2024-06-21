@@ -103,7 +103,7 @@ function addEdges(from, to, dependencyNode, fromNode) {
         color: {
           //color: colorHash.hex(descriptor),
           color: "#b3b3b3",
-          opacity: 0.8
+          //opacity: 1
         },
         arrows: {
           to: {
