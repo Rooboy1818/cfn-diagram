@@ -161,8 +161,8 @@ function addnodes(
         bottom: 20
       },
       color: {
-        background: "#2B7CE9",
-        border: "#D2E5FF"
+        background: "#D2E5FF",
+        border: "#2B7CE9"
       }
     });
   }
