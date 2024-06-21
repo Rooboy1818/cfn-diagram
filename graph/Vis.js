@@ -163,6 +163,7 @@ function addnodes(
       color: {
         background: "#2B7CE9",
         border: "#D2E5FF"
+      }
     });
   }
 }
