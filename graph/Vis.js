@@ -137,7 +137,8 @@ function addnodes(
       prefix: prefix,
       hidden: prefix != "root" && !renderAll,
       type: type,
-      label: resource,
+      //label: resource,
+      label: "hello",
       //shape: "image",
       //image: createImage(type),
       shape: "box",
@@ -203,7 +204,8 @@ async function renderTemplate(
   var edges = new vis.DataSet(${JSON.stringify(edges)});
   var nested = ${JSON.stringify(nested.sort())};
   var types = ${JSON.stringify(Array.from(types).sort())};
-  var showSidebar = ${!ciMode};
+  //var showSidebar = ${!ciMode};
+  var showSidebar = false;
   `;
   const uiPath = filePath || path.join(tempDirectory, "cfn-diagram");
   if (!fs.existsSync(uiPath)) {
