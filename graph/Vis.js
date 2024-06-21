@@ -148,6 +148,9 @@ function addnodes(
           : yamlDump(resourceObject).replace(/>/g, "").replace(/</g, "")
       }`,
       resource: resourceObject,
+      font: {
+        size: 20
+      }
     });
   }
 }
