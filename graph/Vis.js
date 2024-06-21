@@ -110,6 +110,11 @@ function addEdges(from, to, dependencyNode, fromNode) {
             scaleFactor: 1,
             type: "circle"
           },
+          from: {
+            enabled: true,
+            scaleFactor: 1,
+            type: "circle"
+          },
         },
       });
     }
