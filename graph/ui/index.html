@@ -99,16 +99,15 @@
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
         network.on("afterDrawing", function (ctx) {
-          console.log('marcel data', data);
+          //console.log('marcel data', data);
 
           data.nodes.forEach((node, i) => {
             console.log('marcel node', i, node);
+            //var nodeId = 'root.backendrule9543CED5';
+            var nodeBBox = network.getBoundingBox(node.id);
+            console.log('marcel afterDrawing', i, nodeBBox);
+            ctx.drawImage(imageObj, nodeBBox.right - 40 - 5, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - 40) / 2, 40, 40);
           });
-
-          var nodeId = 'root.backendrule9543CED5';
-          var nodeBBox = network.getBoundingBox(nodeId);
-          console.log('marcel afterDrawing', nodeBBox);
-          ctx.drawImage(imageObj, nodeBBox.right - 40 - 5, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - 40) / 2, 40, 40);
         });
 
         network.body.emitter.emit("_dataChanged");
