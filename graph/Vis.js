@@ -155,7 +155,7 @@ function addnodes(
       font: {
         size: 20
       },
-      ctxRenderer: drawMode({ ctx, x, y, state: { selected, hover }, style })
+      ctxRenderer: drawNode({ ctx, x, y, state: { selected, hover }, style })
     });
   }
 }
