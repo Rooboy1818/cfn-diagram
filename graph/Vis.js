@@ -156,6 +156,7 @@ function addnodes(
         size: 20
       },
       ctxRenderer: function({ ctx, x, y, state: { selected, hover }, style }) {
+        console.log('marcel ctxRenderer');
         const r = style.size;
         ctx.beginPath();
         const sides = 6;
