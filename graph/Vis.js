@@ -102,8 +102,8 @@ function addEdges(from, to, dependencyNode, fromNode) {
         label: descriptor,
         color: {
           //color: colorHash.hex(descriptor),
-          color: "#b3b3b3",
-          //opacity: 1
+          color: "gray",
+          opacity: 0.5
         },
         arrows: {
           to: {
