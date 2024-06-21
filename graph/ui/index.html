@@ -53,7 +53,8 @@
 
       function preTitle(text) {
         const container = document.createElement("pre");
-        container.innerText = 'hello'; // You may also use innerHTML if your source is trusted.
+        container.innerText = text; // You may also use innerHTML if your source is trusted.
+        container.style = "font-size: 10px";
         return container;
       }
 
