@@ -113,7 +113,8 @@ function addEdges(from, to, dependencyNode, fromNode) {
             type: "image",
             //imageWidth: 24,
             //imageHeight: 24,
-            src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20.088" height="20.087" viewBox="0 0 20.088 20.087"><path d="M10.044,0A10.044,10.044,0,1,0,20.088,10.043,10.043,10.043,0,0,0,10.044,0Zm.047,15.033a4.99,4.99,0,1,1,4.99-4.99A4.989,4.989,0,0,1,10.091,15.033Z"/></svg>'
+            //src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20.088" height="20.087" viewBox="0 0 20.088 20.087"><path d="M10.044,0A10.044,10.044,0,1,0,20.088,10.043,10.043,10.043,0,0,0,10.044,0Zm.047,15.033a4.99,4.99,0,1,1,4.99-4.99A4.989,4.989,0,0,1,10.091,15.033Z"/></svg>'
+            src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABQUlEQVR4nN2VTUoDQRCFPxIyGxMPYryDegGJIrmCGPyJHiIEj2GMnsco/kQ9hMSF2WSk4A00Oj09PSGbPCgYqKpX3dX1amDdkQBd4A54Bb5l9j2Wz2Iq4RD4BNKAfQAHMcQ14NoheADOgS1gQ9YGLoCJEzdUbhAZ+Q9wHEgy34lisyLBtmTkOxG33nWKdHxBidNzO3ksesp9Bxp5AV2n56V6+Qd14FEcR+TgXs4zqqMvjts855ucNi1V0RaH6eQfZnI2lyjQEsdsVQU2xfG1qhZtF7VoLKcptCquxHFTNKaTJcb0qWhMEy2uVPKPxalypz6hoa2YrQqTf1nsAXNgAeyHgodOkZ6u7kNdJ58rZ1DmNDWnSCr59yWipsym5dLp+ULkUW/X0eIK/XCmZdriQ0MTYbvlRWI0ewZG8nkfdD3wC2O8b6rsmdEoAAAAAElFTkSuQmCC">"
           },
           /*from: {
             enabled: true,
