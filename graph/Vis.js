@@ -109,7 +109,8 @@ function addEdges(from, to, dependencyNode, fromNode) {
             enabled: true,
             scaleFactor: 1,
             type: "image",
-            src: "http://localhost:3030/assets/logo.svg"
+            //src: "http://localhost:3030/assets/logo.svg"
+            src: "../resources/arrow-circle.svg"
           },
           /*from: {
             enabled: true,
