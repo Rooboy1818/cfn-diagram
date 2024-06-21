@@ -110,11 +110,11 @@ function addEdges(from, to, dependencyNode, fromNode) {
             enabled: true,
             scaleFactor: 1,
             type: "circle",
-            /*enabled: true,
+            enabled: true,
             type: "image",
             imageWidth: 24,
             imageHeight: 24,
-            src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20.088" height="20.087" viewBox="0 0 20.088 20.087"><path d="M10.044,0A10.044,10.044,0,1,0,20.088,10.043,10.043,10.043,0,0,0,10.044,0Zm.047,15.033a4.99,4.99,0,1,1,4.99-4.99A4.989,4.989,0,0,1,10.091,15.033Z"/></svg>'*/
+            src: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20.088" height="20.087" viewBox="0 0 20.088 20.087"><path d="M10.044,0A10.044,10.044,0,1,0,20.088,10.043,10.043,10.043,0,0,0,10.044,0Zm.047,15.033a4.99,4.99,0,1,1,4.99-4.99A4.989,4.989,0,0,1,10.091,15.033Z"/></svg>'
           },
           /*from: {
             enabled: true,
