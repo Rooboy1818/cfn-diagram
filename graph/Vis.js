@@ -153,7 +153,7 @@ function addnodes(
       }`,
       resource: resourceObject,
       font: {
-        size: 32
+        //size: 32
       },
       margin: {
         top: 20,
