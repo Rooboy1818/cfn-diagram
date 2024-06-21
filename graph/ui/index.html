@@ -106,9 +106,7 @@
           var nodeId = 'root.backendrule9543CED5';
           var nodeBBox = network.getBoundingBox(nodeId);
           console.log('marcel afterDrawing', nodeBBox);
-          console.log('marcel imageObj', imageObj);
-    
-          ctx.drawImage(imageObj, nodeBBox.right - 20, nodeBBox.top, 40, 40);
+          ctx.drawImage(imageObj, nodeBBox.right - 40, nodeBBox.top, 40, 40);
         });
 
         network.body.emitter.emit("_dataChanged");
