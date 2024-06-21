@@ -165,7 +165,7 @@ function addnodes(
       },
       margin: {
         top: 20,
-        right: 60,
+        right: 50,
         bottom: 20
       },
       color: {
