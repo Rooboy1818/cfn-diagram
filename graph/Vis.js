@@ -115,7 +115,11 @@ function addEdges(from, to, dependencyNode, fromNode) {
             imageWidth: 24,
             imageHeight: 24,
             //src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' style='width:24px;height:24px' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H9.18C9.6,1.84 10.7,1 12,1C13.3,1 14.4,1.84 14.82,3H19M12,8L7,13H10V17H14V13H17L12,8M12,3A1,1 0 0,0 11,4A1,1 0 0,0 12,5A1,1 0 0,0 13,4A1,1 0 0,0 12,3Z' /%3E%3C/svg>",
-            src: '<img src='data:image/svg+xml,<svg width="800px" height="800px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8" stroke="#000000" stroke-width="2"/></svg>'
+            //src: '<img src="data:image/svg+xml,<svg width="800px" height="800px" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="8" stroke="#000000" stroke-width="2"/></svg>'
+
+            src: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' d="M3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>",
+
+            // d="M3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           },
           /*from: {
             enabled: true,
