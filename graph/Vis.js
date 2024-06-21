@@ -101,7 +101,8 @@ function addEdges(from, to, dependencyNode, fromNode) {
         to,
         label: descriptor,
         color: {
-          color: colorHash.hex(descriptor),
+          //color: colorHash.hex(descriptor),
+          color: "grey"
         },
       });
     }
