@@ -157,7 +157,7 @@ function addnodes(
       },
       margin: {
         top: 20,
-        right: 40,
+        right: 55,
         bottom: 20
       }
     });
