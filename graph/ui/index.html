@@ -111,7 +111,7 @@
             var nodeImage = new Image();
             nodeImage.src = node.image;
             var imageSize = 50;
-            ctx.drawImage(nodeImage, nodeBBox.right - imageSize, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, 50);
+            ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 5, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, 50);
           });
         });
 
