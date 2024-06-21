@@ -159,7 +159,10 @@ function addnodes(
         top: 20,
         right: 60,
         bottom: 20
-      }
+      },
+      color: {
+        background: "#2B7CE9",
+        border: "#D2E5FF"
     });
   }
 }
