@@ -107,7 +107,11 @@
             //var nodeId = 'root.backendrule9543CED5';
             var nodeBBox = network.getBoundingBox(node.id);
             console.log('marcel afterDrawing', i, nodeBBox);
-            ctx.drawImage(imageObj, nodeBBox.right - 40 - 5, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - 40) / 2, 40, 40);
+
+            var nodeImage = new Image();
+            nodeImage.src = node.image;
+            
+            ctx.drawImage(nodeImage, nodeBBox.right - 40 - 5, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - 40) / 2, 40, 40);
           });
         });
 
