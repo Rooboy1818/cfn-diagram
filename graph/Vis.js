@@ -156,7 +156,9 @@ function addnodes(
         size: 32
       },
       margin: {
-        right: 40
+        top: 20,
+        right: 40,
+        bottom: 20
       }
     });
   }
