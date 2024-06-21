@@ -103,7 +103,7 @@ function addEdges(from, to, dependencyNode, fromNode) {
         color: {
           //color: colorHash.hex(descriptor),
           color: "gray",
-          opacity: 0.5
+          opacity: 0.4
         },
         arrows: {
           to: {
@@ -123,10 +123,10 @@ function addEdges(from, to, dependencyNode, fromNode) {
             src: "http://localhost:3030/assets/logo.svg"
           },*/
         },
-        //smooth: {
+        smooth: {
         //  type: "cubicBezier",
-        //  roundness: 1
-        //}
+          roundness: 1
+        }
       });
     }
   }
