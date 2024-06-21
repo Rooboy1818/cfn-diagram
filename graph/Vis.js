@@ -153,7 +153,10 @@ function addnodes(
       }`,
       resource: resourceObject,
       font: {
-        size: 48
+        size: 32
+      },
+      margin: {
+        right: 25
       }
     });
   }
