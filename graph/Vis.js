@@ -155,7 +155,7 @@ function addnodes(
       font: {
         size: 20
       },
-      ctxRenderer: function({ ctx, x, y, state: { selected, hover }, style }) {
+      /*ctxRenderer: function({ ctx, x, y, state: { selected, hover }, style }) {
         console.log('marcel ctxRenderer');
         const r = style.size;
         ctx.beginPath();
@@ -174,7 +174,17 @@ function addnodes(
     
         ctx.font = "normal 12px sans-serif";
         ctx.fillStyle = 'black';
-      }
+      }*/
+      ctxRenderer:
+                function ctxRenderer(all: any) {
+                    return {
+                        drawNode() {
+                            all.ctx.fillStyle = 'green'
+                            all.ctx.fillRect(all.x, all.y, 100, 100)
+                        },
+                        nodeDimensions: { width: 100, height: 100 },
+                    }
+                },
     });
   }
 }
