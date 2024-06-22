@@ -155,8 +155,8 @@ function addnodes(
       label: resource.length > 10 ? resource.slice(0, 10) + '..' : resource,
       //shape: "image",
       image: createImage(type),
-      //shape: "box",
-      shape: "custom",
+      shape: "box",
+      //shape: "custom",
       title: `${
         useJson
           ? JSON.stringify(resourceObject, null, 2)
