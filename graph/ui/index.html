@@ -75,20 +75,21 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              console.log('marcel', id, network, data, nodes);
-              const node = data.nodes.find(n => n.id === id);
-              console.log('marcel ctxRenderer node', node);
+              //console.log('marcel', id, network, data, nodes);
+              //const node = data.nodes.find(n => n.id === id);
+              //console.log('marcel ctxRenderer node', node);
               
-              const r = style.size;
+              //const r = style.size;
               const w = 200;
               const h = 50;
               const drawNode = () => {
                 // Draw rectangle
                 ctx.beginPath();
-                ctx.strokeStyle = "#2B7CE9";
-                ctx.fillStyle = "#D2E5FF";
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
+                ctx.strokeStyle = "#2B7CE9";
                 ctx.stroke();
+                ctx.fillStyle = "#D2E5FF";
+                ctx.fill();
 
                 // Draw text
                 ctx.font = "24px Arial";
