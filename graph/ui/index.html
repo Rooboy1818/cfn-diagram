@@ -95,10 +95,11 @@
                 ctx.fillStyle = "black";
                 ctx.fillText("custom shape", x - r + 10, y, 2 * r - 20);*/
 
+                console.log('marcel', x, y, size);
                 ctx.beginPath();
                 ctx.strokeStyle = "blue";
                 ctx.beginPath();
-                ctx.roundRect(x, y, x + 200, y + 50, [10]);
+                ctx.roundRect(x, y, x + 20, y + 5, [2]);
                 ctx.stroke();
                 ctx.restore();
               };
