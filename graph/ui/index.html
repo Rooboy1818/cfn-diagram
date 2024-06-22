@@ -180,14 +180,15 @@
           console.log('marcel widths', Math.round(container.offsetWidth), bounds, Math.round(dom1.x), Math.round(dom2.x), offsetX); 
 
           network.fit();
-          console.log('marcel scale', network.getScale());
+          const currentScale = network.getScale();
+          console.log('marcel scale', scale);
                       
           network.moveTo({
             scale : 1.25
           });
           network.moveTo({
             offset: { x: offsetX / 2, y: 0 },
-            scale: 0.45,
+            scale: currentScale,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
