@@ -80,7 +80,12 @@
         console.log('marcel min/max', min, max);
 
         const pos = network.getPositions();
-        const res = Object.keys(pos).map((key) => network.canvasToDOM({ x: pos[key].x, y: 0}).x);
+        const res = Object.keys(pos).map((key) => {
+          const b = network.getBoundingBox(key);
+          return b.left + (b.right - b.left) / 2;
+          //return network.canvasToDOM({ x: pos[key].x, y: 0}).x);
+        });
+        
         console.log('marcel res', res);
         console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
         return [min, max];
@@ -91,8 +96,6 @@
         const bounds = getNodesWidth(nodes);
         const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
         const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-
-        console.log('marcel width', container.getBoundingClientRect().width);
         return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
       }
 
