@@ -75,7 +75,6 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              //console.log('marcel', id, network, data, nodes);
               let node = null;
               data.nodes.forEach(n => {
                 if (n.id === id) {
@@ -89,6 +88,8 @@
               const w = 200;
               const h = 50;
               const drawNode = () => {
+                const imageSize = 45;
+
                 // Draw rectangle
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
@@ -97,18 +98,30 @@
                 ctx.fillStyle = "#D2E5FF";
                 ctx.fill();
 
+                const truncateText = (text, maxWidth) => {
+                  const width = ctx.measureText(text).width;
+                  const ellipsis = width > maxWidth ? '...' : '';
+                  const length = text.length;
+                  for (let i = length; i > 0; i--) {
+                    const str = text.substr(0, i) + ellipsis;
+                    if (ctx.measureText(str).width <= maxWidth) {
+                      return str;
+                    }
+                  }
+                  return '';
+                };
+                
                 // Draw text
                 ctx.beginPath();
                 ctx.font = "24px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "middle";
-                ctx.fillText(node.label, x - w / 2 + 5, y);
+                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y);
 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
-                const imageSize = 45;
                 ctx.drawImage(nodeImage, x + w / 2 - imageSize - 5, y - imageSize / 2, imageSize, imageSize);
               };
               return {
