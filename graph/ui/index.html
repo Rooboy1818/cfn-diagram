@@ -83,7 +83,7 @@
                   return true;
                 }
               });
-              console.log('marcel node', id, node);
+              //console.log('marcel node', id, node);
               
               //const r = style.size;
               const w = 200;
@@ -109,8 +109,7 @@
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
                 const imageSize = 45;
-                ctx.drawImage(nodeImage, x + w / 2 - imageSize, y - imageSize / 2, imageSize, imageSize);
-                //ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 5, y - imageSize / 2, imageSize, imageSize);
               };
               return {
                 drawNode,
