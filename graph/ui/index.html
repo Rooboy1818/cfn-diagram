@@ -105,7 +105,7 @@
           if (afterDrawingTimerId) {
             clearTimeout(afterDrawingTimerId);
           }
-          afterDrawingTimerId = setTimout(() => {
+          afterDrawingTimerId = setTimeout(() => {
             console.log('marcel afterDrawing');
             data.nodes.forEach((node, i) => {
               var nodeBBox = network.getBoundingBox(node.id);
