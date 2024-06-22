@@ -80,6 +80,14 @@
         return [min, max];
       }
 
+      getOffsetX(nodes) {
+        const container = document.getElementById("mynetwork");
+        const bounds = getNodesWidth(nodes);
+        const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
+        const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
+        return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
+      }
+
       function draw() {
         // create a network
         var container = document.getElementById("mynetwork");
@@ -172,17 +180,9 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
-          const container = document.getElementById("mynetwork");
-          const bounds = getNodesWidth(data.nodes);
-          const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
-          const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-          const offsetX = Number(container.offsetWidth) - Number(dom2.x - dom1.x);
-          console.log('marcel widths', Math.round(container.offsetWidth), bounds, Math.round(dom1.x), Math.round(dom2.x), offsetX); 
-
           network.fit();
           const fitScale = network.getScale();
-          console.log('marcel scale', fitScale);
-                      
+          const offsetX = getOffsetX(data.nodes);
           network.moveTo({
             scale : 1.25
           });
