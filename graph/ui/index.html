@@ -80,7 +80,7 @@
         console.log('marcel min/max', min, max);
 
         const pos = network.getPositions();
-        const res = Object.keys(pos).map((key) => network.canvasToDOM({ x: pos[key].x, y: 0}));
+        const res = Object.keys(pos).map((key) => network.canvasToDOM({ x: pos[key].x, y: 0}).x);
         console.log('marcel res', res);
         console.log('marcel res min/max', Math.min(...res), Math.max(...res));
         return [min, max];
