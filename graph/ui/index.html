@@ -81,7 +81,10 @@
         };
         var options = {
           layout: {
-            randomSeed: 1
+            randomSeed: 1,
+            hierarchical: {
+              enabled: true;
+            }
           },
           nodes: {
             shape: "custom",
@@ -131,9 +134,6 @@
                 drawNode,
                 nodeDimensions: { width: w, height: h },
               };
-            },
-            shadow: {
-              enabled: true
             }
           },
           physics: {
