@@ -156,7 +156,7 @@ function addnodes(
       //shape: "image",
       image: createImage(type),
       //shape: "box",
-      //shape: "custom",
+      shape: "custom",
       title: `${
         useJson
           ? JSON.stringify(resourceObject, null, 2)
@@ -176,60 +176,6 @@ function addnodes(
         border: "#2B7CE9"
       },
       shape: "custom",
-      ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-        let node = null;
-        data.nodes.forEach(n => {
-          if (n.id === id) {
-            node = n;
-            return true;
-          }
-        });
-        //console.log('marcel node', id, node);
-        
-        const w = 200;
-        const h = 45;
-        const drawNode = () => {
-          const imageSize = 35;
-
-          // Draw rectangle
-          ctx.beginPath();
-          ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
-          ctx.strokeStyle = "#2B7CE9";
-          ctx.stroke();
-          ctx.fillStyle = "#D2E5FF";
-          ctx.fill();
-
-          const truncateText = (text, maxWidth) => {
-            const width = ctx.measureText(text).width;
-            const ellipsis = width > maxWidth ? '...' : '';
-            const length = text.length;
-            for (let i = length; i > 0; i--) {
-              const str = text.substr(0, i) + ellipsis;
-              if (ctx.measureText(str).width <= maxWidth) {
-                return str;
-              }
-            }
-            return '';
-          };
-          
-          // Draw text
-          ctx.beginPath();
-          ctx.font = "18px Arial";
-          ctx.fillStyle = "black";
-          ctx.textBaseline = "middle";
-          ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y);
-
-          // Draw image
-          const nodeBBox = network.getBoundingBox(node.id);
-          const nodeImage = new Image();
-          nodeImage.src = node.image;
-          ctx.drawImage(nodeImage, x + w / 2 - imageSize - 5, y - imageSize / 2, imageSize, imageSize);
-        };
-        return {
-          drawNode,
-          nodeDimensions: { width: w, height: h },
-        };
-      }
     })
   }
 }
