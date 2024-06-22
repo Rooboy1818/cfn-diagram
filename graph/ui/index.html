@@ -182,10 +182,10 @@
         network.once('stabilizationIterationsDone', function() {
           const offsetX = getOffsetX(data.nodes);
           console.log('marcel offsetX', offsetX);
-          //network.fit();
+          network.fit();
           //const offsetX2 = getOffsetX(data.nodes);
           //console.log('marcel offsetX after fit', offsetX2);
-          //const fitScale = network.getScale();
+          const fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
@@ -193,8 +193,8 @@
           //console.log('marcel offsetX after move', offsetX3);
           network.moveTo({
             offset: { x: 100, y: 0 },
-            //scale: fitScale,
-            scale: 0.5,
+            scale: fitScale,
+            //scale: 0.5,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
