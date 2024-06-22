@@ -82,15 +82,18 @@
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
-          const d = b.left + (b.right - b.left) / 2;
-          return network.canvasToDOM({ x: d, y: 0}).x;
+          const min = b.left;
+          const max = b.right;
+          return [network.canvasToDOM({ x: b.left, y: 0}).x, network.canvasToDOM({ x: b.right, y: 0}).x];
         });
         
         //console.log('marcel res', res);
-        console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
+        console.log('marcel res min/max', Math.min(...res[0]), Math.max(...res[1]), Math.max(...res[1]) - Math.min(...res[0]));
         //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). */
-        return [Math.min(...res), Math.max(...res)];
+        //return [Math.min(...res), Math.max(...res)];
         //return [network.canvasToDOM({ x: min, y: 0}).x, network.canvasToDOM({ x: max, y: 0}).x];
+        return [Math.min(...res[0]), Math.max(...res[1])];
+        
       }
 
       function getOffsetX(nodes) {
