@@ -90,7 +90,7 @@
         console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
         //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). */
         //return [Math.min(...res), Math.max(...res)];
-        return [min, max];
+        return [network.canvasToDOM({ x: min, y: 0}).x, network.canvasToDOM({ x: max, y: 0}).x];
       }
 
       function getOffsetX(nodes) {
