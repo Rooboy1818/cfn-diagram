@@ -82,6 +82,7 @@
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
+          console.log('marcel', key, b.left, b.right);
           return [b.left, b.right];
         });
         
