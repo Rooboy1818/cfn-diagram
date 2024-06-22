@@ -162,7 +162,7 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
-          network.moveTo({
+          /*network.moveTo({
             scale : 1.25
           });
           network.fit({
@@ -170,7 +170,9 @@
               duration: 1000,
               easingFunction: 'linear'
             }
-          });
+          });*/
+
+          network.setOptions( { physics: false } );
           /*network.moveTo({
             offset: {x: 150, y: 0 },
           });*/
