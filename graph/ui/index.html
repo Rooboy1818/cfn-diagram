@@ -71,26 +71,19 @@
       }
 
       function getNodesWidth(nodes) {
-        let min, max;
+        /*let min, max;
         nodes.forEach(node => {
           const bbox = network.getBoundingBox(node.id);
           min = min ? Math.min(min, bbox.left) : bbox.left;
           max = max ? Math.max(max, bbox.right) : bbox.right;
         });
-        console.log('marcel min/max', min, max);
+        console.log('marcel min/max', min, max);*/
 
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
-          console.log('marcel', key, b.left, b.right);
           return [b.left, b.right];
         });
-        
-        //console.log('marcel res', res);
-        console.log('marcel res min/max', Math.min(...res[0]), Math.max(...res[1]), Math.max(...res[1]) - Math.min(...res[0]));
-        //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). */
-        //return [Math.min(...res), Math.max(...res)];
-        //return [network.canvasToDOM({ x: min, y: 0}).x, network.canvasToDOM({ x: max, y: 0}).x];
         return [Math.min(...res[0]), Math.max(...res[1])];
       }
 
@@ -101,9 +94,8 @@
         //const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
         //console.log('marcel widths', container.offsetWidth, container.clientWidth);
         //return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
-        const xx = network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
-        const x = container.clientWidth - xx;
-        console.log('marcel', container.offsetWidth, bounds[1], bounds[0], xx, x);
+        const x = container.clientWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
+        console.log('marcel', container.offsetWidth, bounds[1], bounds[0], x);
         return x;
       }
 
