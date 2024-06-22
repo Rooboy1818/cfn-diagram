@@ -86,7 +86,7 @@
           nodes: {
             shape: "box",
             size: 1,
-            /*ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+            ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = getNode(data.nodes, id);
               console.log('marcel node', id, node);
               
@@ -133,7 +133,7 @@
                 drawNode,
                 nodeDimensions: { width: w, height: h },
               };
-            }*/
+            }
           },
           physics: {
             forceAtlas2Based: {
@@ -145,7 +145,6 @@
             maxVelocity: 146,
             solver: "forceAtlas2Based",
             timestep: 0.35,
-            //stabilization: { iterations: 150 },
             stabilization: { iterations: 250 },
           },
         };
