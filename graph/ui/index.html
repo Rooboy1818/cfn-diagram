@@ -177,7 +177,7 @@
           const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
           const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
           const offsetX = container.offsetWidth - dom2.x - dom1.x;
-          console.log('marcel widths', container.offsetWidth, bounds, dom1.x, dom2.x, offsetX); 
+          console.log('marcel widths', Math.round(container.offsetWidth), bounds, Math.round(dom1.x), Math.round(dom2.x), offsetX); 
           
           network.moveTo({
             scale : 1.25
