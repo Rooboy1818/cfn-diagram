@@ -75,6 +75,8 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+              console.log('marcel', style);
+              
               const r = style.size;
               const w = 200;
               const h = 50;
@@ -90,7 +92,7 @@
                 ctx.font = "24px Arial";
                 const text = 'hello';
                 ctx.fillStyle = "green";
-                ctx.textAlign="center"; 
+                ctx.textAlign = "left"; 
                 ctx.textBaseline = "middle";
                 ctx.fillText(text, x, y);
               };
