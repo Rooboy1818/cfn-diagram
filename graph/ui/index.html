@@ -75,7 +75,9 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              const r = style.size;
+              //const r = style.size;
+              const w = 50;
+              const h = 25;
               const drawNode = () => {
                 ctx.beginPath();
                 /*const sides = 4;
@@ -85,19 +87,11 @@
                     ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
                 }*/
 
-                ctx.moveTo(x - r, y - r / 2);
-                ctx.lineTo(x + r, y - r / 2);
-                ctx.lineTo(x + r, y + r / 2);
-                ctx.lineTo(x - r, y + r / 2);
-                ctx.lineTo(x - r, y - r / 2);
-                
-
-                /*let xx = x / 2, yy = y / 2;
-                ctx.moveTo(xx, yy);
-                ctx.lineTo(xx + r, yy);
-                ctx.lineTo(xx + r, yy + r);
-                ctx.lineTo(xx, yy + r);
-                ctx.lineTo(xx, yy);*/
+                ctx.moveTo(x - w / 2, y - h / 2);
+                ctx.lineTo(x + w, y - h / 2);
+                ctx.lineTo(x + w, y + h / 2);
+                ctx.lineTo(x - w, y + h / 2);
+                ctx.lineTo(x - w, y - h / 2);
                 
                 ctx.closePath();
                 ctx.save();
@@ -111,7 +105,7 @@
               };
               return {
                 drawNode,
-                nodeDimensions: { width: r * 2, height: r },
+                nodeDimensions: { width: w, height: h },
               };
             }
           },
