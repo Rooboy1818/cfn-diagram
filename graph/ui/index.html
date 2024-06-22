@@ -58,6 +58,17 @@
         return container;
       }
 
+      function getNode(id) {
+        let node = null;
+        data.nodes.forEach(n => {
+          if (n.id === id) {
+            node = n;
+            return true;
+          }
+        });
+        return node;
+      }
+
       function draw() {
         // create a network
         var container = document.getElementById("mynetwork");
@@ -76,14 +87,8 @@
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              let node = null;
-              data.nodes.forEach(n => {
-                if (n.id === id) {
-                  node = n;
-                  return true;
-                }
-              });
-              console.log('marcel node', id, network.getNodeAt({x, y}));
+              const node = getNode(id);
+              console.log('marcel node', id, node);
               
               const w = 200;
               const h = 45;
