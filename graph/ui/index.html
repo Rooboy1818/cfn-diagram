@@ -78,12 +78,19 @@
               const r = style.size;
               const drawNode = () => {
                 ctx.beginPath();
-                const sides = 4;
+                /*const sides = 4;
                 const a = (Math.PI * 2) / sides;
                 ctx.moveTo(x + r, y + r);
                 for (let i = 1; i < sides; i++) {
-                    ctx.lineTo(x + r * 2 * Math.sin(a * i), y + r * Math.cos(a * i));
-                }
+                    ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
+                }*/
+
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + r * 2, y);
+                ctx.lineTo(x + r * 2, y + r);
+                ctx.lineTo(x, y + r);
+                ctx.lineTo(x, y);
+                
 
                 /*let xx = x / 2, yy = y / 2;
                 ctx.moveTo(xx, yy);
