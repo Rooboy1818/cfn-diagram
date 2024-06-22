@@ -178,22 +178,18 @@
 
         network.once('stabilizationIterationsDone', function() {
           const offsetX = getOffsetX(data.nodes);
-          console.log('marcel scale before fit', network.getScale());
-          network.fit();
-          console.log('marcel scale after fit', network.getScale());
-          const fitScale = network.getScale();
+          const scale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
-          console.log('marcel scale', offsetX, offsetX / 2, fitScale, (offsetX / 2) * fitScale);
           network.moveTo({
             offset: {
               x: (offsetX / 2) * fitScale,
               y: 0
             },
-            scale: fitScale,
+            scale: scale,
             animation: {
-              duration: 2000,
+              duration: 1500,
               easingFunction: 'linear'
             }
           });
