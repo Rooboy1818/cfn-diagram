@@ -80,11 +80,22 @@
                 const text_info = ctx.measureText('hello');
                 const height = ctx.font.match(/\d+/).pop() || 10;
                 const width = text_info.width;
-                ctx.fillStyle = this.bgColor;
-                ctx.fillRect(this.x, this.y, width, height);
-                ctx.fillStyle = this.textColor;
-                ctx.textBaseline = "top";
-                ctx.fillText(this.text, this.x, this.y);
+
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + width, y);
+                ctx.lineTo(x + width, y + height);
+                ctx.lineTo(x, y + height);
+                ctx.closePath();
+                ctx.save();
+                ctx.fillStyle = "red";
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+      
+                ctx.font = "normal 12px sans-serif";
+                ctx.fillStyle = "black";
+                ctx.fillText("custom shape", x - r + 10, y, 2 * r - 20);
                 
                 /*ctx.beginPath();
                 const sides = 6;
