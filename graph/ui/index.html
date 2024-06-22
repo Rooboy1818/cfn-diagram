@@ -179,7 +179,7 @@
           const offsetX = Number(container.offsetWidth) - Number(dom2.x - dom1.x);
           console.log('marcel widths', Math.round(container.offsetWidth), bounds, Math.round(dom1.x), Math.round(dom2.x), offsetX); 
 
-          network.fit();
+          //network.fit();
           const currentScale = network.getScale();
           console.log('marcel scale', currentScale);
                       
@@ -187,7 +187,7 @@
             scale : 1.25
           });
           network.moveTo({
-            offset: { x: offsetX / 2, y: 0 },
+            //offset: { x: offsetX / 2, y: 0 },
             scale: currentScale,
             animation: {
               duration: 1000,
