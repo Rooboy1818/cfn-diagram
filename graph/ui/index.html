@@ -60,12 +60,11 @@
 
       function getNode(nodes, id) {
         let found = null;
-        nodes.every(node => {
+        nodes.forEach(node => {
           if (node.id === id) {
             found = node;
-            return false;
+            return true;
           }
-          return true;
         });
         return found;
       }
