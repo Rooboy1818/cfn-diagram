@@ -75,7 +75,8 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              console.log('marcel', style);
+              const node = data.nodes.find(n => n.id === id);
+              console.log('marcel ctxRenderer node', node);
               
               const r = style.size;
               const w = 200;
@@ -92,9 +93,9 @@
                 ctx.font = "24px Arial";
                 const text = 'hello';
                 ctx.fillStyle = "green";
-                ctx.textAlign = "left"; 
+                //ctx.textAlign = "left"; 
                 ctx.textBaseline = "middle";
-                ctx.fillText(text, x, y);
+                ctx.fillText(text, x - w / 2, y);
               };
               return {
                 drawNode,
