@@ -77,12 +77,12 @@
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               //console.log('marcel', id, network, data, nodes);
               let node = null;
-              for (let i = 0; i < data.nodes.length; i++) {
-                if (data.nodes[i].id === id) {
-                  node = data.nodes[i].id;
-                  break;
+              data.nodes.forEach(n => {
+                if (n.id === id) {
+                  node = n;
+                  return true;
                 }
-              }
+              });
               console.log('marcel node', id, node);
               
               //const r = style.size;
