@@ -162,12 +162,15 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
+          const container = document.getElementById("mynetwork");
+          console.log('marcel container width", container.offsetWidth);
+                      
           network.moveTo({
             scale : 1.25
           });
           network.moveTo({
             offset: { x: 100, y: 0 },
-            scale: 0.6,
+            scale: 0.55,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
@@ -176,8 +179,8 @@
         });
       }
 
-      function populateFilters(conatainerName, data, checked, func) {
-        var container = document.getElementById(conatainerName);
+      function populateFilters(containerName, data, checked, func) {
+        var container = document.getElementById(containerName);
         if (!data.length) {
           container.style.visibility = "hidden";
         }
