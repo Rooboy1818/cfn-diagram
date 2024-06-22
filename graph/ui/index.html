@@ -95,10 +95,11 @@
       function getOffsetX(nodes) {
         const container = document.getElementById("mynetwork");
         const bounds = getNodesWidth(nodes);
-        const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
-        const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
+        //const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
+        //const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
         //console.log('marcel widths', container.offsetWidth, container.clientWidth);
-        return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
+        //return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
+        return Number(container.offsetWidth) - Number(bounds[1] - bounds[0]);
       }
 
       function draw() {
