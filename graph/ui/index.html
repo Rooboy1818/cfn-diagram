@@ -117,6 +117,7 @@
         });
 
         network.body.emitter.emit("_dataChanged");
+        network.fit();
       }
 
       function populateFilters(conatainerName, data, checked, func) {
