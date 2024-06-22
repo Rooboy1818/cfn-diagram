@@ -131,6 +131,9 @@
                 drawNode,
                 nodeDimensions: { width: w, height: h },
               };
+            },
+            shadow: {
+              enabled: true
             }
           },
           physics: {
@@ -143,10 +146,7 @@
             maxVelocity: 146,
             solver: "forceAtlas2Based",
             timestep: 0.35,
-            stabilization: { iterations: 250 },
-            wind: {
-              x: 0.1
-            }
+            stabilization: { iterations: 250 }
           },
         };
         network = new vis.Network(container, data, options);
