@@ -101,7 +101,7 @@
         //console.log('marcel widths', container.offsetWidth, container.clientWidth);
         //return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
         const x = Number(container.offsetWidth) - Number(bounds[1] - bounds[0]);
-        return network.canvasToDOM({ x:, y: 0}).x;
+        return network.canvasToDOM({ x: x, y: 0}).x;
       }
 
       function draw() {
