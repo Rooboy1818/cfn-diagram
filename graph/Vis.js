@@ -230,7 +230,7 @@ function addnodes(
           drawNode,
           nodeDimensions: { width: w, height: h },
         };
-      })
+      }
     }
   }
 }
