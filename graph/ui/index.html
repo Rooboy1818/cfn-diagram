@@ -85,11 +85,11 @@
                     ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
                 }*/
 
-                ctx.moveTo(x, y);
-                ctx.lineTo(x + r, y);
-                ctx.lineTo(x + r, y + r);
-                ctx.lineTo(x, y + r);
-                ctx.lineTo(x, y);
+                ctx.moveTo(x - r/2, y - r/2);
+                ctx.lineTo(x + r/2, y - r/2);
+                ctx.lineTo(x + r/2, y + r/2);
+                ctx.lineTo(x, y + r/2);
+                ctx.lineTo(x - r/2, y - r/2);
                 
                 ctx.closePath();
                 ctx.save();
