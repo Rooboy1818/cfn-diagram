@@ -90,11 +90,11 @@
                 ctx.stroke();
 
                 ctx.beginPath();
+                ctx.font = "32px Arial";
                 const text = 'hello';
                 const textInfo = ctx.measureText(text);
                 const textWidth = textInfo.width;
                 const textHeight = ctx.font.match(/\d+/).pop() || 10;
-                ctx.font = "32px Arial";
                 ctx.fillStyle = 'green';
                 //ctx.textBaseline = 'top';
                 ctx.fillText(text, x - w / 2, y - textHeight / 2);
