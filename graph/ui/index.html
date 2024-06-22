@@ -78,7 +78,7 @@
           max = max ? Math.max(max, bbox.right) : bbox.right;
         });
         console.log('marcel min/max', min, max);
-
+/*
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           //const b = network.getBoundingBox(key);
@@ -86,9 +86,9 @@
           return network.canvasToDOM({ x: pos[key].x, y: 0}).x);
         });
         
-        console.log('marcel res', res);
-        console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
-        //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). 
+        //console.log('marcel res', res);
+        //console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
+        //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). */
         return [min, max];
       }
 
