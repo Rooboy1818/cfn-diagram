@@ -117,12 +117,17 @@
         });
 
         network.body.emitter.emit("_dataChanged");
-        network.fit({
-          scale: 10,
-          animation: {
-            duration: 2000,
-            easingFunction: 'easeInOutQuad'
-          }
+
+        network.once('stabilized', function() {
+          console.log('marcel stabilized');
+          network.moveTo({ scale : 5 });
+
+          network.fit({
+            animation: {
+              duration: 2000,
+              easingFunction: 'linear'
+            }
+          });
         });
       }
 
