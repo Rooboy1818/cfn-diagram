@@ -75,9 +75,9 @@
           nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              //const r = style.size;
-              const w = 50;
-              const h = 25;
+              const r = style.size;
+              const w = r * 2;
+              const h = r;
               const drawNode = () => {
                 ctx.beginPath();
                 /*const sides = 4;
