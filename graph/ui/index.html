@@ -178,6 +178,13 @@
             }*/
           });
         });
+
+        network.once('resize', function() {
+          console.log('marcel resize');
+          network.moveTo({
+            offset: {x: 150, y: 0 },
+          });
+        });
       }
 
       function populateFilters(conatainerName, data, checked, func) {
