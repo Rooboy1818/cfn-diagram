@@ -161,7 +161,13 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
-          network.moveTo({ scale : 1.25 });
+          network.moveTo({
+            offset: {
+              x: 50,
+              y: 0
+            },
+            scale : 1.25
+          });
           network.fit({
             animation: {
               duration: 1000,
