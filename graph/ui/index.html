@@ -76,13 +76,8 @@
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               //console.log('marcel', id, network, data, nodes);
-              //const node = data.nodes.find(n => n.id === id);
-              //console.log('marcel ctxRenderer node', node);
-              data.nodes.forEach((node, i) => {
-                console.log('marcel each', node);
-              });
-              const node = data.nodes.find(n => n.id === id);
-              console.log('marcel found', node);
+              const node = network.getPositions(id);
+              console.log('marcel ctxRenderer node', node);
               
               //const r = style.size;
               const w = 200;
