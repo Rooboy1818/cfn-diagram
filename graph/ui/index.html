@@ -101,7 +101,6 @@
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
         network.on("afterDrawing", function (ctx) {
-          console.log('marcel afterDrawing', ctx);
           data.nodes.forEach((node, i) => {
             var nodeBBox = network.getBoundingBox(node.id);
             var nodeImage = new Image();
@@ -113,7 +112,7 @@
 
         network.body.emitter.emit("_dataChanged");
 
-        /*network.once('stabilized', function() {
+        network.once('stabilized', function() {
           console.log('marcel stabilized');
           network.moveTo({ scale : 2 });
           network.fit({
@@ -122,7 +121,7 @@
               easingFunction: 'linear'
             }
           });
-        });*/
+        });
       }
 
       function populateFilters(conatainerName, data, checked, func) {
