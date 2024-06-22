@@ -180,9 +180,9 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
+          const offsetX = getOffsetX(data.nodes);
           network.fit();
           const fitScale = network.getScale();
-          const offsetX = getOffsetX(data.nodes);
           network.moveTo({
             scale : 1.25
           });
