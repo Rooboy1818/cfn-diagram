@@ -5,6 +5,7 @@
       #mynetwork {
         width: 100%;
         height: 100vh;
+        margin-left: 100px;
         /*border: 1px solid lightgray;*/
       }
       .body {
@@ -22,6 +23,7 @@
         position: absolute;
         font-family: "Courier New", Courier, monospace;
         overflow: scroll;
+        visibility: hidden;
       }
     </style>
     <script
@@ -205,7 +207,7 @@
 
   <body>
     <div id="mynetwork"></div>
-    <div id="filtersContainer" style="visibility: hidden">
+    <div id="filtersContainer">
       <div id="resource-types">
         <strong>Include resource types:</strong><br />
       </div>
