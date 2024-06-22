@@ -79,11 +79,6 @@
               const w = 200;
               const h = 50;
               const drawNode = () => {
-                //ctx.beginPath();
-                
-                //ctx.strokeStyle = "blue";
-                //ctx.strokeRect(x - w / 2, y - h / 2, w, h);
-
                 ctx.beginPath();
                 ctx.strokeStyle = "#2B7CE9";
                 ctx.fillStyle = "#D2E5FF";
@@ -95,11 +90,11 @@
                 const text = 'hello';
                 //const textInfo = ctx.measureText(text);
                 //const textWidth = textInfo.width;
-                const textHeight = ctx.font.match(/\d+/).pop() || 10;
-                //console.log('marcel', text, textWidth, textHeight);
+                //const textHeight = ctx.font.match(/\d+/).pop() || 10;
                 ctx.fillStyle = "green";
-                //ctx.textBaseline = 'top';
-                ctx.fillText(text, x - w / 2, y + (h / 2) - (textHeight / 2));
+                ctx.textAlign="center"; 
+                ctx.textBaseline = "middle";
+                ctx.fillText(text, x - w / 2, y + h / 2);
                 
                 //ctx.closePath();
                 //ctx.save();
