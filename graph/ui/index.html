@@ -117,7 +117,11 @@
         });
 
         network.body.emitter.emit("_dataChanged");
-        network.fit();
+        network.fit({
+          animation: {
+            duration: 1000
+          }
+        });
       }
 
       function populateFilters(conatainerName, data, checked, func) {
