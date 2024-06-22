@@ -79,18 +79,12 @@
               const w = 100;
               const h = 50;
               const drawNode = () => {
-                ctx.beginPath();
+                //ctx.beginPath();
                 
-                /*ctx.moveTo(x - w / 2, y - h / 2);
-                ctx.lineTo(x + w / 2, y - h / 2);
-                ctx.lineTo(x + w / 2, y + h / 2);
-                ctx.lineTo(x - w / 2, y + h / 2);
-                ctx.lineTo(x - w / 2, y - h / 2);*/
-
                 ctx.strokeStyle = "blue";
                 ctx.strokeRect(x - w / 2, y - h / 2, w, h);
                 
-                ctx.closePath();
+                //ctx.closePath();
                 ctx.save();
                 ctx.fillStyle = 'red';
                 ctx.fill(); 
