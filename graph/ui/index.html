@@ -176,7 +176,7 @@
           const bounds = getNodesWidth(data.nodes);
           const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
           const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-          const offsetX = dom2.x - dom1.x;
+          const offsetX = Number(container.offsetWidth) - Number(dom2.x - dom1.x);
           console.log('marcel widths', Math.round(container.offsetWidth), bounds, Math.round(dom1.x), Math.round(dom2.x), offsetX); 
           
           network.moveTo({
