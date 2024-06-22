@@ -82,8 +82,8 @@
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
-          return b.left + (b.right - b.left) / 2;
-          //return network.canvasToDOM({ x: pos[key].x, y: 0}).x);
+          const d = b.left + (b.right - b.left) / 2;
+          return network.canvasToDOM({ x: d, y: 0}).x);
         });
         
         //console.log('marcel res', res);
