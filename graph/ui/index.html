@@ -119,8 +119,9 @@
         network.body.emitter.emit("_dataChanged");
         network.fit({
           animation: {
+            scale: 2,
             duration: 2000,
-            easingFunction: 'easeInOutQuint'
+            easingFunction: 'easeOutCubic'
           }
         });
       }
@@ -154,7 +155,7 @@
 
   <body>
     <div id="mynetwork"></div>
-    <div id="filtersContainer">
+    <div id="filtersContainer" style="display: none">
       <div id="resource-types">
         <strong>Include resource types:</strong><br />
       </div>
