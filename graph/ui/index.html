@@ -206,7 +206,7 @@
 
   <body>
     <div id="mynetwork"></div>
-    <div id="filtersContainer">
+    <div id="filtersContainer" style="visibility: hidden">
       <div id="resource-types">
         <strong>Include resource types:</strong><br />
       </div>
@@ -217,8 +217,8 @@
     </div>
     <script>
       window.onload = function (event) {
-        if (!showSidebar) {
-          //document.getElementById("filtersContainer").hidden = true;
+        if (showSidebar) {
+          document.getElementById("filtersContainer").hidden = false;
         }
         populateFilters("nested-stacks", nested, renderAll, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
