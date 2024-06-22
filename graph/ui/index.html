@@ -89,7 +89,7 @@
         //console.log('marcel res', res);
         console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
         //console.log('marcel width', network.DOMtoCanvas({ x: document.getElementById("mynetwork"). */
-        return [min, max];
+        return [Math.min(...res), Math.max(...res)];
       }
 
       function getOffsetX(nodes) {
@@ -200,8 +200,9 @@
           network.moveTo({
             scale : 1.25
           });
+          console.log('marcel scale', offsetX, offsetX / 2, fitScale, (offsetX / 2) * fitScale);
           network.moveTo({
-            offset: { x: 100, y: 0 },
+            offset: { x: (offsetX / 2) * fitScale, y: 0 },
             scale: fitScale,
             //scale: 0.5,
             animation: {
