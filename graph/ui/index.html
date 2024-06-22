@@ -100,21 +100,15 @@
         var imageObj = new Image();
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
-        let afterDrawingTimerId = null;
         network.on("afterDrawing", function (ctx) {
-          if (afterDrawingTimerId) {
-            clearTimeout(afterDrawingTimerId);
-          }
-          afterDrawingTimerId = setTimeout(() => {
-            console.log('marcel afterDrawing');
-            data.nodes.forEach((node, i) => {
-              var nodeBBox = network.getBoundingBox(node.id);
-              var nodeImage = new Image();
-              nodeImage.src = node.image;
-              var imageSize = 45;
-              ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
-            });
-          }, 50);
+          console.log('marcel afterDrawing', ctx);
+          data.nodes.forEach((node, i) => {
+            var nodeBBox = network.getBoundingBox(node.id);
+            var nodeImage = new Image();
+            nodeImage.src = node.image;
+            var imageSize = 45;
+            ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
+          });
         });
 
         network.body.emitter.emit("_dataChanged");
