@@ -83,8 +83,7 @@
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
           const d = b.left + (b.right - b.left) / 2;
-          //return network.canvasToDOM({ x: d, y: 0}).x;
-          return d;
+          return network.canvasToDOM({ x: d, y: 0}).x;
         });
         
         //console.log('marcel res', res);
@@ -101,8 +100,8 @@
         //console.log('marcel widths', container.offsetWidth, container.clientWidth);
         //return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
         const x = Number(container.offsetWidth) - Number(bounds[1] - bounds[0]);
-        console.log('marcel', container.offsetWidth, bounds[1], bounds[0], x, network.canvasToDOM({ x: x, y: 0}).x);
-        return network.canvasToDOM({ x: x, y: 0}).x;
+        console.log('marcel', container.offsetWidth, bounds[1], bounds[0], x);
+        return x;
       }
 
       function draw() {
