@@ -192,7 +192,6 @@
 
         network.once('stabilizationIterationsDone', function() {
           const offsetX = getOffsetX(data.nodes);
-          console.log('marcel offsetX', offsetX);
           network.fit();
           const fitScale = network.getScale();
           network.moveTo({
