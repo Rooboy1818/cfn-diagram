@@ -80,7 +80,7 @@
                 ctx.beginPath();
                 const sides = 4;
                 const a = (Math.PI * 2) / sides;
-                ctx.moveTo(x , y);
+                ctx.moveTo(x, y + r);
                 for (let i = 1; i < sides; i++) {
                     ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
                 }
@@ -104,7 +104,7 @@
               };
               return {
                 drawNode,
-                nodeDimensions: { width: 2 * r, height: 2 * r },
+                nodeDimensions: { width: 2 * r * 2, height: 2 * r },
               };
             }
           },
