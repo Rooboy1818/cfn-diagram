@@ -97,7 +97,7 @@
         const bounds = getNodesWidth(nodes);
         const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
         const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-        console.log('marcel widths', container.offsetWidth, container.clientWidth);
+        //console.log('marcel widths', container.offsetWidth, container.clientWidth);
         return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
       }
 
