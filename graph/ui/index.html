@@ -86,17 +86,18 @@
 
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
-                ctx.strokeStyle = 'blue';
+                ctx.strokeStyle = "#2B7CE9";
+                ctx.fillStyle = "#D2E5FF";
                 ctx.stroke();
 
                 ctx.beginPath();
-                ctx.font = "12px Arial";
+                ctx.font = "24px Arial";
                 const text = 'hello';
-                const textInfo = ctx.measureText(text);
-                const textWidth = textInfo.width;
-                const textHeight = ctx.font.match(/\d+/).pop() || 10;
-                console.log('marcel', text, textWidth, textHeight);
-                ctx.fillStyle = 'green';
+                //const textInfo = ctx.measureText(text);
+                //const textWidth = textInfo.width;
+                //const textHeight = ctx.font.match(/\d+/).pop() || 10;
+                //console.log('marcel', text, textWidth, textHeight);
+                ctx.fillStyle = "green";
                 //ctx.textBaseline = 'top';
                 ctx.fillText(text, x - w / 2, y + (h / 2) - (textHeight / 2));
                 
