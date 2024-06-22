@@ -80,7 +80,7 @@
                 ctx.beginPath();
                 const sides = 4;
                 const a = (Math.PI * 2) / sides;
-                ctx.moveTo(x, y + r);
+                ctx.moveTo(x + r, y + r);
                 for (let i = 1; i < sides; i++) {
                     ctx.lineTo(x + r * 2 * Math.sin(a * i), y + r * Math.cos(a * i));
                 }
