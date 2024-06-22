@@ -79,32 +79,20 @@
               const w = 200;
               const h = 50;
               const drawNode = () => {
+                // Draw rectangle
                 ctx.beginPath();
                 ctx.strokeStyle = "#2B7CE9";
                 ctx.fillStyle = "#D2E5FF";
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
                 ctx.stroke();
 
-                ctx.beginPath();
+                // Draw text
                 ctx.font = "24px Arial";
                 const text = 'hello';
-                //const textInfo = ctx.measureText(text);
-                //const textWidth = textInfo.width;
-                //const textHeight = ctx.font.match(/\d+/).pop() || 10;
                 ctx.fillStyle = "green";
                 ctx.textAlign="center"; 
                 ctx.textBaseline = "middle";
                 ctx.fillText(text, x, y);
-                
-                //ctx.closePath();
-                //ctx.save();
-                //ctx.fillStyle = 'red';
-                //ctx.fill(); 
-                //ctx.stroke();
-                //ctx.restore();
-            
-                //ctx.font = "normal 12px sans-serif";
-                //ctx.fillStyle = 'black';
               };
               return {
                 drawNode,
