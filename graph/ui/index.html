@@ -58,15 +58,13 @@
         return container;
       }
 
-      function getNode(id) {
-        let node = null;
-        data.nodes.forEach(n => {
-          if (n.id === id) {
-            node = n;
-            return true;
+      function getNode(nodes, id) {
+        for (const node of nodes) {
+          if (node.id === id) {
+            return node;
           }
-        });
-        return node;
+        }
+        return null;
       }
 
       function draw() {
