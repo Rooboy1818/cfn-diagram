@@ -81,7 +81,7 @@
         };
         var options = {
           layout: {
-            randomSeed: 1
+            //randomSeed: 1
           },
           nodes: {
             shape: "custom",
@@ -170,6 +170,8 @@
               easingFunction: 'linear'
             }
           });
+
+          console.log('marcel getSeed', network.getSeed());
         });
       }
 
