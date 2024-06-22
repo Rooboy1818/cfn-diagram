@@ -176,14 +176,14 @@
           const bounds = getNodesWidth(data.nodes);
           const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
           const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-          console.log('marcel widths', container.offsetWidth, bounds, dom1, dom2, dom2.x - dom1.x - container.offsetWidth); 
+          const offsetX = container.offsetWidth - dom2.x - dom1.x;
+          console.log('marcel widths', container.offsetWidth, bounds, dom1, dom2, coffsetX); 
           
-                      
           network.moveTo({
             scale : 1.25
           });
           network.moveTo({
-            offset: { x: 100, y: 0 },
+            offset: { x: offsetX / 2, y: 0 },
             scale: 0.55,
             animation: {
               duration: 1000,
