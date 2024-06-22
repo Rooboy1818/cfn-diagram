@@ -103,6 +103,14 @@
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "middle";
                 ctx.fillText(node.label, x - w / 2 + 5, y);
+
+                // Draw image
+                const nodeBBox = network.getBoundingBox(node.id);
+                const nodeImage = new Image();
+                nodeImage.src = node.image;
+                const imageSize = 45;
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize, y - imageSize / 2, imageSize, imageSize);
+                //ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
               };
               return {
                 drawNode,
