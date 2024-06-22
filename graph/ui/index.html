@@ -100,10 +100,9 @@
                 // Draw text
                 ctx.beginPath();
                 ctx.font = "24px Arial";
-                const text = 'hello';
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "middle";
-                ctx.fillText(text, x - w / 2 + 5, y);
+                ctx.fillText(node.label, x - w / 2 + 5, y);
               };
               return {
                 drawNode,
