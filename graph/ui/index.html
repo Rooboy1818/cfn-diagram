@@ -149,7 +149,7 @@
               };
             }
           },
-          physics: {
+          /*physics: {
             forceAtlas2Based: {
               gravitationalConstant: -26,
               avoidOverlap: 0.1,
@@ -161,8 +161,8 @@
             solver: "forceAtlas2Based",
             timestep: 0.35,
             stabilization: { iterations: 250 }
-          },
-          /*physics: {
+          },*/
+          physics: {
             forceAtlas2Based: {
               gravitationalConstant: -26,
               centralGravity: 0.005,
@@ -172,8 +172,8 @@
             maxVelocity: 146,
             solver: "forceAtlas2Based",
             timestep: 0.35,
-            //stabilization: { iterations: 150 },
-          },*/
+            stabilization: { iterations: 150 },
+          }
         };
         network = new vis.Network(container, data, options);
         
