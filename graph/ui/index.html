@@ -96,7 +96,7 @@
 
                 // Draw rectangle
                 ctx.beginPath();
-                ctx.roundRect(x - w / 2 + 150, y - h / 2, w, h, [5]);
+                ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
                 ctx.strokeStyle = "#2B7CE9";
                 ctx.stroke();
                 ctx.fillStyle = "#D2E5FF";
@@ -166,7 +166,8 @@
             scale : 1.25
           });
           network.fit({
-            position: {x: 150, y: 0 },
+            offset: { x: 150, y: 0 },
+            scale: 0.5,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
