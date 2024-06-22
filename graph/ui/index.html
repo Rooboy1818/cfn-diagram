@@ -59,12 +59,15 @@
       }
 
       function getNode(nodes, id) {
-        for (const node of nodes) {
+        let found = null;
+        nodes.every(node => {
           if (node.id === id) {
-            return node;
+            found = node;
+            return false;
           }
+          return true;
         }
-        return null;
+        return found;
       }
 
       function draw() {
