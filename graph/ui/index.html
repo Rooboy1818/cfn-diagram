@@ -205,9 +205,9 @@
           network.moveTo({
             scale : 1.25
           });
-          console.log('marcel scale', offsetX, offsetX / 2, fitScale, (offsetX / 2) / 2);
+          console.log('marcel scale', offsetX, offsetX / 2, fitScale, (offsetX / 2) * fitScale);
           network.moveTo({
-            offset: { x: (offsetX / 2) / 2, y: 0 },
+            offset: { x: (offsetX / 2) * fitScale, y: 0 },
             scale: fitScale,
             //scale: 0.5,
             animation: {
