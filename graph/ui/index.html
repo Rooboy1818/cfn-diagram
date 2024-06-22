@@ -81,8 +81,13 @@
               const drawNode = () => {
                 //ctx.beginPath();
                 
+                //ctx.strokeStyle = "blue";
+                //ctx.strokeRect(x - w / 2, y - h / 2, w, h);
+
+                ctx.beginPath();
+                ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
                 ctx.strokeStyle = "blue";
-                ctx.strokeRect(x - w / 2, y - h / 2, w, h);
+                ctx.stroke();
                 
                 //ctx.closePath();
                 //ctx.save();
