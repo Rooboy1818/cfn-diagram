@@ -71,14 +71,6 @@
       }
 
       function getNodesWidth(nodes) {
-        /*let min, max;
-        nodes.forEach(node => {
-          const bbox = network.getBoundingBox(node.id);
-          min = min ? Math.min(min, bbox.left) : bbox.left;
-          max = max ? Math.max(max, bbox.right) : bbox.right;
-        });
-        console.log('marcel min/max', min, max);*/
-
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => {
           const b = network.getBoundingBox(key);
@@ -90,13 +82,7 @@
       function getOffsetX(nodes) {
         const container = document.getElementById("mynetwork");
         const bounds = getNodesWidth(nodes);
-        //const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
-        //const dom2 = network.canvasToDOM({ x: bounds[1], y: 0});
-        //console.log('marcel widths', container.offsetWidth, container.clientWidth);
-        //return Number(container.offsetWidth) - Number(dom2.x - dom1.x);
-        const x = container.clientWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
-        console.log('marcel', container.offsetWidth, bounds[1], bounds[0], x);
-        return x;
+        return container.clientWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
       function draw() {
@@ -192,16 +178,20 @@
 
         network.once('stabilizationIterationsDone', function() {
           const offsetX = getOffsetX(data.nodes);
+          console.log('marcel scale before fit', network.getScale());
           network.fit();
+          console.log('marcel scale after fit', network.getScale());
           const fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
           console.log('marcel scale', offsetX, offsetX / 2, fitScale, (offsetX / 2) * fitScale);
           network.moveTo({
-            offset: { x: (offsetX / 2) * fitScale, y: 0 },
+            offset: {
+              x: (offsetX / 2) * fitScale,
+              y: 0
+            },
             scale: fitScale,
-            //scale: 0.5,
             animation: {
               duration: 2000,
               easingFunction: 'linear'
