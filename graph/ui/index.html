@@ -84,7 +84,7 @@
             randomSeed: 1
           },
           nodes: {
-            shape: "box",
+            shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = getNode(data.nodes, id);
@@ -93,7 +93,7 @@
               const w = 200;
               const h = 45;
               const drawNode = () => {
-                /const imageSize = 35;
+                const imageSize = 35;
 
                 // Draw rectangle
                 ctx.beginPath();
