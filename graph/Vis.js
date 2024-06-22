@@ -186,7 +186,6 @@ function addnodes(
         });
         //console.log('marcel node', id, node);
         
-        //const r = style.size;
         const w = 200;
         const h = 45;
         const drawNode = () => {
@@ -231,7 +230,7 @@ function addnodes(
           nodeDimensions: { width: w, height: h },
         };
       }
-    }
+    })
   }
 }
 
