@@ -81,17 +81,14 @@
         };
         var options = {
           layout: {
-            randomSeed: 1,
-            hierarchical: {
-              enabled: true
-            }
+            randomSeed: 1
           },
           nodes: {
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = getNode(data.nodes, id);
-              const w = 200;
+              const w = 300;
               const h = 45;
               const drawNode = () => {
                 const imageSize = 35;
