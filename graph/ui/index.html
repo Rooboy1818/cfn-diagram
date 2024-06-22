@@ -81,7 +81,6 @@
         };
         var options = {
           layout: {
-            //randomSeed: 0.746691812267019:1719044956202
             randomSeed: 2
           },
           nodes: {
@@ -172,7 +171,15 @@
             }
           });*/
           network.moveTo({
-            offset: {x: 100, y: 0 }
+            scale : 1.25
+          });
+          network.moveTo({
+            scale : 1,
+            offset: {x: 0, y: 0 },
+            animation: {
+              duration: 1000,
+              easingFunction: 'linear'
+            }
           });
         });
       }
