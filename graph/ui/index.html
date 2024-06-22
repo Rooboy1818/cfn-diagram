@@ -81,6 +81,8 @@
               data.nodes.forEach((node, i) => {
                 console.log('marcel each', node);
               });
+              const node = data.nodes.find(n => n.id === id);
+              console.log('marcel found', node);
               
               //const r = style.size;
               const w = 200;
