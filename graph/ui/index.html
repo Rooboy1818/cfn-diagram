@@ -92,12 +92,13 @@
                 ctx.fill();
 
                 // Draw text
+                ctx.beginPath();
                 ctx.font = "24px Arial";
                 const text = 'hello';
-                ctx.fillStyle = "green";
+                //ctx.fillStyle = "green";
                 //ctx.textAlign = "left"; 
                 ctx.textBaseline = "middle";
-                ctx.fillText(text, x - w / 2, y);
+                ctx.fillText(text, x - w / 2 + 5, y);
               };
               return {
                 drawNode,
