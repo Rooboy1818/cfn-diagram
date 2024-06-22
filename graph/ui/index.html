@@ -183,14 +183,10 @@
           const offsetX = getOffsetX(data.nodes);
           console.log('marcel offsetX', offsetX);
           network.fit();
-          //const offsetX2 = getOffsetX(data.nodes);
-          //console.log('marcel offsetX after fit', offsetX2);
           const fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
-          //const offsetX3 = getOffsetX(data.nodes);
-          //console.log('marcel offsetX after move', offsetX3);
           network.moveTo({
             offset: { x: 100, y: 0 },
             scale: fitScale,
