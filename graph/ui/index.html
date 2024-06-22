@@ -117,13 +117,13 @@
         });
 
         network.body.emitter.emit("_dataChanged");
-        network.fit({
-          scale: 2,
+        network.fit([{
+          scale: 5,
           animation: {
             duration: 2000,
             easingFunction: 'easeInOutQuad'
           }
-        });
+        }]);
       }
 
       function populateFilters(conatainerName, data, checked, func) {
