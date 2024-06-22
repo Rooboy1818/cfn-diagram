@@ -71,15 +71,13 @@
       }
 
       function getNodesWidth(nodes) {
-        /*let min = 0, max = 0;
+        let min, max;
         nodes.forEach(node => {
           const bbox = network.getBoundingBox(node.id);
-          if (node.id === id) {
-            found = node;
-            return true;
-          }
+          min = min ? Math.min(min, bbox.left) : bbox.left;
+          max = max ? Math.max(max, bbox.right) : bbox.right;
         });
-        return found;*/
+        return [min, max];
       }
 
       function draw() {
@@ -175,14 +173,8 @@
 
         network.once('stabilizationIterationsDone', function() {
           const container = document.getElementById("mynetwork");
-          console.log('marcel container width', container.offsetWidth);
-
-          var bounds;
-          for (node in data.nodes) {
-              if (matchesCondition(data.nodes[node])) {
-                  bounds = extendBounds(bounds, network.getBoundingBox(data.nodes[node]));                   
-              }
-          }
+          const bounds = getNodesWidth(data.nodes);
+          console.log('marcel widths', container.offsetWidth, bounds);          
                       
           network.moveTo({
             scale : 1.25
