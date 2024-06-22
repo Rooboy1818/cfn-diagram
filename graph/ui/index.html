@@ -179,7 +179,7 @@
 
           var bounds;
           for (node in data.nodes) {
-              if (matchesCondition(allNodes[node])) {
+              if (matchesCondition(data.nodes[node])) {
                   bounds = extendBounds(bounds, network.getBoundingBox(data.nodes[node]));                   
               }
           }
