@@ -144,9 +144,11 @@
             },
             maxVelocity: 146,
             //solver: "forceAtlas2Based",
-            solver: "hierarchicalRepulsion",
             timestep: 0.35,
             stabilization: { iterations: 250 },
+            wind: {
+              x: 10
+            }
           },
         };
         network = new vis.Network(container, data, options);
