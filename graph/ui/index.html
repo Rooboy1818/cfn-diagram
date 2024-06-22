@@ -82,7 +82,7 @@
         const pos = network.getPositions();
         const res = Object.keys(pos).map((key) => network.canvasToDOM({ x: pos[key].x, y: 0}).x);
         console.log('marcel res', res);
-        console.log('marcel res min/max', Math.min(...res), Math.max(...res));
+        console.log('marcel res min/max', Math.min(...res), Math.max(...res), Math.max(...res) - Math.min(...res));
         return [min, max];
       }
 
