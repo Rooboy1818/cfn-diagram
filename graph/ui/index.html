@@ -76,7 +76,7 @@
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const r = style.size;
-              const w = 100;
+              const w = 200;
               const h = 50;
               const drawNode = () => {
                 //ctx.beginPath();
@@ -86,8 +86,13 @@
 
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
-                ctx.strokeStyle = "blue";
+                ctx.strokeStyle = 'blue';
                 ctx.stroke();
+
+                ctx.beginPath();
+                ctx.fillStyle = 'green';
+                ctx.textBaseline = 'top';
+                ctx.fillText('hello', x - w / 2, y - h);
                 
                 //ctx.closePath();
                 //ctx.save();
