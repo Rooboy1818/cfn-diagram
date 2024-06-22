@@ -85,7 +85,7 @@
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              const node = getNode(id);
+              const node = getNode(data.nodes, id);
               console.log('marcel node', id, node);
               
               const w = 200;
