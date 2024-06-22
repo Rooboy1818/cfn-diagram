@@ -80,7 +80,7 @@
         return [min, max];
       }
 
-      getOffsetX(nodes) {
+      function getOffsetX(nodes) {
         const container = document.getElementById("mynetwork");
         const bounds = getNodesWidth(nodes);
         const dom1 = network.canvasToDOM({ x: bounds[0], y: 0});
