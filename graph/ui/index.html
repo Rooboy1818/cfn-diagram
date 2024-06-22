@@ -72,34 +72,12 @@
           layout: {
             randomSeed: 1
           },
-          nodes: {
+          /*nodes: {
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const r = style.size;
               const drawNode = () => {
-                const text_info = ctx.measureText('hello');
-                const width = text_info.width;
-                const height = ctx.font.match(/\d+/).pop() || 10;
-
-                console.log('marcel', width, height);
-
                 ctx.beginPath();
-                ctx.moveTo(x, y);
-                ctx.lineTo(x + width, y);
-                ctx.lineTo(x + width, y + height);
-                ctx.lineTo(x, y + height);
-                ctx.closePath();
-                ctx.save();
-                ctx.fillStyle = "red";
-                ctx.fill();
-                ctx.stroke();
-                ctx.restore();
-      
-                ctx.font = "normal 12px sans-serif";
-                ctx.fillStyle = "black";
-                ctx.fillText("custom shape", x - r + 10, y, 2 * r - 20);
-                
-                /*ctx.beginPath();
                 const sides = 6;
                 const a = (Math.PI * 2) / sides;
                 ctx.moveTo(x, y + r);
@@ -115,22 +93,14 @@
       
                 ctx.font = "normal 12px sans-serif";
                 ctx.fillStyle = "black";
-                ctx.fillText("custom shape", x - r + 10, y, 2 * r - 20);*/
-
-                /*console.log('marcel', x, y, style.size);
-                ctx.beginPath();
-                ctx.strokeStyle = "blue";
-                ctx.beginPath();
-                ctx.roundRect(x, y, 25, 15, [2]);
-                ctx.stroke();
-                ctx.restore();*/
+                ctx.fillText("custom shape", x - r + 10, y, 2 * r - 20);
               };
               return {
                 drawNode,
                 nodeDimensions: { width: 2 * r, height: 2 * r },
               };
             }
-          },
+          },*/
           /*nodes: {
             shape: "dot",
             size: 16,
