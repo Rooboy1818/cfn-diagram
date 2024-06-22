@@ -118,10 +118,10 @@
 
         network.body.emitter.emit("_dataChanged");
         network.fit({
+          scale: 2,
           animation: {
-            scale: 2,
             duration: 2000,
-            easingFunction: 'easeOutCubic'
+            easingFunction: 'easeInOutQuad'
           }
         });
       }
