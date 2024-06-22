@@ -133,7 +133,7 @@
         var imageObj = new Image();
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
-        /*network.on("afterDrawing", function (ctx) {
+        network.on("afterDrawing", function (ctx) {
           data.nodes.forEach((node, i) => {
             var nodeBBox = network.getBoundingBox(node.id);
             var nodeImage = new Image();
@@ -141,7 +141,7 @@
             var imageSize = 45;
             ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
           });
-        });*/
+        });
 
         network.body.emitter.emit("_dataChanged");
 
