@@ -76,22 +76,19 @@
             shape: "custom",
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const r = style.size;
-              const w = 50;
-              const h = 25;
+              const w = 100;
+              const h = 50;
               const drawNode = () => {
                 ctx.beginPath();
-                /*const sides = 4;
-                const a = (Math.PI * 2) / sides;
-                ctx.moveTo(x + r, y + r);
-                for (let i = 1; i < sides; i++) {
-                    ctx.lineTo(x + r * Math.sin(a * i), y + r * Math.cos(a * i));
-                }*/
-
-                ctx.moveTo(x - w / 2, y - h / 2);
+                
+                /*ctx.moveTo(x - w / 2, y - h / 2);
                 ctx.lineTo(x + w / 2, y - h / 2);
                 ctx.lineTo(x + w / 2, y + h / 2);
                 ctx.lineTo(x - w / 2, y + h / 2);
-                ctx.lineTo(x - w / 2, y - h / 2);
+                ctx.lineTo(x - w / 2, y - h / 2);*/
+
+                ctx.strokeStyle = "blue";
+                ctx.strokeRect(x - w / 2, y - h / 2, w, h);
                 
                 ctx.closePath();
                 ctx.save();
