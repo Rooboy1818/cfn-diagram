@@ -78,8 +78,10 @@
               const r = style.size;
               const drawNode = () => {
                 const text_info = ctx.measureText('hello');
-                const height = ctx.font.match(/\d+/).pop() || 10;
                 const width = text_info.width;
+                const height = ctx.font.match(/\d+/).pop() || 10;
+
+                console.log('marcel', width, height);
 
                 ctx.beginPath();
                 ctx.moveTo(x, y);
