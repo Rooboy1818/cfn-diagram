@@ -162,10 +162,10 @@
                 //damping: 1
               }
             },
-            maxVelocity: 146,
+            maxVelocity: 500,
             solver: "forceAtlas2Based",
             timestep: 0.35,
-            stabilization: { iterations: 500 }
+            stabilization: { iterations: 250 }
           },
         };
         network = new vis.Network(container, data, options);
