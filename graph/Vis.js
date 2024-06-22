@@ -174,8 +174,7 @@ function addnodes(
       color: {
         background: "#D2E5FF",
         border: "#2B7CE9"
-      },
-      shape: "custom",
+      }
     })
   }
 }
