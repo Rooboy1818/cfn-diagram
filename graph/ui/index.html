@@ -84,16 +84,16 @@
             randomSeed: 1
           },
           nodes: {
-            shape: "custom",
+            shape: "box",
             size: 1,
-            ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+            /*ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = getNode(data.nodes, id);
               console.log('marcel node', id, node);
               
               const w = 200;
               const h = 45;
               const drawNode = () => {
-                const imageSize = 35;
+                /const imageSize = 35;
 
                 // Draw rectangle
                 ctx.beginPath();
@@ -133,7 +133,7 @@
                 drawNode,
                 nodeDimensions: { width: w, height: h },
               };
-            }
+            }*/
           },
           physics: {
             forceAtlas2Based: {
@@ -151,9 +151,6 @@
         };
         network = new vis.Network(container, data, options);
         
-        var imageObj = new Image();
-        imageObj.src = 'http://localhost:3030/assets/logo.svg';
-
         /*network.on("afterDrawing", function (ctx) {
           data.nodes.forEach((node, i) => {
             var nodeBBox = network.getBoundingBox(node.id);
@@ -167,13 +164,13 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
-          /*network.moveTo({ scale : 1.25 });
+          network.moveTo({ scale : 1.25 });
           network.fit({
             animation: {
               duration: 1000,
               easingFunction: 'linear'
             }
-          });*/
+          });
         });
       }
 
