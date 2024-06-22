@@ -161,7 +161,7 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
-          /*network.moveTo({
+          network.moveTo({
             scale : 1.25
           });
           network.fit({
@@ -169,21 +169,10 @@
               duration: 1000,
               easingFunction: 'linear'
             }
+          });
+          /*network.moveTo({
+            offset: {x: 150, y: 0 },
           });*/
-          network.moveTo({
-            offset: {x: 150, y: 0 },
-            /*animation: {
-              duration: 1000,
-              easingFunction: 'linear'
-            }*/
-          });
-        });
-
-        network.once('resize', function() {
-          console.log('marcel resize');
-          network.moveTo({
-            offset: {x: 150, y: 0 },
-          });
         });
       }
 
