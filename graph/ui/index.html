@@ -101,14 +101,10 @@
         imageObj.src = 'http://localhost:3030/assets/logo.svg';
 
         network.on("afterDrawing", function (ctx) {
-          //console.log('marcel data', data);
+          console.log('marcel afterDrawing');
 
           data.nodes.forEach((node, i) => {
-            console.log('marcel node', i, node);
-            //var nodeId = 'root.backendrule9543CED5';
             var nodeBBox = network.getBoundingBox(node.id);
-            console.log('marcel afterDrawing', i, nodeBBox);
-
             var nodeImage = new Image();
             nodeImage.src = node.image;
             var imageSize = 45;
@@ -120,11 +116,10 @@
 
         network.once('stabilized', function() {
           console.log('marcel stabilized');
-          network.moveTo({ scale : 5 });
-
+          network.moveTo({ scale : 2 });
           network.fit({
             animation: {
-              duration: 2000,
+              duration: 1000,
               easingFunction: 'linear'
             }
           });
