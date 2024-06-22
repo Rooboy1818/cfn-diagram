@@ -113,7 +113,7 @@
 
         network.body.emitter.emit("_dataChanged");
 
-        network.once('stabilized', function() {
+        network.once('stabilizationIterationsDone', function() {
           network.moveTo({ scale : 1.25 });
           network.fit({
             animation: {
