@@ -89,8 +89,8 @@
         }));
 
         const nodesFilter = (node) => {
-          console.log('marcel nodesFilter', node);
-          return nodesView.includes(node.type);
+          console.log('marcel nodesFilter', typesShown, node.type, typesShown.includes(node.type));
+          return typesShown.includes(node.type);
         };
         nodesView = new vis.DataView(nodes, {
           filter: nodesFilter
