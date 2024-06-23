@@ -238,13 +238,10 @@
 
       function showFilterTypes() {
         const filtersContainer = document.getElementById("filtersContainer");
-        if (filtersContainer.style.visibility !== "visible") {
-          filtersContainer.style.visibility = "visible";
-          filtersOpen = true;
-        } else {
-          filtersContainer.style.visibility = "hidden";
-          filtersOpen = false;
-        }
+        filtersContainer.style.visibility = filtersContainer.style.visibility !== "visible" ? "visible" : "hidden";
+        setTimeout(() => {
+          filtersOpen = filtersContainer.style.visibility === "visible";
+        }, 100);
       }
 
       document.onclick = function (e) {
