@@ -84,8 +84,18 @@
         nodes.forEach((node => {
           node.title = preTitle(node.title);
         }));
+
+        const nodesFilter = (node) => {
+          console.log('marcel nodesFilter', node);
+          return nodeFilterValues[node.type === 'AWS::CDK::Metadata'];
+        };
+        const nodesView = new vis.DataView(nodes, {
+          filter: nodesFilter
+        });
+
         var data = {
-          nodes: nodes,
+          //nodes: nodes,
+          nodes: nodesView,
           edges: edges,
         };
         var options = {
@@ -156,17 +166,8 @@
             stabilization: { iterations: 150 },
           }
         };
+
         network = new vis.Network(container, data, options);
-        
-        /*network.on("afterDrawing", function (ctx) {
-          data.nodes.forEach((node, i) => {
-            var nodeBBox = network.getBoundingBox(node.id);
-            var nodeImage = new Image();
-            nodeImage.src = node.image;
-            var imageSize = 45;
-            ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
-          });
-        });*/
 
         network.body.emitter.emit("_dataChanged");
 
@@ -198,6 +199,16 @@
             }
           });
         });
+
+        /*network.on("afterDrawing", function (ctx) {
+          data.nodes.forEach((node, i) => {
+            var nodeBBox = network.getBoundingBox(node.id);
+            var nodeImage = new Image();
+            nodeImage.src = node.image;
+            var imageSize = 45;
+            ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
+          });
+        });*/
       }
 
       function populateFilters(containerName, data, checked, func) {
