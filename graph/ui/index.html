@@ -336,10 +336,10 @@
 
         const searchNodes = nodes.map((node) => node.label);
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
-          const name = x.target.textContent;
+          const label = x.target.textContent;
           const node = nodes.get({
             filter: function (node) {
-              return (node.name === name);
+              return (node.label === label);
             }
           });
           network.focus(node.id);
