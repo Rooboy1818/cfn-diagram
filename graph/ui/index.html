@@ -240,7 +240,7 @@
             checkbox.id = d.type;
             checkbox.checked = checked;
             checkbox.name = containerName;
-            checkbox.value = d.type;
+            checkbox.value = d.type || d;
 
             // Add the image
             img = document.createElement("img");
@@ -360,7 +360,7 @@
         });
 
         console.log('marcel typeImages', typeImages);
-        populateTypesFilters("resource-types", typeImages, true, true, (x) => {
+        populateFilters("resource-types", typeImages, true, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
             filteredTypes = [...filteredTypes.filter(t => t !== value), value];
