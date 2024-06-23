@@ -241,13 +241,14 @@
         filtersContainer.style.visibility = filtersContainer.style.visibility !== "visible" ? "visible" : "hidden";
         setTimeout(() => {
           filtersOpen = filtersContainer.style.visibility === "visible";
-        }, 100);
+        }, 50);
       }
 
       document.onclick = function (e) {
         if (filtersOpen && e.target.id !== "filtersContainer") {
           const filtersContainer = document.getElementById("filtersContainer");
           filtersContainer.style.visibility = "hidden";
+          filtersOpen = false;
         }
       }
       
@@ -268,9 +269,6 @@
     </div>
     <script>
       window.onload = function (event) {
-        /*if (showSidebar) {
-          document.getElementById("filtersContainer").style.visibility = "visible";
-        }*/
         populateFilters("nested-stacks", nested, renderAll, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
@@ -287,12 +285,6 @@
             filteredTypes = filteredTypes.filter(t => t !== value);
           }
           nodesView.refresh();
-
-          /*const ns = nodes.get({ filter: (p) => p.type === x.target.value });
-          for (const n of ns) {
-            nodes.update({ id: n.id, hidden: !x.target.checked });
-          }
-          network.redraw();*/
         });
         draw();
       };
