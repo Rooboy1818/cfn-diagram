@@ -342,23 +342,33 @@
           nodesView.refresh();
         });
 
-        const searchNodes = nodes.map((node) => node.label);
+        const searchNodes = ['No selection', ...nodes.map((node) => node.label).sort()];
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
           // Select and focus node
           const label = x.target.textContent;
-          const node = nodes.get({
-            filter: function (node) {
-              return (node.label === label);
-            }
-          });
-          network.selectNodes([node[0].id]);
-          network.focus(node[0].id, {
-            scale: 1.25,
-            animation: {
-              duration: 1000,
-              easingFunction: 'linear'
-            }
-          });
+          if (label === 'No selection') {
+            const node = nodes.get({
+              filter: function (node) {
+                return (node.label === label);
+              }
+            });
+            network.selectNodes([node[0].id]);
+            network.focus(node[0].id, {
+              scale: 1.25,
+              animation: {
+                duration: 1000,
+                easingFunction: 'linear'
+              }
+            });
+          } else {
+            network.unselectAll();
+            network.fit({
+              animation: {
+                duration: 1000,
+                easingFunction: 'linear'
+              }
+            });            
+          }
 
           // Close search
           const searchContainer = document.getElementById("searchContainer");
