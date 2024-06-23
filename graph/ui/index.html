@@ -60,6 +60,9 @@
       }
 
       function getNode(nodes, id) {
+        const ns = nodes.get({ find: (p) => p.id === id });
+        console.log('marcel ns', ns);
+        
         let found = null;
         nodes.forEach(node => {
           if (node.id === id) {
