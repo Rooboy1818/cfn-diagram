@@ -196,19 +196,14 @@
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          const offsetX = getOffsetX(nodes);
           fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
           network.moveTo({
-            /*offset: {
-              x: (offsetX / 2) * fitScale,
-              y: 0
-            },*/
             position: {
               x: 0,
-              y: 50
+              y: 40
             },
             scale: fitScale,
             animation: {
@@ -373,7 +368,7 @@
             network.moveTo({
               position: {
                 x: 0,
-                y: 0
+                y: 40
               },
               scale: fitScale,
               animation: {
