@@ -11,7 +11,7 @@
         font-family: Arial, Helvetica, sans-serif;
       }
       
-      #filtersContainer {
+      #filtersContainer, #searchContainer {
         left: 20px;
         top: 35px;
         background-color: #e6f0ff;
@@ -23,9 +23,11 @@
         overflow: auto;
         visibility: hidden;
         font-family: Arial;
+        max-height: 600px;
+        max-width: 600px;
       }
       
-      #showFilterTypes {
+      #showFilterTypes, #showSearchNodes {
         position: absolute;
         left: 10px;
         top: 10px;
@@ -35,25 +37,12 @@
 
       #searchContainer {
         left: 150px;
-        top: 35px;
-        background-color: #e6f0ff;
-        border: 2px solid darkGray;
-        border-radius: 7px;
-        padding: 10px;
-        z-index: 2999;
-        position: absolute;
-        overflow: auto;
-        visibility: hidden;
-        font-family: Arial;
       }
-      
+
       #showSearchNodes {
-        position: absolute;
         left: 140px;
-        top: 10px;
-        z-index: 2999;
-        color: blue;
       }
+
     </style>
     <script
       type="text/javascript"
