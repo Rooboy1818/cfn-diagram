@@ -6,9 +6,11 @@
         width: 100%;
         height: 100vh;
       }
+      
       .body {
         font-family: Arial, Helvetica, sans-serif;
       }
+      
       #filtersContainer {
         left: 20px;
         top: 35px;
@@ -22,9 +24,32 @@
         visibility: hidden;
         font-family: Arial;
       }
+      
       #showFilterTypes {
         position: absolute;
         left: 10px;
+        top: 10px;
+        z-index: 2999;
+        color: blue;
+      }
+
+      #searchContainer {
+        left: 100px;
+        top: 35px;
+        background-color: #e6f0ff;
+        border: 2px solid darkGray;
+        border-radius: 7px;
+        padding: 10px;
+        z-index: 2999;
+        position: absolute;
+        overflow: auto;
+        visibility: hidden;
+        font-family: Arial;
+      }
+      
+      #showSearchNodes {
+        position: absolute;
+        left: 90px;
         top: 10px;
         z-index: 2999;
         color: blue;
@@ -42,6 +67,14 @@
       let nodesView;
       let filteredTypes = types;
       let filtersOpen = false;
+      debugger;
+      
+      let searchNodes = nodes.map((node) => {
+        return {
+          id: node.id,
+          label: node.label
+        });
+      let searchOpen = false;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -68,9 +101,9 @@
         return container;
       }
 
-      function getNode(nodes, id) {
+      /*function getNode(nodes, id) {
         return nodes.get({ filter: (n) => n.id === id })[0];
-      }
+      }*/
 
       function getNodesWidth(nodes) {
         const pos = network.getPositions();
@@ -110,7 +143,8 @@
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              const node = getNode(data.nodes, id);
+              //const node = getNode(data.nodes, id);
+              const node = nodes.get(id);
               const w = 250;
               const h = 45;
               const drawNode = () => {
@@ -236,6 +270,14 @@
         }, 50);
       }
 
+      function showSearchNodes() {
+        const searchContainer = document.getElementById("searchContainer");
+        searchContainer.style.visibility = searchContainer.style.visibility !== "visible" ? "visible" : "hidden";
+        setTimeout(() => {
+          searchOpen = searchContainer.style.visibility === "visible";
+        }, 50);
+      }
+      
       document.onclick = function (e) {
         if (filtersOpen) {
           const showFilterTypes = document.getElementById("showFilterTypes");
@@ -245,14 +287,22 @@
             filtersOpen = false;
           }
         }
+        if (searchOpen) {
+          const showSearchNodes = document.getElementById("showSearchNodes");
+          const searchContainer = document.getElementById("searchContainer");
+          if (showSearchNodes.contains(e.target) || !searchContainer.contains(e.target)) {
+            searchContainer.style.visibility = "hidden";
+            searchOpen = false;
+          }
+        }
       }
       
     </script>
   </head>
 
   <body>
-    <a id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</a>
     <div id="mynetwork"></div>
+    <a id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</a>
     <div id="filtersContainer">
       <div id="resource-types">
         <strong>Resource Types</strong><br /><br />
@@ -260,6 +310,12 @@
       <div id="nested-stacks">
         <hr />
         <strong>Nested Stack(s)</strong><br />
+      </div>
+    </div>
+    <a id="showSearchNodes" onclick="showSearchNodes()">Show Search Nodes</a>
+    <div id="searchContainer">
+      <div id="search-nodes">
+        <strong>Nodes</strong><br /><br />
       </div>
     </div>
     <script>
@@ -281,6 +337,17 @@
           }
           nodesView.refresh();
         });
+
+        populateFilters("search-nodes", types, true, (x) => {
+          const { value, checked } = x.target;
+          if (checked) {
+            filteredTypes = [...filteredTypes.filter(t => t !== value), value];
+          } else {
+            filteredTypes = filteredTypes.filter(t => t !== value);
+          }
+          nodesView.refresh();
+        });
+
         draw();
       };
     </script>
