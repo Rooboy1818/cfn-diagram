@@ -67,12 +67,6 @@
       let nodesView;
       let filteredTypes = types;
       let filtersOpen = false;
-      let searchNodes = nodes.map((node) => {
-        return {
-          id: node.id,
-          label: node.label
-        }
-      });
       let searchOpen = false;
 
       const rule = {
@@ -233,22 +227,27 @@
         });
       }
 
-      function populateFilters(containerName, data, checked, func) {
+      function populateFilters(containerName, data, checked, checkboxes, func) {
         var container = document.getElementById(containerName);
         if (!data.length) {
           container.style.display = "none";
         }
         for (const name of data) {
-          var checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.id = name;
-          checkbox.checked = checked;
-          checkbox.name = containerName;
-          checkbox.value = name;
-          checkbox.addEventListener("click", func);
+          if (checkboxes) {
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = name;
+            checkbox.checked = checked;
+            checkbox.name = containerName;
+            checkbox.value = name;
+            checkbox.addEventListener("click", func);
+          }
           var label = document.createElement("label");
           label.htmlFor = name;
           label.appendChild(document.createTextNode(name));
+          if (!checkboxes) {
+            label.addEventListener("click", func);
+          }
           var br = document.createElement("br");
           container.appendChild(checkbox);
           container.appendChild(label);
@@ -314,7 +313,7 @@
     </div>
     <script>
       window.onload = function (event) {
-        populateFilters("nested-stacks", nested, renderAll, (x) => {
+        populateFilters("nested-stacks", nested, renderAll, true, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
             nodes.update({ id: n.id, hidden: !x.target.checked });
@@ -322,7 +321,7 @@
           network.redraw();
         });
 
-        populateFilters("resource-types", types, true, (x) => {
+        populateFilters("resource-types", types, true, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
             filteredTypes = [...filteredTypes.filter(t => t !== value), value];
@@ -332,7 +331,8 @@
           nodesView.refresh();
         });
 
-        populateFilters("search-nodes", types, true, (x) => {
+        const searchNodes = nodes.map((node) => node.label);
+        populateFilters("search-nodes", searchNodes, true, false, (x) => {
           const { value, checked } = x.target;
           //nodesView.refresh();
         });
