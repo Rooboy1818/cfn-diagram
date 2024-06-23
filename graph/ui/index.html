@@ -208,6 +208,7 @@
 
       function populateFilters(containerName, data, checked, func) {
         var container = document.getElementById(containerName);
+        console.log('marcel container', container, containerName);
         if (!data.length) {
           container.style.display = "none";
         }
