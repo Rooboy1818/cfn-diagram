@@ -261,7 +261,9 @@
           }
 
           // Add elements
-          container.appendChild(checkbox);
+          if (checkbox) {
+            container.appendChild(checkbox);
+          }
           container.appendChild(label);
           container.appendChild(br);
         }
