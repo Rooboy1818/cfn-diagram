@@ -107,7 +107,7 @@
       }*/
 
       function getNodesWidth(nodes) {
-        const bounds = nodes.getNodes((node) => {
+        const bounds = nodes.get((node) => {
           const b = network.getBoundingBox(node.id);
           return [b.left, b.right];
         });
