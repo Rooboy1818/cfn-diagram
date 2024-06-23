@@ -35,7 +35,7 @@
     <script type="text/javascript">
       let network;
       let nodesView;
-      let typesShown = [];
+      let filteredTypes = types;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -88,13 +88,11 @@
           node.title = preTitle(node.title);
         }));
 
-        //const nodesFilter = (node) => typesShown.includes(node.type);
         nodesView = new vis.DataView(nodes, {
           filter: (node) => typesShown.includes(node.type)
         });
 
         var data = {
-          //nodes: nodes,
           nodes: nodesView,
           edges: edges,
         };
@@ -262,13 +260,12 @@
           network.redraw();
         });
 
-        typesShown = types;
         populateFilters("resource-types", types, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
-            typesShown = [...typesShown.filter(t => t !== value), value];
+            filteredTypes = [...filteredTypes.filter(t => t !== value), value];
           } else {
-            typesShown = typesShown.filter(t => t !== value);
+            filteredTypes = filteredTypes.filter(t => t !== value);
           }
           nodesView.refresh();
 
