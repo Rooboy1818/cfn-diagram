@@ -202,8 +202,12 @@
             scale : 1.25
           });
           network.moveTo({
-            offset: {
+            /*offset: {
               x: (offsetX / 2) * fitScale,
+              y: 0
+            },*/
+            position: {
+              x: 0,
               y: 0
             },
             scale: fitScale,
@@ -364,16 +368,9 @@
               }
             });
           } else {
-            console.log('marcel', network.getViewPosition());
-            const pos = network.getViewPosition();
-
             network.unselectAll();
             const offsetX = getOffsetX(nodes);
             network.moveTo({
-              /*offset: {
-                x: (offsetX / 2) * fitScale,
-                y: 0
-              },*/
               position: {
                 x: 0,
                 y: 0
