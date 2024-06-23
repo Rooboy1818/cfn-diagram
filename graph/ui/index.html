@@ -21,6 +21,11 @@
         overflow: auto;
         visibility: hidden;
       }
+      #showFilterTypes {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
     </style>
     <script
       type="text/javascript"
@@ -242,8 +247,8 @@
   </head>
 
   <body>
+    <button id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</button>
     <div id="mynetwork"></div>
-    <button onclick="showFilterTypes()">Show Filter Types</button>
     <div id="filtersContainer">
       <div id="resource-types">
         <strong>Include resource types:</strong><br />
