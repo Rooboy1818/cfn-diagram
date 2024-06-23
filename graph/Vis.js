@@ -221,7 +221,7 @@ async function renderTemplate(
   var nested = ${JSON.stringify(nested.sort())};
   var types = ${JSON.stringify(Array.from(types).sort())};
   //var showSidebar = ${!ciMode};
-  var showSidebar = false;
+  var showSidebar = true;
   `;
   const uiPath = filePath || path.join(tempDirectory, "cfn-diagram");
   if (!fs.existsSync(uiPath)) {
