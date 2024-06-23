@@ -370,9 +370,13 @@
             network.unselectAll();
             const offsetX = getOffsetX(nodes);
             network.moveTo({
-              offset: {
+              /*offset: {
                 x: (offsetX / 2) * fitScale,
-                y: -pos.y
+                y: 0
+              },*/
+              position: {
+                x: 0,
+                y: 0
               },
               scale: fitScale,
               animation: {
