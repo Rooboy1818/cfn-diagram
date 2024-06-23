@@ -34,6 +34,9 @@
 
     <script type="text/javascript">
       let network;
+      let nodesView;
+      let typesShown = [];
+
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
         EventBusName: "default",
@@ -87,9 +90,9 @@
 
         const nodesFilter = (node) => {
           console.log('marcel nodesFilter', node);
-          return node.type === 'AWS::CDK::Metadata';
+          return nodesView.includes(node.type);
         };
-        const nodesView = new vis.DataView(nodes, {
+        nodesView = new vis.DataView(nodes, {
           filter: nodesFilter
         });
 
@@ -261,12 +264,22 @@
           }
           network.redraw();
         });
+
+        typesShown = types;
         populateFilters("resource-types", types, true, (x) => {
-          const ns = nodes.get({ filter: (p) => p.type === x.target.value });
+          const { value, checked } = x.target;
+          if (checked) {
+            typesShown = [...typesShown.filter(t => t === value), value];
+          } else {
+            typesShown = typesShown.filter(t => t === value);
+          }
+          nodesView.refresh();
+
+          /*const ns = nodes.get({ filter: (p) => p.type === x.target.value });
           for (const n of ns) {
             nodes.update({ id: n.id, hidden: !x.target.checked });
           }
-          network.redraw();
+          network.redraw();*/
         });
         draw();
       };
