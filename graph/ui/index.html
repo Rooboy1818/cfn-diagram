@@ -198,6 +198,8 @@
           // Animate the initial loading
           const offsetX = getOffsetX(nodes);
           fitScale = network.getScale();
+          console.log('marcel fitScale', fitScale);
+          fitScale = fitScale - fitScale / 10;
           network.moveTo({
             scale : 1.25
           });
