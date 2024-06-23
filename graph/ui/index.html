@@ -88,12 +88,9 @@
           node.title = preTitle(node.title);
         }));
 
-        const nodesFilter = (node) => {
-          console.log('marcel nodesFilter', typesShown, node.type, typesShown.includes(node.type));
-          return typesShown.includes(node.type);
-        };
+        //const nodesFilter = (node) => typesShown.includes(node.type);
         nodesView = new vis.DataView(nodes, {
-          filter: nodesFilter
+          filter: (node) => typesShown.includes(node.type)
         });
 
         var data = {
@@ -188,7 +185,7 @@
             },
             scale: scale,
             animation: {
-              duration: 1500,
+              duration: 1000,
               easingFunction: 'linear'
             }
           });
@@ -269,9 +266,9 @@
         populateFilters("resource-types", types, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
-            typesShown = [...typesShown.filter(t => t === value), value];
+            typesShown = [...typesShown.filter(t => t !== value), value];
           } else {
-            typesShown = typesShown.filter(t => t === value);
+            typesShown = typesShown.filter(t => t !== value);
           }
           nodesView.refresh();
 
