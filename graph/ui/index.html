@@ -60,7 +60,7 @@
       }
 
       function getNode(nodes, id) {
-        const ns = nodes.get({ find: (p) => p.id === id });
+        const ns = nodes.get({ filter: (n) => n.id === id });
         console.log('marcel ns', ns);
         
         let found = null;
