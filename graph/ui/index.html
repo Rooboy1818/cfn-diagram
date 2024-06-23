@@ -240,8 +240,10 @@
         const filtersContainer = document.getElementById("filtersContainer");
         if (filtersContainer.style.visibility !== "visible") {
           filtersContainer.style.visibility = "visible";
+          filtersOpen = true;
         } else {
           filtersContainer.style.visibility = "hidden";
+          filtersOpen = false;
         }
       }
 
