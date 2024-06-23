@@ -244,13 +244,22 @@
         }, 50);
       }
 
-      document.onclick = function (e) {
+      /*document.onclick = function (e) {
         if (filtersOpen && e.target.id !== "filtersContainer") {
           const filtersContainer = document.getElementById("filtersContainer");
           filtersContainer.style.visibility = "hidden";
           filtersOpen = false;
         }
-      }
+      }*/
+      document.addEventListener('mouseup', function(e) {
+        if (filtersOpen) {
+          const filtersContainer = document.getElementById("filtersContainer");
+          if (!filtersContainer.contains(e.target)) {
+            filtersContainer.style.visibility = "hidden";
+            filtersOpen = false;
+          }
+        }
+      });
       
     </script>
   </head>
