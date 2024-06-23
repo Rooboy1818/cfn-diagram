@@ -220,6 +220,7 @@ async function renderTemplate(
   var edges = new vis.DataSet(${JSON.stringify(edges)});
   var nested = ${JSON.stringify(nested.sort())};
   var types = ${JSON.stringify(Array.from(types).sort())};
+  var typeImages = types.map(type => createImage(type));
   //var showSidebar = ${!ciMode};
   var showSidebar = true;
   `;
