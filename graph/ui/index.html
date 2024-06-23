@@ -51,13 +51,13 @@
         left: 110px;
       }
 
-      #filtersContainer .filter-row {
+      .filter-row {
         display: flex;
         align-items: center;
         line-height: 30px;
       }
 
-      #filtersContainer .filter-row > * {
+      .filter-row > * {
         margin: 0 2px 0 5px;
       }
 
@@ -353,13 +353,13 @@
     </div>
     <script>
       window.onload = function (event) {
-        populateFilters("nested-stacks", nested, renderAll, true, (x) => {
+        /*populateFilters("nested-stacks", nested, renderAll, true, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
             nodes.update({ id: n.id, hidden: !x.target.checked });
           }
           network.redraw();
-        });
+        });*/
 
         populateFilters("resource-types", typeImages, true, true, (x) => {
           const { value, checked } = x.target;
@@ -371,7 +371,9 @@
           nodesView.refresh();
         });
 
-        const searchNodes = ['Clear selection', ...nodes.map((node) => ({
+        const searchNodes = [{
+          name: 'Clear selection'
+        }, ...nodes.map((node) => ({
           name: node.label,
           image: node.image
         }))];
