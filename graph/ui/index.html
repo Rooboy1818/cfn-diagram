@@ -346,7 +346,7 @@
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
           // Select and focus node
           const label = x.target.textContent;
-          if (label === 'No selection') {
+          if (label !== 'No selection') {
             const node = nodes.get({
               filter: function (node) {
                 return (node.label === label);
