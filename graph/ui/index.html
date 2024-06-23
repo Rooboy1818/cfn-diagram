@@ -169,6 +169,7 @@
                 const nodeBBox = network.getBoundingBox(node.id);
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
+                console.log('marcel', node.image);
                 ctx.drawImage(nodeImage, x + w / 2 - imageSize - 5, y - imageSize / 2, imageSize, imageSize);
               };
               return {
@@ -248,6 +249,11 @@
             label.addEventListener("click", func);
           }
 
+          /*var img = document.createElement("img");
+          img.src = "http://www.google.com/intl/en_com/images/logo_plain.png";
+          var src = document.getElementById("header");
+          src.appendChild(img);*/
+          
           // Add elements
           if (checkbox) {
             container.appendChild(checkbox);
