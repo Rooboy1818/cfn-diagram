@@ -13,14 +13,16 @@
       #filtersContainer {
         left: 0px;
         top: 0px;
-        height: 100vh;
+        /*height: 100vh;
         width: 400px;
         background-color: rgba(80, 197, 251, 0.7);
-        border: blue 4px;
-        padding: 3px 3px 3px 3px;
+        border: blue 4px;*/
+        border: 2px solid darkGray;
+        border-radius: 5px;
+        padding: 3px;
         z-index: 2999;
         position: absolute;
-        font-family: "Courier New", Courier, monospace;
+        /*font-family: "Courier New", Courier, monospace;*/
         overflow: scroll;
         visibility: hidden;
       }
@@ -237,7 +239,9 @@
   <body>
     <div id="mynetwork"></div>
     <div id="filtersContainer">
-      <strong>Resource Types</strong><br />
+      <div >
+        <strong>Resource Types</strong><br />
+      </div>
       <div id="resource-types">
         <strong>Include resource types</strong><br />
       </div>
