@@ -17,12 +17,14 @@ let edges = [];
 let nested = [];
 let types = new Set();
 let useJson;
+let typeImages = [];
 
 function reset() {
   nodes = [];
   edges = [];
   nested = [];
   types = new Set();
+  typeImages = {};
 }
 
 function makeGraph(template, prefix, doReset, renderAll) {
