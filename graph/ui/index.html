@@ -352,7 +352,7 @@
     </div>
     <script>
       window.onload = function (event) {
-        populateFilters("nested-stacks", nested, renderAll, true, true, (x) => {
+        populateFilters("nested-stacks", nested, renderAll, true, false, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
             nodes.update({ id: n.id, hidden: !x.target.checked });
@@ -360,7 +360,7 @@
           network.redraw();
         });
 
-        populateFilters("resource-types", types, true, true, false, (x) => {
+        populateFilters("resource-types", types, true, true, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
             filteredTypes = [...filteredTypes.filter(t => t !== value), value];
