@@ -244,13 +244,6 @@
         }, 50);
       }
 
-      /*document.onclick = function (e) {
-        if (filtersOpen && e.target.id !== "filtersContainer") {
-          const filtersContainer = document.getElementById("filtersContainer");
-          filtersContainer.style.visibility = "hidden";
-          filtersOpen = false;
-        }
-      }*/
       document.addEventListener('mouseup', function(e) {
         if (filtersOpen) {
           const filtersContainer = document.getElementById("filtersContainer");
@@ -265,7 +258,7 @@
   </head>
 
   <body>
-    <button id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</button>
+    <a id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</a>
     <div id="mynetwork"></div>
     <div id="filtersContainer">
       <div id="resource-types">
