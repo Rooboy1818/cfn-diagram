@@ -233,22 +233,34 @@
           container.style.display = "none";
         }
         for (const name of data) {
+          var checkbox, label;
+
+          // Create checkbox
           if (checkboxes) {
-            var checkbox = document.createElement("input");
+            checkbox = document.createElement("input");
             checkbox.type = "checkbox";
             checkbox.id = name;
             checkbox.checked = checked;
             checkbox.name = containerName;
             checkbox.value = name;
-            checkbox.addEventListener("click", func);
           }
+
+          // Create label
           var label = document.createElement("label");
           label.htmlFor = name;
           label.appendChild(document.createTextNode(name));
-          if (!checkboxes) {
+
+          // Create line-break
+          var br = document.createElement("br");
+
+          // Add event click handler
+          if (checkboxes) {
+            checkbox.addEventListener("click", func);
+          } else {
             label.addEventListener("click", func);
           }
-          var br = document.createElement("br");
+
+          // Add elements
           container.appendChild(checkbox);
           container.appendChild(label);
           container.appendChild(br);
