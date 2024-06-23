@@ -17,14 +17,12 @@ let edges = [];
 let nested = [];
 let types = new Set();
 let useJson;
-let typeImages = [];
 
 function reset() {
   nodes = [];
   edges = [];
   nested = [];
   types = new Set();
-  typeImages = {};
 }
 
 function makeGraph(template, prefix, doReset, renderAll) {
@@ -70,11 +68,6 @@ function makeGraph(template, prefix, doReset, renderAll) {
         }
       }
     }
-
-    typeImages = types.map(type => ({
-      type,
-      image: createImage(type)
-    }));
   } catch (err) {
     console.log(err);
   } finally {
@@ -221,6 +214,12 @@ async function renderTemplate(
 ) {
   useJson = isJson;
   const { nodes, edges, typeImages } = makeGraph(template, "root", reset, renderAll);
+
+  const typeImages = types.map(type => ({
+      type,
+      image: createImage(type)
+    }));
+
   const fileContent = `
   var renderAll = ${renderAll}
   var nodes = new vis.DataSet(${JSON.stringify(nodes)});
