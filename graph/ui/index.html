@@ -15,7 +15,7 @@
         background-color: #e6f0ff;
         border: 2px solid darkGray;
         border-radius: 7px;
-        padding: 5px 10px;
+        padding: 10px;
         z-index: 2999;
         position: absolute;
         overflow: auto;
@@ -202,16 +202,6 @@
             }
           });
         });
-
-        /*network.on("afterDrawing", function (ctx) {
-          data.nodes.forEach((node, i) => {
-            var nodeBBox = network.getBoundingBox(node.id);
-            var nodeImage = new Image();
-            nodeImage.src = node.image;
-            var imageSize = 45;
-            ctx.drawImage(nodeImage, nodeBBox.right - imageSize - 15, nodeBBox.top + (nodeBBox.bottom - nodeBBox.top - imageSize) / 2, imageSize, imageSize);
-          });
-        });*/
       }
 
       function populateFilters(containerName, data, checked, func) {
@@ -264,11 +254,11 @@
     <div id="mynetwork"></div>
     <div id="filtersContainer">
       <div id="resource-types">
-        <strong>Include resource types:</strong><br />
+        <strong>Resource Types</strong><br /><br />
       </div>
       <div id="nested-stacks">
         <hr />
-        <strong>Include nested stack(s):</strong><br />
+        <strong>Nested Stack(s)</strong><br />
       </div>
     </div>
     <script>
