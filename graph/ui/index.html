@@ -237,7 +237,8 @@
 
       function showFilterTypes() {
         const filterTypes = document.getElementById("filtersContainer");
-        if (filterTypes.style.visibility === "hidden") {
+        console.log('marcel filterTypes', filterTypes.style.visibility);
+        if (filterTypes.style.visibility !== "visible") {
           filterTypes.style.visibility = "visible";
         } else {
           filterTypes.style.visibility = "hidden";
