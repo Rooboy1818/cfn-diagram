@@ -89,7 +89,7 @@
         }));
 
         nodesView = new vis.DataView(nodes, {
-          filter: (node) => typesShown.includes(node.type)
+          filter: (node) => filteredTypes.includes(node.type)
         });
 
         var data = {
