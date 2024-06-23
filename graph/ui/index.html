@@ -107,11 +107,11 @@
       }*/
 
       function getNodesWidth(nodes) {
-        const res = nodes.getIds((id) => {
-          const b = network.getBoundingBox(id);
+        const bounds = nodes.getNodes((node) => {
+          const b = network.getBoundingBox(node.id);
           return [b.left, b.right];
         });
-        return [Math.min(...res[0]), Math.max(...res[1])];
+        return [Math.min(...bounds[0]), Math.max(...bounds[1])];
       }
 
       function getOffsetX(nodes) {
