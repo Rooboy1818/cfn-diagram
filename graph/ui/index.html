@@ -208,7 +208,6 @@
 
       function populateFilters(containerName, data, checked, func) {
         var container = document.getElementById(containerName);
-        console.log('marcel container', container, containerName);
         if (!data.length) {
           container.style.display = "none";
         }
@@ -246,6 +245,9 @@
     <div id="mynetwork"></div>
     <button onclick="showFilterTypes()">Show Filter Types</button>
     <div id="filtersContainer">
+      <div id="resource-types">
+        <strong>Include resource types:</strong><br />
+      </div>
       <div id="nested-stacks">
         <hr />
         <strong>Include nested stack(s):</strong><br />
