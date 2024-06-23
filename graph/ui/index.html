@@ -237,24 +237,24 @@
           if (checkboxes) {
             checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            checkbox.id = d.type;
+            checkbox.id = d.name;
             checkbox.checked = checked;
             checkbox.name = containerName;
-            checkbox.value = d.type || d;
+            checkbox.value = d.name;
+          }
 
-            // Add the image
-            if (d.image) {
-              img = document.createElement("img");
-              img.src = d.image;
-              img.width = 20;
-              img.height = 20;
-            }
+          // Add the image
+          if (d.image) {
+            img = document.createElement("img");
+            img.src = d.image;
+            img.width = 20;
+            img.height = 20;
           }
 
           // Create label
           var label = document.createElement("label");
-          label.htmlFor = d.type || d;
-          label.appendChild(document.createTextNode(d.type || d));
+          label.htmlFor = d.name;
+          label.appendChild(document.createTextNode(d.name);
 
           // Create line-break
           var br = document.createElement("br");
@@ -371,7 +371,10 @@
           nodesView.refresh();
         });
 
-        const searchNodes = ['Clear selection', ...nodes.map((node) => node.label).sort()];
+        const searchNodes = ['Clear selection', ...nodes.map((node) => ({
+          name: node.label,
+          image: node.image
+        })];
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
           // Release focused node
           network.releaseNode();
