@@ -87,8 +87,7 @@
 
         const nodesFilter = (node) => {
           console.log('marcel nodesFilter', node);
-          return true;
-          //return node.type === 'AWS::CDK::Metadata';
+          return node.type === 'AWS::CDK::Metadata';
         };
         const nodesView = new vis.DataView(nodes, {
           filter: nodesFilter
