@@ -336,6 +336,7 @@
 
         const searchNodes = nodes.map((node) => node.label);
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
+          // Select and focus node
           const label = x.target.textContent;
           const node = nodes.get({
             filter: function (node) {
@@ -344,12 +345,17 @@
           });
           network.selectNodes([node[0].id]);
           network.focus(node[0].id, {
-            scale: 1.25,
+            scale: 1.5,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
             }
           });
+
+          // Close search
+          const searchContainer = document.getElementById("searchContainer");
+          searchContainer.style.visibility = "hidden";
+          searchOpen = false;
         });
 
         draw();
