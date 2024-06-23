@@ -130,6 +130,7 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
+              const selected = network.getSelectedNodes().includes(node.id);
               const w = 250;
               const h = 45;
               const drawNode = () => {
@@ -138,7 +139,7 @@
                 // Draw rectangle
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
-                ctx.strokeStyle = "#2B7CE9";
+                ctx.strokeStyle = selected ? "#2B7CE9" : "red";
                 ctx.stroke();
                 ctx.fillStyle = "#D2E5FF";
                 ctx.fill();
