@@ -360,7 +360,8 @@
           network.redraw();
         });
 
-        populateFilters("resource-types", types, true, true, true, (x) => {
+        console.log('marcel typeImages', typeImages);
+        populateFilters("resource-types", typeImages, true, true, true, (x) => {
           const { value, checked } = x.target;
           if (checked) {
             filteredTypes = [...filteredTypes.filter(t => t !== value), value];
