@@ -371,8 +371,9 @@
           nodesView.refresh();
         });
 
+        const clearSelectionText = 'Clear selection';
         const searchNodes = [{
-          name: 'Clear selection'
+          name: clearSelectionText
         }, ...nodes.map((node) => ({
           name: node.label,
           image: node.image
@@ -383,7 +384,7 @@
 
           // Select and focus node
           const label = x.target.textContent;
-          if (label !== 'No selection') {
+          if (label !== clearSelectionText) {
             const node = nodes.get({
               filter: function (node) {
                 return (node.label === label);
