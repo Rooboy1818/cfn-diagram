@@ -391,14 +391,14 @@
             });
             if (node.length) {
               network.selectNodes([node[0].id]);
+              network.focus(node[0].id, {
+                scale: 1.25,
+                animation: {
+                  duration: 1000,
+                  easingFunction: 'linear'
+                }
+              });
             }
-            network.focus(node[0].id, {
-              scale: 1.25,
-              animation: {
-                duration: 1000,
-                easingFunction: 'linear'
-              }
-            });
           } else {
             network.unselectAll();
             fit();
