@@ -213,7 +213,7 @@ async function renderTemplate(
   renderAll
 ) {
   useJson = isJson;
-  const { nodes, edges, typeImages } = makeGraph(template, "root", reset, renderAll);
+  const { nodes, edges } = makeGraph(template, "root", reset, renderAll);
 
   const typeImages = types.map(type => ({
       type,
