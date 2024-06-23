@@ -35,12 +35,13 @@
         font-weight: bold;
       }
       
-      #showFilterTypes, #showSearchNodes {
+      #showFilterTypes, #showSearchNodes, #fitLayout {
         position: absolute;
         left: 10px;
         top: 0;
         z-index: 2999;
         color: blue;
+        background-color: white;
       }
 
       #searchContainer {
@@ -51,6 +52,10 @@
         left: 110px;
       }
 
+      #fitLayout {
+        left: 150px;
+      }
+
       .filter-row {
         display: flex;
         align-items: center;
@@ -59,6 +64,10 @@
 
       .filter-row > * {
         margin: 0 2px 0 5px;
+      }
+
+      #nested-stacks {
+        display: none;
       }
 
     </style>
@@ -212,7 +221,7 @@
           network.moveTo({
             scale : 1.25
           });
-          fit();
+          fitLayout();
 
           // Reset the avoid overlap
           network.setOptions({
@@ -316,7 +325,7 @@
         }
       }
 
-      function fit() {
+      function fitLayout() {
         network.moveTo({
           position: {
             x: 0,
@@ -351,6 +360,7 @@
         <strong>Node Names</strong><br /><br />
       </div>
     </div>
+    <a id="fitLayout" onclick="fitLayout()">Fit Layout</a>
     <script>
       window.onload = function (event) {
         /*populateFilters("nested-stacks", nested, renderAll, true, (x) => {
@@ -402,7 +412,7 @@
             }
           } else {
             network.unselectAll();
-            fit();
+            fitLayout();
           }
 
           // Close search
