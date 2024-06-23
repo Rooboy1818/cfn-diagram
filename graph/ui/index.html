@@ -129,7 +129,6 @@
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              //const node = getNode(data.nodes, id);
               const node = nodes.get(id);
               const w = 250;
               const h = 45;
@@ -197,7 +196,7 @@
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          const offsetX = getOffsetX(data.nodes);
+          const offsetX = getOffsetX(nodes);
           fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
@@ -363,7 +362,7 @@
             });
           } else {
             network.unselectAll();
-            const offsetX = getOffsetX(data.nodes);
+            const offsetX = getOffsetX(nodes);
             network.moveTo({
               offset: {
                 x: (offsetX / 2) * fitScale,
