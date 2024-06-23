@@ -225,9 +225,7 @@
           var label = document.createElement("label");
           label.htmlFor = name;
           label.appendChild(document.createTextNode(name));
-
           var br = document.createElement("br");
-
           container.appendChild(checkbox);
           container.appendChild(label);
           container.appendChild(br);
@@ -239,8 +237,9 @@
   <body>
     <div id="mynetwork"></div>
     <div id="filtersContainer">
+      <strong>Resource Types</strong><br />
       <div id="resource-types">
-        <strong>Include resource types:</strong><br />
+        <strong>Include resource types</strong><br />
       </div>
       <div id="nested-stacks">
         <hr />
