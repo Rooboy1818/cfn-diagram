@@ -70,6 +70,11 @@ function makeGraph(template, prefix, doReset, renderAll) {
         }
       }
     }
+
+    typeImages = types.map(type => ({
+      type,
+      image: createImage(type)
+    }));
   } catch (err) {
     console.log(err);
   } finally {
@@ -215,17 +220,14 @@ async function renderTemplate(
   renderAll
 ) {
   useJson = isJson;
-  const { nodes, edges } = makeGraph(template, "root", reset, renderAll);
+  const { nodes, edges, typeImages } = makeGraph(template, "root", reset, renderAll);
   const fileContent = `
   var renderAll = ${renderAll}
   var nodes = new vis.DataSet(${JSON.stringify(nodes)});
   var edges = new vis.DataSet(${JSON.stringify(edges)});
   var nested = ${JSON.stringify(nested.sort())};
   var types = ${JSON.stringify(Array.from(types).sort())};
-  var typeImages = types.map(type => ({
-    type,
-    image: createImage(type)
-  }));
+  var typeImages = ${JSON.stringify(Array.from(typeImages).sort())};
   //var showSidebar = ${!ciMode};
   var showSidebar = true;
   `;
