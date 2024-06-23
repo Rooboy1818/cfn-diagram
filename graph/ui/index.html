@@ -178,6 +178,7 @@
         network.body.emitter.emit("_dataChanged");
 
         network.once('stabilizationIterationsDone', function() {
+          // Animate the initial loading
           const offsetX = getOffsetX(data.nodes);
           const scale = network.getScale();
           network.moveTo({
