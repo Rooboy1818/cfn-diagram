@@ -60,17 +60,7 @@
       }
 
       function getNode(nodes, id) {
-        const ns = nodes.get({ filter: (n) => n.id === id });
-        console.log('marcel ns', ns);
-        
-        let found = null;
-        nodes.forEach(node => {
-          if (node.id === id) {
-            found = node;
-            return true;
-          }
-        });
-        return found;
+        return nodes.get({ filter: (n) => n.id === id })[0];
       }
 
       function getNodesWidth(nodes) {
