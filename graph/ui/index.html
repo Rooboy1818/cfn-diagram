@@ -65,6 +65,7 @@
       let filteredTypes = types;
       let filtersOpen = false;
       let searchOpen = false;
+      let fitScale;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -197,16 +198,16 @@
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
           const offsetX = getOffsetX(data.nodes);
-          const scale = network.getScale();
+          fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
           network.moveTo({
             offset: {
-              x: (offsetX / 2) * scale,
+              x: (offsetX / 2) * fitScale,
               y: 0
             },
-            scale: scale,
+            scale: fitScale,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
@@ -362,12 +363,18 @@
             });
           } else {
             network.unselectAll();
-            network.fit({
+            const offsetX = getOffsetX(data.nodes);
+            network.moveTo({
+              offset: {
+                x: (offsetX / 2) * fitScale,
+                y: 0
+              },
+              scale: fitScale,
               animation: {
                 duration: 1000,
                 easingFunction: 'linear'
               }
-            });            
+            });
           }
 
           // Close search
