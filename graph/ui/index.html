@@ -19,7 +19,7 @@
         z-index: 2999;
         position: absolute;
         overflow: auto;
-        visibility: hidden;
+        display: none;
       }
     </style>
     <script
@@ -229,12 +229,12 @@
         }
       }
 
-      function showResourceTypes() {
-        const resourceTypes = document.getElementById("resource-types");
-        if (resourceTypes.style.display === "none") {
-          resourceTypes.style.display = "block";
+      function showFilterTypes() {
+        const filterTypes = document.getElementById("filtersContainer");
+        if (filterTypes.style.display === "none") {
+          filterTypes.style.display = "block";
         } else {
-          resourceTypes.style.display = "none";
+          filterTypes.style.display = "none";
         }
       }
       
@@ -243,11 +243,8 @@
 
   <body>
     <div id="mynetwork"></div>
+    <button onclick="showFilterTypes()">Show Filter Types</button>
     <div id="filtersContainer">
-      <button onclick="showResourceTypes()">Resource Types</button>
-      <div id="resource-types" style="display: none">
-        <strong>Include resource types</strong><br />
-      </div>
       <div id="nested-stacks">
         <hr />
         <strong>Include nested stack(s):</strong><br />
@@ -255,9 +252,9 @@
     </div>
     <script>
       window.onload = function (event) {
-        if (showSidebar) {
+        /*if (showSidebar) {
           document.getElementById("filtersContainer").style.visibility = "visible";
-        }
+        }*/
         populateFilters("nested-stacks", nested, renderAll, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
