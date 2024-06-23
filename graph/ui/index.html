@@ -19,7 +19,7 @@
         z-index: 2999;
         position: absolute;
         overflow: auto;
-        display: none;
+        visibility: hidden;
       }
     </style>
     <script
@@ -231,10 +231,10 @@
 
       function showFilterTypes() {
         const filterTypes = document.getElementById("filtersContainer");
-        if (filterTypes.style.display === "none") {
-          filterTypes.style.display = "block";
+        if (filterTypes.style.visibility === "hidden") {
+          filterTypes.style.visibility = "visible";
         } else {
-          filterTypes.style.display = "none";
+          filterTypes.style.visibility = "hidden";
         }
       }
       
