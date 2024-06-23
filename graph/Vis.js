@@ -215,7 +215,7 @@ async function renderTemplate(
   useJson = isJson;
   const { nodes, edges } = makeGraph(template, "root", reset, renderAll);
 
-  const typeImages = types.map(type => ({
+  const typeImages = Array.from(types).map(type => ({
       type,
       image: createImage(type)
     }));
@@ -226,7 +226,7 @@ async function renderTemplate(
   var edges = new vis.DataSet(${JSON.stringify(edges)});
   var nested = ${JSON.stringify(nested.sort())};
   var types = ${JSON.stringify(Array.from(types).sort())};
-  var typeImages = ${JSON.stringify(Array.from(types).sort())};
+  var typeImages = ${JSON.stringify(Array.from(typeImages))};
   //var showSidebar = ${!ciMode};
   var showSidebar = true;
   `;
