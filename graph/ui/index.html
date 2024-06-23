@@ -342,6 +342,7 @@
               return (node.label === label);
             }
           });
+          network.selectNodes([node[0].id]);
           network.focus(node[0].id, {
             scale: 1.25,
             animation: {
