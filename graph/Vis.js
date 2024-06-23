@@ -214,11 +214,10 @@ async function renderTemplate(
 ) {
   useJson = isJson;
   const { nodes, edges } = makeGraph(template, "root", reset, renderAll);
-
   const typeImages = Array.from(types).map(type => ({
-      type,
-      image: createImage(type)
-    }));
+    type,
+    image: createImage(type)
+  }));
 
   const fileContent = `
   var renderAll = ${renderAll}
