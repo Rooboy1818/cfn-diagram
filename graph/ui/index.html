@@ -34,7 +34,7 @@
       }
 
       #searchContainer {
-        left: 100px;
+        left: 150px;
         top: 35px;
         background-color: #e6f0ff;
         border: 2px solid darkGray;
@@ -49,7 +49,7 @@
       
       #showSearchNodes {
         position: absolute;
-        left: 90px;
+        left: 140px;
         top: 10px;
         z-index: 2999;
         color: blue;
@@ -107,9 +107,8 @@
       }*/
 
       function getNodesWidth(nodes) {
-        const pos = network.getPositions();
-        const res = Object.keys(pos).map((key) => {
-          const b = network.getBoundingBox(key);
+        const res = nodes.getIds((id) => {
+          const b = network.getBoundingBox(id);
           return [b.left, b.right];
         });
         return [Math.min(...res[0]), Math.max(...res[1])];
