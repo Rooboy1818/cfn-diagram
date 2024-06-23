@@ -374,7 +374,7 @@
         const searchNodes = ['Clear selection', ...nodes.map((node) => ({
           name: node.label,
           image: node.image
-        })];
+        }))];
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
           // Release focused node
           network.releaseNode();
