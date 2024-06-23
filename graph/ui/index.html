@@ -24,8 +24,8 @@
     </style>
     <script
       type="text/javascript"
-      src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"
-    ></script>
+      src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js">
+    </script>
 
     <script src="./data.js"></script>
 
@@ -228,16 +228,24 @@
           container.appendChild(br);
         }
       }
+
+      function showResourceTypes() {
+        const resourceTypes = document.getElementById("resource-types");
+        if (resourceTypes.style.display === "none") {
+          resourceTypes.style.display = "block";
+        } else {
+          resourceTypes.style.display = "none";
+        }
+      }
+      
     </script>
   </head>
 
   <body>
     <div id="mynetwork"></div>
     <div id="filtersContainer">
-      <div >
-        <strong>Resource Types</strong><br />
-      </div>
-      <div id="resource-types">
+      <button onclick="showResourceTypes()">Resource Types</button>
+      <div id="resource-types" style="display: none">
         <strong>Include resource types</strong><br />
       </div>
       <div id="nested-stacks">
