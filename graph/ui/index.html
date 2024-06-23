@@ -248,7 +248,7 @@
     <script>
       window.onload = function (event) {
         if (showSidebar) {
-          document.getElementById("filtersContainer").hidden = false;
+          document.getElementById("filtersContainer").hidden = "visible";
         }
         populateFilters("nested-stacks", nested, renderAll, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
