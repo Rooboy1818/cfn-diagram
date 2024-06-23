@@ -28,19 +28,6 @@
         z-index: 2999;
         color: blue;
       }
-      .expandable {
-        background: #fff;
-        overflow: hidden;
-        color: #000;   
-        line-height: 50px;
-      
-        transition: all .5s ease-in-out;
-        transform-origin: left top;
-        transform: scaleY(0);
-       }
-       .expandable:target {
-        transform: scaleY(1);
-      }
     </style>
     <script
       type="text/javascript"
@@ -275,7 +262,7 @@
   <body>
     <a id="showFilterTypes" onclick="showFilterTypes()">Show Filter Types</a>
     <div id="mynetwork"></div>
-    <div id="filtersContainer" class="expandable">
+    <div id="filtersContainer">
       <div id="resource-types">
         <strong>Include resource types:</strong><br />
       </div>
