@@ -26,6 +26,13 @@
         max-height: 600px;
         max-width: 600px;
       }
+
+      #filtersContainer label, #searchContainer label {
+        line-height: 30px;
+      }
+      #filtersContainer label:hover, #searchContainer label:hover {
+        background-color: green;
+      }
       
       #showFilterTypes, #showSearchNodes {
         position: absolute;
@@ -345,7 +352,7 @@
           });
           network.selectNodes([node[0].id]);
           network.focus(node[0].id, {
-            scale: 1.5,
+            scale: 1.25,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
