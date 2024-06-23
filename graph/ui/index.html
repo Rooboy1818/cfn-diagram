@@ -67,8 +67,6 @@
       let nodesView;
       let filteredTypes = types;
       let filtersOpen = false;
-      debugger;
-      
       let searchNodes = nodes.map((node) => {
         return {
           id: node.id,
@@ -101,10 +99,6 @@
         container.style = "font-size: 10px";
         return container;
       }
-
-      /*function getNode(nodes, id) {
-        return nodes.get({ filter: (n) => n.id === id })[0];
-      }*/
 
       function getNodesWidth(nodes) {
         const bounds = nodes.get((node) => {
@@ -340,12 +334,7 @@
 
         populateFilters("search-nodes", types, true, (x) => {
           const { value, checked } = x.target;
-          if (checked) {
-            filteredTypes = [...filteredTypes.filter(t => t !== value), value];
-          } else {
-            filteredTypes = filteredTypes.filter(t => t !== value);
-          }
-          nodesView.refresh();
+          //nodesView.refresh();
         });
 
         draw();
