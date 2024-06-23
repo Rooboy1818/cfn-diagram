@@ -200,17 +200,7 @@
           network.moveTo({
             scale : 1.25
           });
-          network.moveTo({
-            position: {
-              x: 0,
-              y: 40
-            },
-            scale: fitScale,
-            animation: {
-              duration: 1000,
-              easingFunction: 'linear'
-            }
-          });
+          fit();
 
           // Reset the avoid overlap
           network.setOptions({
@@ -299,7 +289,21 @@
           }
         }
       }
-      
+
+      function fit() {
+        network.moveTo({
+          position: {
+            x: 0,
+            y: 40
+          },
+          scale: fitScale,
+          animation: {
+            duration: 1000,
+            easingFunction: 'linear'
+          }
+        });
+      }
+
     </script>
   </head>
 
@@ -364,18 +368,7 @@
             });
           } else {
             network.unselectAll();
-            const offsetX = getOffsetX(nodes);
-            network.moveTo({
-              position: {
-                x: 0,
-                y: 40
-              },
-              scale: fitScale,
-              animation: {
-                duration: 1000,
-                easingFunction: 'linear'
-              }
-            });
+            fit();
           }
 
           // Close search
