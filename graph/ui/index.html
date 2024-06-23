@@ -247,10 +247,9 @@
     </div>
     <script>
       window.onload = function (event) {
-        console.log('marcel showSidebar', showSidebar);
-        //if (showSidebar) {
-          document.getElementById("filtersContainer").style.hidden = "visible";
-        //}
+        if (showSidebar) {
+          document.getElementById("filtersContainer").style.visibility = "visible";
+        }
         populateFilters("nested-stacks", nested, renderAll, (x) => {
           const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
           for (const n of ns) {
