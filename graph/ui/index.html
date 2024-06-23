@@ -336,12 +336,18 @@
 
         const searchNodes = nodes.map((node) => node.label);
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
-          const { value, checked } = x.target;
-          //nodesView.refresh();
+          const name = x.target.textContent;
+          const node = nodes.get({
+            filter: function (node) {
+              return (node.name === name);
+            }
+          });
+          network.focus(node.id);
         });
 
         draw();
       };
+
     </script>
   </body>
 </html>
