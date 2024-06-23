@@ -19,7 +19,7 @@
         border: blue 4px;*/
         border: 2px solid darkGray;
         border-radius: 5px;
-        padding: 3px;
+        padding: 5px 10px;
         z-index: 2999;
         position: absolute;
         /*font-family: "Courier New", Courier, monospace;*/
@@ -214,7 +214,7 @@
       function populateFilters(containerName, data, checked, func) {
         var container = document.getElementById(containerName);
         if (!data.length) {
-          container.style.visibility = "hidden";
+          container.style.display = "none";
         }
         for (const name of data) {
           var checkbox = document.createElement("input");
