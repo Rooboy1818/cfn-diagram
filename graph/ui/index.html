@@ -39,6 +39,7 @@
       let network;
       let nodesView;
       let filteredTypes = types;
+      let filtersOpen = false;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -236,12 +237,18 @@
       }
 
       function showFilterTypes() {
-        const filterTypes = document.getElementById("filtersContainer");
-        console.log('marcel filterTypes', filterTypes.style.visibility);
-        if (filterTypes.style.visibility !== "visible") {
-          filterTypes.style.visibility = "visible";
+        const filtersContainer = document.getElementById("filtersContainer");
+        if (filtersContainer.style.visibility !== "visible") {
+          filtersContainer.style.visibility = "visible";
         } else {
-          filterTypes.style.visibility = "hidden";
+          filtersContainer.style.visibility = "hidden";
+        }
+      }
+
+      document.onclick = function (e) {
+        if (filtersOpen && e.target.id !== "filtersContainer") {
+          const filtersContainer = document.getElementById("filtersContainer");
+          filtersContainer.style.visibility = "hidden";
         }
       }
       
