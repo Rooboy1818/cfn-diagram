@@ -291,7 +291,7 @@
                   ctx.font = "14px Arial";
                   ctx.fillStyle = "darkGray";
                   ctx.textBaseline = "top";
-                  const childNodeCount clusteredNodeIds = network.getNodesInCluster(d.subType).length;
+                  const childNodeCount = network.getNodesInCluster(d.subType).length;
                   ctx.fillText(truncateText(ctx, getSubType(childNodeCount + ' nodes'), w - imageSize - 10), x - w / 2 + 5, y + 2);
                   
                   // Draw image
