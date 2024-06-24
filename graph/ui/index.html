@@ -185,7 +185,10 @@
                 ctx.font = "18px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "middle";
-                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y);
+                const parts = node.type.split('(');
+                const types = parts[0].split('::');
+                const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
+                ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y);
 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
