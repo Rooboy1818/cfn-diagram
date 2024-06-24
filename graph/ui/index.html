@@ -250,6 +250,8 @@
 
         network.body.emitter.emit("_dataChanged");
 
+        setClusters();
+
         // Cluster on type
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
@@ -284,8 +286,6 @@
             scale : 1.25
           });
           fitLayout();*/
-
-          setClusters();
 
           /*// Reset the avoid overlap
           network.setOptions({
@@ -411,7 +411,8 @@
         //fitLayout();*/
         nodesDataSet.clear();
         nodesDataSet.add(nodes.get());
-        network.stabilize();
+        //network.stabilize();
+        setClusters();
       }
 
       function setClusters() {
