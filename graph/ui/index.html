@@ -101,6 +101,7 @@
       let fitScale;
       let clusteredNodeIds = null;
       let nodesDataSet = null;
+      let viewPositions = null;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -281,6 +282,8 @@
               }
             }
           });*/
+
+          viewPositions = network.getPositions();
         });
 
         network.on("click", function (params) {
