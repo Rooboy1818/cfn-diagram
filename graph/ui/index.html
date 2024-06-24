@@ -204,7 +204,7 @@
         for (let i = 0; i < ids.length; i++) {
           const bounds = getNodeBounds(ids[i]);
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
-            return id;
+            return ids[i];
           }
         }
         return null;
