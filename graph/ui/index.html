@@ -13,7 +13,7 @@
         top: 50px;
         width: 50%;
         height: 60vh;
-        visibility: hidden;
+        display: none;
         background-color: #f1f1f1;
         border: 2px solid #d3d3d3;
         box-shadow: 4px 4px #d3d3d3;
@@ -34,15 +34,7 @@
         z-index: 10;
         font-size: 1.6em;
         color: black;
-        visibility: inherit;
-      }
-
-      #mynetwork2 #closeNetwork2:hover {
-        float: right;
-        display: inline-block;
-        padding: 2px 5px;
-        background: #ccc;
-        color: #fff;
+        cursor: pointer;
       }
       
       #mynetwork2 #contentNetwork2 {
@@ -369,8 +361,9 @@
 
       function draw2(nodes2) {
         // create a network
+        var mynetwork2 = document.getElementById("mynetwork2");
+        mynetwork2.style.display = 'block';
         var container = document.getElementById("contentNetwork2");
-        container.style.visibility = 'visible';
         nodes2.forEach((node2 => {
           node2.title = preTitle(node2.title);
         }));
@@ -656,7 +649,7 @@
 
       function closeNetwork2() {
         const mynetwork2 = document.getElementById("mynetwork2");
-        mynetwork2.style.visibility = "hidden";
+        mynetwork2.style.display = "none";
       }
 
     </script>
