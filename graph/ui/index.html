@@ -244,10 +244,9 @@
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
             network.openCluster(params.nodes[0]);
-            //nodesView.refresh();
-            //const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
-            const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
-            network.setData({ nodes: clusteredNodes, edges });
+            nodesView.refresh();
+            //const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
+            //network.setData({ nodes: clusteredNodes, edges });
           }
         });
 
