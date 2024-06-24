@@ -172,17 +172,17 @@
         return container;
       }
 
-      function getNodesWidth(positioms) {
-        const bounds = Object.keys(positioms).map((id) => {
-          const b = getNodeBounds(id, positioms);
+      function getNodesWidth(positions) {
+        const bounds = Object.keys(positions).map((id) => {
+          const b = getNodeBounds(id, positions);
           return [b.left, b.right];
         });
         return [Math.min(...bounds[0]), Math.max(...bounds[1])];
       }
 
-      function getOffsetX(nodes, positioms) {
+      function getOffsetX(nodes, positions) {
         const container = document.getElementById("network");
-        const bounds = getNodesWidth(positioms);
+        const bounds = getNodesWidth(positions);
         return container.offsetWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
@@ -204,18 +204,18 @@
         return '';
       }
 
-      function getNodeBounds(id, positioms) {
+      function getNodeBounds(id, positions) {
         const isCluster = network.isCluster(id);
-        const center = positioms[id];
+        const center = positions[id];
         const w = isCluster ? clusterWidth : nodeWidth;
         const h = isCluster ? clusterHeight : nodeHeight;
         return { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
       }
       
-      function getNodeAt({x, y}, positioms) {
+      function getNodeAt({x, y}, positions) {
         const ids = Object.keys(positions);
         for (let i = 0; i < ids.length; i++) {
-          const bounds = getNodeBounds(ids[i], positioms);
+          const bounds = getNodeBounds(ids[i], positions);
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return ids[i];
           }
