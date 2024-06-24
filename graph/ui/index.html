@@ -276,13 +276,13 @@
             image: d.image
           }
         }).reduce((unique, d) => !unique.find(u => u.subType === d.subType) ? [...unique, d] : unique, []);
-        subTypes.forEach(subType => {
+        subTypes.forEach(d => {
           network.cluster({
-            joinCondition: function (element) {
-              return element.type && getSubType(element.type) === subType;
+            joinCondition: (element) => {
+              return element.type && getSubType(element.type) === d.subType;
             },
             clusterNodeProperties: {
-              id: subType,
+              id: d.subType,
               borderWidth: 3,
               shape: "database"
             },
