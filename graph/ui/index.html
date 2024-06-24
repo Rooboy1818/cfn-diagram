@@ -262,8 +262,6 @@
             },
             clusterNodeProperties: {
               id: d.subType,
-              //borderWidth: 3,
-              //shape: "database"
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
                 const w = 175;
@@ -280,13 +278,21 @@
                   ctx.fillStyle = "#f2f2f2";
                   ctx.fill();
   
-                  // Draw name text
+                  // Draw sub type text
                   ctx.beginPath();
                   ctx.font = "bold 16px Arial";
                   ctx.fillStyle = "black";
                   ctx.textAlign = "left";
-                  ctx.textBaseline = "middle";
-                  ctx.fillText(truncateText(ctx, d.subType, w - imageSize - 10), x - w / 2 + 5, y);
+                  ctx.textBaseline = "bottom";
+                  ctx.fillText(truncateText(ctx, d.subType, w - imageSize - 10), x - w / 2 + 5, y - 2);
+
+                 // Draw child node count text
+                  ctx.beginPath();
+                  ctx.font = "14px Arial";
+                  ctx.fillStyle = "darkGray";
+                  ctx.textBaseline = "top";
+                  const childNodeCount clusteredNodeIds = network.getNodesInCluster(d.subType).length;
+                  ctx.fillText(truncateText(ctx, getSubType(childNodeCount + ' nodes'), w - imageSize - 10), x - w / 2 + 5, y + 2);
                   
                   // Draw image
                   const nodeImage = new Image();
