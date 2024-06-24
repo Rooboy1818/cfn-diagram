@@ -341,7 +341,7 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             if (shiftedOffsetX === -1) {
-              shiftedOffsetX = 3 * getOffsetX(nodes) / 2;
+              shiftedOffsetX = getOffsetX(nodes);
               network.moveTo({
                 offset: {
                   x: -shiftedOffsetX,
