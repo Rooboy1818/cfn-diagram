@@ -410,10 +410,11 @@
         network2 = new vis.Network(container, data, options);
 
         network2.once('stabilizationIterationsDone', function() {
+          // Animate the initial loading
           network2.moveTo({
             position: {
               x: 0,
-              y: 40
+              y: 0
             },
             //scale: fitScale,
             animation: {
@@ -421,14 +422,6 @@
               easingFunction: 'linear'
             }
           });
-          
-          /*// Animate the initial loading
-          fitScale = network.getScale();
-          network.moveTo({
-            scale : 1.25
-          });
-          fitLayout();*/
-          //network2.fit();
         });
       }
       
