@@ -7,8 +7,10 @@
         height: 100vh;
       }
       #mynetwork2 {
-        width: 50%;
-        height: 50vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
       }
       
       .body {
@@ -303,6 +305,7 @@
       function draw2(nodes2) {
         // create a network
         var container = document.getElementById("mynetwork2");
+        container.style.display = 'block';
         nodes2.forEach((node2 => {
           node2.title = preTitle(node2.title);
         }));
