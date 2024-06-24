@@ -245,6 +245,7 @@
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
+            network.fit();
             /*const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             network.setData({ nodes: clusteredNodes, edges });
             nodesView.refresh();
