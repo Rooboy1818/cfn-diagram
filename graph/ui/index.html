@@ -201,7 +201,8 @@
               const node = nodes.get(id);
               const selection = network.getSelectedNodes();
               const subType = getSubType(node.type);
-              const isSelected = selection.find(n => n === id || getSubType(n) === subType);
+              //const isSelected = !!selection.find(n => n === id || getSubType(n) === subType);
+              const isSelected = network.getSelectedNodes().includes(node.id || subType);
               console.log('marcel', selection, subType, isSelected);
               const w = 250;
               const h = 50;
