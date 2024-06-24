@@ -12,7 +12,7 @@
         top: 0;
         width: 50%;
         height: 50vh;
-        display: none;
+        visibility: hidden;
         background-color: lightGray;
       }
       
@@ -310,7 +310,7 @@
       function draw2(nodes2) {
         // create a network
         var container = document.getElementById("mynetwork2");
-        container.style.display = 'block';
+        container.style.visibility = 'visible';
         nodes2.forEach((node2 => {
           node2.title = preTitle(node2.title);
         }));
