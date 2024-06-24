@@ -249,13 +249,8 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
             nodesView.refresh();
-            network.setOptions({
-              physics: {
-                enabled: false
-              }
-            });
             network.openCluster(params.nodes[0]);
-            fitLayout();
+            //fitLayout();
             
             //network.setData({ nodes: clusteredNodes, edges: edges });
 /*
@@ -269,6 +264,7 @@
         setClusters();
 
         network.once('stabilizationIterationsDone', function() {
+          console.log('marcel stabilizationIterationsDone');
           // Animate the initial loading
           fitScale = network.getScale();
           network.moveTo({
