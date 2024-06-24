@@ -284,6 +284,24 @@
           viewPositions = network.getPositions();
         });
 
+        /*function mouseWithin(bounds, x, y) {
+          const pos = Object.keys(viewPositions).map(key => viewPositions[key]);
+          for (let i = 0; i < Object.keys(viewPositions).length; i++) {
+            
+            viewPositions
+          }
+          
+          var offset = bounds.offset();
+          var l = offset.left;
+          var t = offset.top;
+          var h = bounds.height();
+          var w = bounds.width();
+          var maxx = l + w;
+          var maxy = t + h;
+      
+          return (y <= maxy && y >= t) && (x <= maxx && x >= l);
+        };*/
+
         network.on("click", function (params) {
           console.log('marcel click', params, network.getNodeAt(params.pointer.canvas));
         });
