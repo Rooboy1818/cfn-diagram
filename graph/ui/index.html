@@ -218,7 +218,7 @@
               };
             }
           },
-          physics: {
+          /*physics: {
             forceAtlas2Based: {
               gravitationalConstant: -26,
               centralGravity: 0.005,
@@ -230,7 +230,7 @@
             solver: "forceAtlas2Based",
             timestep: 0.35,
             stabilization: { iterations: 150 },
-          }
+          }*/
         };
 
         network = new vis.Network(container, data, options);
@@ -245,8 +245,8 @@
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
-            //network.fit();
-            network.moveTo({
+            network.fit();
+            /*network.moveTo({
               position: {
                 x: 0,
                 y: 40
@@ -256,7 +256,7 @@
                 duration: 1000,
                 easingFunction: 'linear'
               }
-            });
+            });*/
             /*const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             network.setData({ nodes: clusteredNodes, edges });
             nodesView.refresh();
