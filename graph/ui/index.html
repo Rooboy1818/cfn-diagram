@@ -128,7 +128,10 @@
       //let clusteredNodeIds = null;
       let nodesDataSet = null;
       let viewPositions = null;
-
+      const clusterWidth = 175;
+      const nodeWidth = 250;
+      const clusterHeight = 75;
+      const nodeHeight = 50;
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
         EventBusName: "default",
@@ -192,8 +195,8 @@
           const id = ids[i];
           const isCluster = network.isCluster(id);
           const center = viewPositions[id];
-          const w = isCluster ? 175 : 250;
-          const h = isCluster ? 75 : 50;
+          const w = isCluster ? clusterWidth : nodeWidth;
+          const h = isCluster ? clusterHeight : nodeHeight;
           const bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return id;
@@ -246,8 +249,8 @@
               //const subType = getSubType(node.type);
               //const isSelected = network.getSelectedNodes().includes(node.id || subType);
               const isSelected = false;
-              const w = 250;
-              const h = 50;
+              const w = nodeWidth;
+              const h = nodeHeight;
               const drawNode = () => {
                 const imageSize = 35;
 
@@ -383,8 +386,8 @@
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes2.find(n => n.id === id);
               const isSelected = network2.getSelectedNodes().includes(node.id);
-              const w = 250;
-              const h = 50;
+              const w = nodeWidth;
+              const h = nodeHeight;
               const drawNode = () => {
                 const imageSize = 35;
 
@@ -603,8 +606,8 @@
               id: d.subType,
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-                const w = 175;
-                const h = 75;
+                const w = clusterWidth;
+                const h = clusterHeight;
                 const drawNode = () => {
                   const imageSize = 60;
 
