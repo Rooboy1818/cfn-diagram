@@ -228,6 +228,7 @@
         // Cluster on type
         const clusterByType = {
           joinCondition: function (childOptions) {
+            console.log('marcel cluster check', childOptions);
             return childOptions.node == 'AWS::ElasticLoadBalancingV2';
           },
           clusterNodeProperties: {
