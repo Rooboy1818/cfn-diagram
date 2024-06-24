@@ -361,7 +361,7 @@
             closeNetworkClustered();
 
             if (selectedNodeId) {
-              const node = network.get(selectedNodeId);
+              const node = nodes.get(selectedNodeId);
               const nodeInfo = document.getElementById("nodeInfo");
               nodeInfo.style.display = "block";
               const contentNodeInfo = document.getElementById("contentNodeInfo");
