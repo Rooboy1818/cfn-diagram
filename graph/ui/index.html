@@ -415,12 +415,16 @@
 
         network2.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
+          const scale = network.getScale();
+          network.moveTo({
+            scale : 1.25
+          });
           network2.moveTo({
             position: {
               x: 0,
               y: 0
             },
-            //scale: fitScale,
+            scale: scale,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
