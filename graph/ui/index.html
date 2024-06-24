@@ -160,6 +160,25 @@
         return '';
       }
 
+      function getNodeAt(x, y) {
+        const pos = Object.keys(viewPositions).map(key => {
+          const bounds = network.getBoundingBox(key);
+          return {
+            id: key,
+            bounds
+          }
+        });
+        const ids = Object.keys(viewPositions);
+        for (let i = 0; i < ids.length; i++) {
+          const node = nodes.get(ids[i]);
+          const bounds = network.getBoundingBox(node.id);
+          if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
+            return node;
+          }
+        }
+        return false;
+      }
+
       function draw() {
         // create a network
         var container = document.getElementById("mynetwork");
@@ -284,26 +303,9 @@
           viewPositions = network.getPositions();
         });
 
-        /*function mouseWithin(bounds, x, y) {
-          const pos = Object.keys(viewPositions).map(key => viewPositions[key]);
-          for (let i = 0; i < Object.keys(viewPositions).length; i++) {
-            
-            viewPositions
-          }
-          
-          var offset = bounds.offset();
-          var l = offset.left;
-          var t = offset.top;
-          var h = bounds.height();
-          var w = bounds.width();
-          var maxx = l + w;
-          var maxy = t + h;
-      
-          return (y <= maxy && y >= t) && (x <= maxx && x >= l);
-        };*/
-
         network.on("click", function (params) {
-          console.log('marcel click', params, network.getNodeAt(params.pointer.canvas));
+          const node = getNodeAt(params.pointer.canvas);
+          console.log('marcel click', params, node);
         });
 
         // Cluster on type
@@ -315,7 +317,7 @@
             //nodesDataSet.clear();
             //nodesDataSet.add(clusteredNodes);
 
-            draw2(clusteredNodes);
+            //draw2(clusteredNodes);
             
             //network.stabilize();
             //fitLayut();
@@ -398,7 +400,7 @@
               centralGravity: 0.005,
               springLength: 230,
               springConstant: 0.18,
-              avoidOverlap: 1
+              avoidOverlap: 0.1
             },
             maxVelocity: 146,
             solver: "forceAtlas2Based",
