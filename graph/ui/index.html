@@ -265,8 +265,6 @@
         setClusters();
 
         network.once('stabilizationIterationsDone', function() {
-          console.log('marcel stabilizationIterationsDone');
-
           // Animate the initial loading
           /*fitScale = network.getScale();
           network.moveTo({
@@ -287,7 +285,7 @@
         });
 
         network.on("click", function (params) {
-          console.log('marcel click', params, network.getNodeAt(params.pointer.DOM));
+          console.log('marcel click', params, network.getNodeAt(params.pointer.canvas));
         });
 
         // Cluster on type
