@@ -373,6 +373,7 @@
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes2.find(n => n.id === id);
               const isSelected = id === selectedNodeId;
+              console.log('marcel draw2 ctxRenderer', id, selectedNodeId, id === selectedNodeId);
               const w = nodeWidth;
               const h = nodeHeight;
               const drawNode = () => {
