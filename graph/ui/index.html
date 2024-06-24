@@ -126,6 +126,11 @@
         return container.offsetWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
+      function getSubType(node) {
+        const types = node.type.split('(')[0].split('::');
+        return types[0] + (types.length > 1 ? ' ' + types[1] : '');
+      }
+
       function draw() {
         // create a network
         var container = document.getElementById("mynetwork");
@@ -178,16 +183,12 @@
                   return '';
                 };
 
-                console.log('marcel node', node);
                 // Draw type text
                 ctx.beginPath();
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "darkGray";
                 ctx.textBaseline = "bottom";
-                //const types = node.type.split('(')[0].split('::');
-                //const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
-                //ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y - 2);
-                ctx.fillText(truncateText(node.subType), x - w / 2 + 5, y - 2);
+                ctx.fillText(truncateText(getSubType(node)), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
@@ -239,8 +240,7 @@
         const clusterByType = {
           joinCondition: function (childOptions) {
             //console.log('marcel cluster check', childOptions);
-            //return childOptions.type.startsWith('AWS::EC2');
-            return true;
+            return getSubType(childOptions) === AWS::EC2';
           },
           clusterNodeProperties: {
             id: "cluster1",
