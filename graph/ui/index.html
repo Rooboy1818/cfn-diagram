@@ -247,6 +247,11 @@
             //nodesView.refresh();
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             network.setData({ nodes: clusteredNodes, edges });
+            nodesView.refresh();
+            network.moveTo({
+              scale : 1.25
+            });
+            network.fit();
             //fitLayout();
           }
         });
