@@ -187,14 +187,14 @@
                 ctx.textBaseline = "middle";
                 const types = node.type.split('(')[0].split('::');
                 const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
-                ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y / 3);
+                ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y - 10);
 
-                // Draw name text
+                /*// Draw name text
                 ctx.beginPath();
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "middle";
-                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, 2 * y / 3);
+                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y + 10);*/
                 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
