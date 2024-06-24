@@ -184,7 +184,7 @@
                 ctx.beginPath();
                 ctx.font = "12px Arial";
                 ctx.fillStyle = "darkGray";
-                ctx.textBaseline = "top";
+                ctx.textBaseline = "bottom";
                 const types = node.type.split('(')[0].split('::');
                 const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
                 ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y);
@@ -193,7 +193,7 @@
                 ctx.beginPath();
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "black";
-                ctx.textBaseline = "bottom";
+                ctx.textBaseline = "top";
                 ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y);
                 
                 // Draw image
