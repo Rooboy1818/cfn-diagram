@@ -201,7 +201,7 @@
               const node = nodes.get(id);
               const selection = network.getSelectedNodes();
               const subType = getSubType(node.type);
-              const isSelected = selection.find(n => n.id === id || n === subType);
+              const isSelected = selection.find(n => n.id === id || getSubType(n.type) === subType);
               const w = 250;
               const h = 50;
               const drawNode = () => {
