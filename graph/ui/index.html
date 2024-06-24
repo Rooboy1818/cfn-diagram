@@ -91,6 +91,7 @@
       let searchOpen = false;
       let fitScale;
       let clusteredNodeIds = null;
+      let nodesDataSet = null;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -168,8 +169,11 @@
           }
         });
 
+        nodesDataSet = new vis.DataSet(nodes);
+        
         var data = {
-          nodes: nodesView,
+          //nodes: nodesView,
+          nodes: nodesDataSet,
           edges: edges,
         };
         var options = {
