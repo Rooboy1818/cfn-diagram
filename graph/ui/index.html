@@ -57,6 +57,10 @@
         left: 220px;
       }
 
+      #resetLayout {
+        left: 330px;
+      }
+
       .filter-row {
         display: flex;
         align-items: center;
@@ -246,26 +250,15 @@
 
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
-            network.fit();
-            const scale = network.getScale();
-            network.moveTo({
+
+            //network.fit();
+            //const scale = network.getScale();
+            /*network.moveTo({
               position: {
                 x: 0,
                 y: 0
               },
-              scale: scale,
-              animation: {
-                duration: 1000,
-                easingFunction: 'linear'
-              }
-            });
-
-            /*network.moveTo({
-              position: {
-                x: 0,
-                y: 40
-              },
-              //scale: fitScale,
+              //scale: scale,
               animation: {
                 duration: 1000,
                 easingFunction: 'linear'
@@ -466,6 +459,11 @@
         });
       }
 
+      function resetLayout() {
+        clusteredNodeIds = null;
+        nodesView.refresh();
+      }
+
     </script>
   </head>
 
@@ -488,6 +486,7 @@
       </div>
     </div>
     <a id="fitLayout" onclick="fitLayout()">Fit Layout</a>
+    <a id="resetLayout" onclick="resetLayout()">Reset Layout</a>
     <script>
       window.onload = function (event) {
         /*populateFilters("nested-stacks", nested, renderAll, true, (x) => {
