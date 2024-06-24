@@ -247,7 +247,7 @@
             //nodesView.refresh();
             //const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
-            network.setData(clusteredNodes, data.edges);
+            network.setData({ nodes: clusteredNodes, edges });
           }
         });
 
