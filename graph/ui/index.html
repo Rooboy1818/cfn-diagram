@@ -125,8 +125,9 @@
       };
 
       function preTitle(text) {
+        console.log('marcel preTitle', text);
         const container = document.createElement("pre");
-        container.innerText = text; // You may also use innerHTML if your source is trusted.
+        container.innerText = /*text*/'This is dummy text';
         container.style = "font-size: 10px";
         return container;
       }
@@ -305,7 +306,7 @@
 
         network.on("click", function (params) {
           const id = getNodeAt(params.pointer.canvas);
-          if (network.isCluster(id)) {
+          if (id && network.isCluster(id)) {
             console.log('marcel clicked cluster', id);
             const clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
