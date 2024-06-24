@@ -244,15 +244,9 @@
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
 
-            network.setOptions({
-              physics: {
-                enabled: false
-              }
-            });
-
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
-            network.fit();
+            //network.fit();
             /*network.moveTo({
               position: {
                 x: 0,
