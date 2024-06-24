@@ -245,10 +245,10 @@
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
-            clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
-            const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
+            //clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
+            //const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
-            nodesView.refresh();
+            //nodesView.refresh();
             network.openCluster(params.nodes[0]);
             //network.setData({ nodes: clusteredNodes, edges: edges });
 /*
