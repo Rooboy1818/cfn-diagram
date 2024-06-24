@@ -243,10 +243,11 @@
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
-            network.openCluster(params.nodes[0]);
-            nodesView.refresh();
-            //const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
-            //network.setData({ nodes: clusteredNodes, edges });
+            //network.openCluster(params.nodes[0]);
+            //nodesView.refresh();
+            const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
+            network.setData({ nodes: clusteredNodes, edges });
+            this.fitLayout();
           }
         });
 
