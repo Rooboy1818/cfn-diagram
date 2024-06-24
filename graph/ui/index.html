@@ -292,7 +292,7 @@
                   ctx.fillStyle = "darkGray";
                   ctx.textBaseline = "top";
                   const childNodeCount = network.getNodesInCluster(d.subType).length;
-                  ctx.fillText(truncateText(ctx, getSubType(childNodeCount + ' nodes'), w - imageSize - 10), x - w / 2 + 5, y + 2);
+                  ctx.fillText(truncateText(ctx, getSubType(childNodeCount + ' nodes'), w - imageSize - 10), x - w / 2 + 5, y + 3);
                   
                   // Draw image
                   const nodeImage = new Image();
