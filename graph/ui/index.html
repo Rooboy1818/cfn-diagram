@@ -245,7 +245,18 @@
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
-            network.fit();
+            //network.fit();
+            network.moveTo({
+              position: {
+                x: 0,
+                y: 40
+              },
+              //scale: fitScale,
+              animation: {
+                duration: 1000,
+                easingFunction: 'linear'
+              }
+            });
             /*const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             network.setData({ nodes: clusteredNodes, edges });
             nodesView.refresh();
