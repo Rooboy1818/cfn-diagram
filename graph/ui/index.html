@@ -250,8 +250,6 @@
 
         network.body.emitter.emit("_dataChanged");
 
-        setClusters();
-
         // Cluster on type
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
@@ -280,6 +278,9 @@
 
         network.once('stabilizationIterationsDone', function() {
           console.log('marcel stabilizationIterationsDone');
+
+          setClusters();
+
           // Animate the initial loading
           /*fitScale = network.getScale();
           network.moveTo({
