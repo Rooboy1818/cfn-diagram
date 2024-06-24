@@ -338,6 +338,10 @@
               offset: {
                 x: -shiftedOffsetX,
                 y: 0
+              },
+              animation: {
+                duration: 500,
+                easingFunction: 'linear'
               }
             });
 
@@ -659,13 +663,19 @@
       function closeNetwork2() {
         const mynetwork2 = document.getElementById("mynetwork2");
         mynetwork2.style.display = "none";
-       
-        network.moveTo({
-          offset: {
-            x: shiftedOffsetX,
-            y: 0
-          }
-        });
+
+        if (shiftedOffsetX !== -1) {
+          network.moveTo({
+            offset: {
+              x: shiftedOffsetX,
+              y: 0
+            },
+            animation: {
+              duration: 500,
+              easingFunction: 'linear'
+            }
+          });
+        }
       }
 
     </script>
