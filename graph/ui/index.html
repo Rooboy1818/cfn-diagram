@@ -340,7 +340,7 @@
 
         var data = {
           nodes: nodes2,
-          edges: []
+          edges: edges
         };
         var options = {
           layout: {
@@ -410,6 +410,18 @@
         network2 = new vis.Network(container, data, options);
 
         network2.once('stabilizationIterationsDone', function() {
+          network2.moveTo({
+            position: {
+              x: 0,
+              y: 40
+            },
+            //scale: fitScale,
+            animation: {
+              duration: 1000,
+              easingFunction: 'linear'
+            }
+          });
+          
           /*// Animate the initial loading
           fitScale = network.getScale();
           network.moveTo({
