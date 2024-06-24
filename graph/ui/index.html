@@ -372,7 +372,7 @@
               const nodeInfo = document.getElementById("nodeInfo");
               nodeInfo.style.display = "block";
               const contentNodeInfo = document.getElementById("contentNodeInfo");
-              contentNodeInfo.innerText = node.title;
+              contentNodeInfo.innerText = node.tooltip;
             } else {
               closeNodeInfo();
             }
@@ -484,7 +484,7 @@
             const nodeInfo = document.getElementById("nodeInfo");
             nodeInfo.style.display = "block";
             const contentNodeInfo = document.getElementById("contentNodeInfo");
-            contentNodeInfo.innerText = node.title;
+            contentNodeInfo.innerText = node.tooltip;
           } else {
             closeNodeInfo();
           }
