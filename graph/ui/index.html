@@ -200,7 +200,7 @@
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
               const selection = network.getSelectedNodes();
-              const isSelected = selection.includes(node.id);
+              const isSelected = selection.includes(node.id) || selection.includes(getSubType(node.type));
               const w = 250;
               const h = 50;
               const drawNode = () => {
