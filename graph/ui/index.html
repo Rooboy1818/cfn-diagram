@@ -161,17 +161,11 @@
       }
 
       function getNodeAt({x, y}) {
-        const pos = Object.keys(viewPositions).map(key => {
-          const bounds = network.getBoundingBox(key);
-          return {
-            id: key,
-            bounds
-          }
-        });
         const ids = Object.keys(viewPositions);
         for (let i = 0; i < ids.length; i++) {
+          const isCluster = isCluster(ids[i]);
           const node = nodes.get(ids[i]);
-          const bounds = network.getBoundingBox(node.id);
+          const bounds = network.getBoundingBox(ids[i]);
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return node;
           }
