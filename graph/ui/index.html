@@ -271,33 +271,27 @@
             }
           });*/
         });
+
+        // Cluster on type
+        network.on("selectNode", function (params) {
+          console.log('marcel selectNode', params);
+          if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
+            clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
+            const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
+  
+            nodesDataSet.clear();
+            nodesDataSet.add(clusteredNodes);
+            network.stabilize();
+  
+            //nodesView.setData(clusteredNodes);
+            //nodesView.refresh();
+            //network.openCluster(params.nodes[0]);
+            //fitLayout();
+            
+            //network.setData({ nodes: clusteredNodes, edges: edges });
+          }
+        });
       }
-
-      // Cluster on type
-      network.on("selectNode", function (params) {
-        console.log('marcel selectNode', params);
-        if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
-          clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
-          const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
-
-          nodesDataSet.clear();
-          nodesDataSet.add(clusteredNodes);
-          network.stabilize();
-
-          //nodesView.setData(clusteredNodes);
-          //nodesView.refresh();
-          //network.openCluster(params.nodes[0]);
-          //fitLayout();
-          
-          //network.setData({ nodes: clusteredNodes, edges: edges });
-/*
-          network.moveTo({
-            scale : 1.25
-          });
-          fitLayout();
-*/            
-        }
-      });
 
       function populateFilters(containerName, data, checked, checkboxes, func) {
         var container = document.getElementById(containerName);
