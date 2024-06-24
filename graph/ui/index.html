@@ -118,7 +118,7 @@
       }
 
       function getNodesWidth(nodes) {
-        const bounds = nodes.get().map((node) => {
+        const bounds = nodes.map((node) => {
           const b = network.getBoundingBox(node.id);
           return [b.left, b.right];
         });
@@ -127,7 +127,7 @@
 
       function getOffsetX(nodes) {
         const container = document.getElementById("mynetwork");
-        const bounds = getNodesWidth(nodes);
+        const bounds = getNodesWidth(nodes.get());
         return container.offsetWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
@@ -250,7 +250,7 @@
             //nodesView.setData(clusteredNodes);
 
             const container = document.getElementById("mynetwork");
-            const bounds1 = getNodesWidth(nodes);
+            const bounds1 = getNodesWidth(nodes.get());
             const offset1 = container.offsetWidth - network.canvasToDOM({x: bounds1[1] - bounds1[0], y: 0}).x;
 
             nodesView.refresh();
