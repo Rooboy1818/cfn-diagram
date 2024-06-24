@@ -158,7 +158,7 @@
 
                 // Draw rectangle
                 ctx.beginPath();
-                ctx.roundRect(x - w / 2, y - h / 2, w, h, [5]);
+                ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
                 ctx.strokeStyle = isSelected ? "#FF206A": "#2B7CE9";
                 ctx.lineWidth = isSelected ? 5 : 1;
                 ctx.stroke();
@@ -177,8 +177,6 @@
                   }
                   return '';
                 };
-
-                console.log('marcel node/label', node.type, node.label);
 
                 // Draw type text
                 ctx.beginPath();
@@ -200,7 +198,7 @@
                 const nodeBBox = network.getBoundingBox(node.id);
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
-                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 10, y - imageSize / 2, imageSize, imageSize);
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 7, y - imageSize / 2, imageSize, imageSize);
               };
               return {
                 drawNode,
