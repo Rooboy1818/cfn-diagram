@@ -240,7 +240,7 @@
         const clusterByType = {
           joinCondition: function (element) {
             //console.log('marcel cluster check', childOptions);
-            return element.type && getSubType(element) === 'AWS::EC2';
+            return element.type && getSubType(element) === 'AWS EC2';
           },
           clusterNodeProperties: {
             id: "cluster1",
