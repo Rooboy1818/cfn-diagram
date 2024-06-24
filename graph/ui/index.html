@@ -169,8 +169,7 @@
         });
 
         var data = {
-          //nodes: nodesView,
-          nodes: nodes,
+          nodes: nodesView,
           edges: edges,
         };
         var options = {
@@ -249,14 +248,15 @@
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
+            nodesView.refresh();
             network.openCluster(params.nodes[0]);
-            network.setData({ nodes: clusteredNodes, edges: edges });
-            //nodesView.refresh();
-
+            //network.setData({ nodes: clusteredNodes, edges: edges });
+/*
             network.moveTo({
               scale : 1.25
             });
             fitLayout();
+*/            
           }
         });
         setClusters();
