@@ -245,11 +245,22 @@
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
-            //clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
+            clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             //const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
-            //nodesView.refresh();
+
+            const container = document.getElementById("mynetwork");
+            const bounds1 = getNodesWidth(nodes);
+            const offset1 = container.offsetWidth - network.canvasToDOM({x: bounds1[1] - bounds1[0], y: 0}).x;
+
+            nodesView.refresh();
+            const ds = nodesView.getDataSet();
+
+            const bounds2 = getNodesWidth(nodes);
+            const offset2 = container.offsetWidth - network.canvasToDOM({x: bounds2[1] - bounds2[0], y: 0}).x;
+
             network.openCluster(params.nodes[0]);
+            
             //network.setData({ nodes: clusteredNodes, edges: edges });
 /*
             network.moveTo({
