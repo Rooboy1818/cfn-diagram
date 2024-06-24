@@ -249,6 +249,11 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
             nodesView.refresh();
+            network.setOptions({
+              physics: {
+                enabled: false
+              }
+            });
             network.openCluster(params.nodes[0]);
             fitLayout();
             
