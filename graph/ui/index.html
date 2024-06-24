@@ -286,11 +286,11 @@
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          /*fitScale = network.getScale();
+          //fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
-          fitLayout();*/
+          fitLayout();
 
           /*// Reset the avoid overlap
           network.setOptions({
@@ -423,7 +423,7 @@
           network2.moveTo({
             scale : 1.25
           });*/
-          network2.moveTo({
+          /*network2.moveTo({
             position: {
               x: 0,
               y: 0
@@ -433,7 +433,11 @@
               duration: 1000,
               easingFunction: 'linear'
             }
+          });*/
+          network.moveTo({
+            scale : 1.25
           });
+          fitLayout();
         });
       }
       
