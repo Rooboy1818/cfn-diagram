@@ -213,7 +213,7 @@
           node.title = preTitle(node.title);
         }));
 
-        /*nodesView = new vis.DataView(nodes, {
+        nodesView = new vis.DataView(nodes, {
           filter: (node) => {
             if (!filteredTypes.includes(node.type)) {
               return false;
@@ -223,13 +223,13 @@
             }
             return true;
           }
-        });*/
+        });
 
-        nodesDataSet = new vis.DataSet(nodes.get());
+        //nodesDataSet = new vis.DataSet(nodes.get());
         
         var data = {
-          //nodes: nodesView,
-          nodes: nodesDataSet,
+          nodes: nodesView,
+          //nodes: nodesDataSet,
           edges: edges,
         };
         var options = {
@@ -336,7 +336,7 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             if (shiftedOffsetX === -1) {
-              shiftedOffsetX = 4 * getOffsetX(nodes) / 3;
+              shiftedOffsetX = 3 * getOffsetX(nodes) / 2;
               network.moveTo({
                 offset: {
                   x: -shiftedOffsetX,
@@ -727,7 +727,7 @@
           } else {
             filteredTypes = filteredTypes.filter(t => t !== value);
           }
-          //nodesView.refresh();
+          nodesView.refresh();
         });
 
         const clearSelectionText = 'Clear selection';
