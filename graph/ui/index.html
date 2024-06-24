@@ -405,10 +405,13 @@
       }
 
       function resetLayout() {
-        clusteredNodeIds = null;
+        /*clusteredNodeIds = null;
         nodesView.refresh();
         setClusters();
-        //fitLayout();
+        //fitLayout();*/
+        nodesDataSet.clear();
+        nodesDataSet.add(nodes.get());
+        network.stabilize();
       }
 
       function setClusters() {
