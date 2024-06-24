@@ -170,7 +170,7 @@
         };
         var options = {
           layout: {
-            //randomSeed: 2
+            randomSeed: 2
           },
           nodes: {
             shape: "custom",
@@ -266,7 +266,7 @@
               //shape: "database"
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-                const w = 200;
+                const w = 175;
                 const h = 75;
                 const drawNode = () => {
                   const imageSize = 60;
@@ -284,6 +284,7 @@
                   ctx.beginPath();
                   ctx.font = "bold 16px Arial";
                   ctx.fillStyle = "black";
+                  txt.textAlign = "center";
                   ctx.textBaseline = "middle";
                   ctx.fillText(truncateText(ctx, d.subType, w - imageSize - 10), x - w / 2 + 5, y);
                   
