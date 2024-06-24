@@ -331,7 +331,7 @@
           const clusteredNodeIds1 = nodes.get().filter(n => network.isCluster(n));
           const clusteredNodeIds2 = clusteredNodeIds1.filter(n => n).reduce((total, n) => [...total, ...network.getNodesInCluster(n.id)], []);
 
-          console.log('marcel', clusteredNodeIds);
+          console.log('marcel', clusteredNodeIds2);
 
         });
 
