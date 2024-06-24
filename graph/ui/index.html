@@ -154,7 +154,7 @@
               const w = 250;
               const h = 50;
               const drawNode = () => {
-                const imageSize = 30;
+                const imageSize = 35;
 
                 // Draw rectangle
                 ctx.beginPath();
@@ -187,20 +187,20 @@
                 ctx.textBaseline = "bottom";
                 const types = node.type.split('(')[0].split('::');
                 const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
-                ctx.fillText(truncateText(type.trim(), w - imageSize - 5), x - w / 2 + 5, y - 2);
+                ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
                 ctx.font = "bold 16px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "top";
-                ctx.fillText(truncateText(node.label, w - imageSize - 5), x - w / 2 + 5, y + 2);
+                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
                 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
-                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 5, y - imageSize / 2, imageSize, imageSize);
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 10, y - imageSize / 2, imageSize, imageSize);
               };
               return {
                 drawNode,
