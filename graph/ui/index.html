@@ -241,7 +241,7 @@
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
-            clusteredNodeIds = network.getNodesInCluster('cluster1');
+            clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
             network.openCluster(params.nodes[0]);
             nodesView.refresh();
