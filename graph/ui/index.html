@@ -160,7 +160,7 @@
         return '';
       }
 
-      function getNodeAt(x, y) {
+      function getNodeAt({x, y}) {
         const pos = Object.keys(viewPositions).map(key => {
           const bounds = network.getBoundingBox(key);
           return {
