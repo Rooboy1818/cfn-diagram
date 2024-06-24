@@ -9,8 +9,8 @@
       
       #mynetwork2 {
         position: absolute;
-        right: 50px;
-        top: 50px;
+        right: 0px;
+        top: 0px;
         width: 50%;
         height: 60vh;
         display: none;
@@ -334,7 +334,7 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             if (shiftedOffsetX === -1) {
-              shiftedOffsetX = getOffsetX(nodes);
+              shiftedOffsetX = 3 * getOffsetX(nodes) / 2;
               network.moveTo({
                 offset: {
                   x: -shiftedOffsetX,
