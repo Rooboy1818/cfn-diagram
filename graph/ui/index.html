@@ -393,7 +393,8 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes2.find(n => n.id === id);
-              const isSelected = network2.getSelectedNodes().includes(node.id);
+              //const isSelected = network2.getSelectedNodes().includes(node.id);
+              const isSelected = false;
               const w = nodeWidth;
               const h = nodeHeight;
               const drawNode = () => {
