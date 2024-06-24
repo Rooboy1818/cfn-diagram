@@ -188,7 +188,7 @@
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "darkGray";
                 ctx.textBaseline = "bottom";
-                ctx.fillText(truncateText(getSubType(node)), x - w / 2 + 5, y - 2);
+                ctx.fillText(truncateText(getSubType(node), w - imageSize - 10), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
