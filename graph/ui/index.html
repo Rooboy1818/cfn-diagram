@@ -132,7 +132,7 @@
         return types[0] + (types.length > 1 ? ' ' + types[1] : '');
       }
 
-      function truncateText(text, maxWidth) {
+      function truncateText(ctx, text, maxWidth) {
         const width = ctx.measureText(text).width;
         const ellipsis = width > maxWidth ? '...' : '';
         const length = text.length;
@@ -197,14 +197,14 @@
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "darkGray";
                 ctx.textBaseline = "bottom";
-                ctx.fillText(truncateText(getSubType(node.type), w - imageSize - 10), x - w / 2 + 5, y - 2);
+                ctx.fillText(truncateText(ctx, getSubType(node.type), w - imageSize - 10), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
                 ctx.font = "bold 16px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "top";
-                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
+                ctx.fillText(truncateText(ctx, node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
                 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
@@ -283,7 +283,7 @@
             },
             clusterNodeProperties: {
               id: d.subType,
-              borderWidth: 3,
+              //borderWidth: 3,
               //shape: "database"
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
@@ -306,7 +306,7 @@
                   ctx.font = "bold 16px Arial";
                   ctx.fillStyle = "black";
                   ctx.textBaseline = "middle";
-                  ctx.fillText(truncateText(d.subType, w - imageSize - 10), x - w / 2 + 5, y);
+                  ctx.fillText(truncateText(ctx, d.subType, w - imageSize - 10), x - w / 2 + 5, y);
                   
                   // Draw image
                   const nodeImage = new Image();
