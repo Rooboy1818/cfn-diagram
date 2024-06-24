@@ -86,6 +86,7 @@
       let filtersOpen = false;
       let searchOpen = false;
       let fitScale;
+      let clusteredNodeIds = null;
 
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
@@ -139,7 +140,14 @@
         }));
 
         nodesView = new vis.DataView(nodes, {
-          filter: (node) => filteredTypes.includes(node.type)
+          filter: (node) => {
+            if (!filteredTypes.includes(node.type)) {
+              return false;
+            }
+            if (clusteredNodes && !clusteredNodeIds.includes(node.id)) {
+              return false;
+            }
+            return true;
         });
 
         var data = {
@@ -232,9 +240,10 @@
         network.on("selectNode", function (params) {
           console.log('marcel selectNode', params);
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
-            const children = network.getNodesInCluster('cluster1');
-            console.log('marcel children', children);
-            network.openCluster(params.nodes[0]);
+            clusteredNodeIds = network.getNodesInCluster('cluster1');
+            console.log('marcel clusteredNodeIds', clusteredNodeIds);
+            //network.openCluster(params.nodes[0]);
+            nodesView.refresh();
           }
         });
         const clusterByType = {
