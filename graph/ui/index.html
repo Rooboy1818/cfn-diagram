@@ -22,7 +22,7 @@
 
       #nodeInfo {
         top: unset;
-        bottom: 0px;
+        bottom: 10px;
         width: 40%;
         height: 20vh;
        }         
@@ -252,7 +252,6 @@
         };
         var options = {
           layout: {
-            //randomSeed: "0.41631546571665723:1719234730193"
             randomSeed: 2
           },
           nodes: {
@@ -284,7 +283,7 @@
 
                 // Draw name text
                 ctx.beginPath();
-                ctx.font = "bold 16px Arial";
+                ctx.font = "bold 14px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "top";
                 ctx.fillText(truncateText(ctx, node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
@@ -422,7 +421,7 @@
 
                 // Draw name text
                 ctx.beginPath();
-                ctx.font = "bold 16px Arial";
+                ctx.font = "bold 14px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "top";
                 ctx.fillText(truncateText(ctx, node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
@@ -650,7 +649,7 @@
   
                   // Draw sub type text
                   ctx.beginPath();
-                  ctx.font = "bold 16px Arial";
+                  ctx.font = "bold 14px Arial";
                   ctx.fillStyle = "black";
                   ctx.textAlign = "left";
                   ctx.textBaseline = "bottom";
