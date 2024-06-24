@@ -243,7 +243,7 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
-              const isSelected = id === selectedNodeId;
+              const isSelected = id === selectedNodeId || id === getSubType(node.type);
               const w = nodeWidth;
               const h = nodeHeight;
               const drawNode = () => {
@@ -323,8 +323,6 @@
           });*/
 
           viewPositions = network.getPositions();
-
-          console.log('marcel seed', network.getSeed());
         });
 
         network.on("click", function (params) {
