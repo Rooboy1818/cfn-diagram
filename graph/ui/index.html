@@ -408,6 +408,13 @@
         nodesDataSet.clear();
         nodesDataSet.add(nodes.get());
         //network.stabilize();
+
+        nodesDataSet.forEach(node => {
+          var positions = network.getPositions(node.id);
+          node.positionX = positions[node.id].x;
+          node.positionY = positions[node.id].y;
+        });
+        
         setClusters();
       }
 
