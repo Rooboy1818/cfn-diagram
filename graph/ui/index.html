@@ -327,12 +327,6 @@
           });*/
 
           viewPositions = network.getPositions();
-
-          const clusteredNodeIds1 = nodes.get().filter(n => network.isCluster(n.id));
-          const clusteredNodeIds2 = clusteredNodeIds1.filter(n => n).reduce((total, n) => [...total, ...network.getNodesInCluster(n.id)], []);
-
-          console.log('marcel', clusteredNodeIds2);
-
         });
 
         network.on("click", function (params) {
@@ -644,6 +638,12 @@
             },
           });
         });
+
+          const n = nodes.get();
+          const clusteredNodeIds1 = n.filter(n => network.isCluster(n.id));
+          const clusteredNodeIds2 = clusteredNodeIds1.filter(n => n).reduce((total, n) => [...total, ...network.getNodesInCluster(n.id)], []);
+          console.log('marcel', clusteredNodeIds2);
+
       }
 
       function closeNetwork2() {
