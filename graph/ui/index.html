@@ -213,7 +213,7 @@
           node.title = preTitle(node.title);
         }));
 
-        nodesView = new vis.DataView(nodes, {
+        /*nodesView = new vis.DataView(nodes, {
           filter: (node) => {
             if (!filteredTypes.includes(node.type)) {
               return false;
@@ -223,13 +223,13 @@
             }
             return true;
           }
-        });
+        });*/
 
-        //nodesDataSet = new vis.DataSet(nodes.get());
+        nodesDataSet = new vis.DataSet(nodes.get());
         
         var data = {
-          nodes: nodesView,
-          //nodes: nodesDataSet,
+          //nodes: nodesView,
+          nodes: nodesDataSet,
           edges: edges,
         };
         var options = {
