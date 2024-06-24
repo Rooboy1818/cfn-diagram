@@ -140,6 +140,8 @@ function addnodes(
   if (nodes.filter((p) => p.id === resource).length === 0) {
     const types = resource.split('(')[0].split('::');
     const subType = types[0] + (types.length > 1 ? ' ' + types[1] : '');
+
+    console.log('marcel subType', resource, subType);
     nodes.push({
       id: `${prefix}.${resource}`,
       dependencies: dependencies,
