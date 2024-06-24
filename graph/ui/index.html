@@ -13,6 +13,7 @@
         width: 50%;
         height: 50vh;
         display: none;
+        background-color: lightGray;
       }
       
       .body {
@@ -198,7 +199,8 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
-              const isSelected = network.getSelectedNodes().includes(node.id);
+              const selection = network.getSelectedNodes();
+              const isSelected = selection.includes(node.id);
               const w = 250;
               const h = 50;
               const drawNode = () => {
