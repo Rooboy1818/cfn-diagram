@@ -591,7 +591,6 @@
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
                 const isSelected = id === selectedNodeId;
-                console.log('marcel cluster', id, selectedNodeId, id === selectedNodeId);
                 const w = clusterWidth;
                 const h = clusterHeight;
                 const drawNode = () => {
@@ -667,7 +666,7 @@
         <div id="closeNetwork2" onclick="closeNetwork2()">x</div>
       </div>
     </div>
-    <a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
+    <!--<a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
     <div id="filtersContainer">
       <div id="resource-types">
         <strong>Resource Types</strong><br />
@@ -684,7 +683,7 @@
       </div>
     </div>
     <a id="fitLayout" onclick="fitLayout()">Fit Layout</a>
-    <a id="resetLayout" onclick="resetLayout()">Reset Layout</a>
+    <a id="resetLayout" onclick="resetLayout()">Reset Layout</a>-->
     <script>
       window.onload = function (event) {
         /*populateFilters("nested-stacks", nested, renderAll, true, (x) => {
