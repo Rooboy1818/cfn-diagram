@@ -243,8 +243,25 @@
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
             clusteredNodeIds = network.getNodesInCluster('cluster1');
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
+
+            network.setOptions({
+              physics: {
+                forceAtlas2Based: {
+                  avoidOverlap: 1
+                }
+              }
+            });
+
             network.openCluster(params.nodes[0]);
             nodesView.refresh();
+
+            network.setOptions({
+              physics: {
+                forceAtlas2Based: {
+                  avoidOverlap: 0
+                }
+              }
+            });
           }
         });
         const clusterByType = {
@@ -432,7 +449,7 @@
         }, ...nodes.map((node) => ({
           name: node.label,
           image: node.image
-        }))];
+        }))].sort((a, b) => a.name.localeCompare(b.name));
         populateFilters("search-nodes", searchNodes, true, false, (x) => {
           // Release focused node
           network.releaseNode();
