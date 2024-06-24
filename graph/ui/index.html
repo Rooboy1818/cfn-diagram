@@ -284,8 +284,22 @@
             clusterNodeProperties: {
               id: d.subType,
               borderWidth: 3,
-              image: d.image
               //shape: "database"
+              shape: "custom",
+              ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+                const node = nodes.get(id);
+                const drawNode = () => {
+                  const imageSize = 60;
+                  const nodeBBox = network.getBoundingBox(node.id);
+                  const nodeImage = new Image();
+                  nodeImage.src = node.image;
+                  ctx.drawImage(nodeImage, x, y, imageSize, imageSize);
+                };
+                return {
+                  drawNode,
+                  nodeDimensions: { width: w, height: h },
+                };
+              }
             },
           });
         });
