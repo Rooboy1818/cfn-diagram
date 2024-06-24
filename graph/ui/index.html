@@ -191,15 +191,18 @@
         return '';
       }
 
+      function getNodeBounds(id) {
+        const isCluster = network.isCluster(id);
+        const center = viewPositions[id];
+        const w = isCluster ? clusterWidth : nodeWidth;
+        const h = isCluster ? clusterHeight : nodeHeight;
+        return { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
+      }
+      
       function getNodeAt({x, y}) {
         const ids = Object.keys(viewPositions);
         for (let i = 0; i < ids.length; i++) {
-          const id = ids[i];
-          const isCluster = network.isCluster(id);
-          const center = viewPositions[id];
-          const w = isCluster ? clusterWidth : nodeWidth;
-          const h = isCluster ? clusterHeight : nodeHeight;
-          const bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
+          const bounds = getNodeBounds(ids[i]);
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return id;
           }
