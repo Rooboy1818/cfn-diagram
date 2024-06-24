@@ -243,7 +243,7 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
-              const isSelected = id === selectedNodeId || getSubType(node.type) === selectedNodeId;
+              const isSelected = id === selectedNodeId;
               const w = nodeWidth;
               const h = nodeHeight;
               const drawNode = () => {
@@ -371,7 +371,6 @@
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes2.find(n => n.id === id);
               const isSelected = id === selectedNodeId;
-              console.log('marcel draw2 ctxRenderer', id, selectedNodeId, id === selectedNodeId);
               const w = nodeWidth;
               const h = nodeHeight;
               const drawNode = () => {
@@ -591,6 +590,8 @@
               id: d.subType,
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+                const isSelected = id === selectedNodeId;
+                console.log('marcel cluster', id, selectedNodeId, id === selectedNodeId);
                 const w = clusterWidth;
                 const h = clusterHeight;
                 const drawNode = () => {
@@ -599,8 +600,8 @@
                   // Draw rectangle
                   ctx.beginPath();
                   ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
-                  ctx.strokeStyle = "darkGray";
-                  ctx.lineWidth = 6;
+                  ctx.strokeStyle = isSelected ? "#26A6DF": "darkGray";
+                  ctx.lineWidth = isSelected ? 9 : 6;
                   ctx.stroke();
                   ctx.fillStyle = "#f2f2f2";
                   ctx.fill();
