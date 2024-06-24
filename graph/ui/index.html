@@ -165,15 +165,11 @@
         for (let i = 0; i < ids.length; i++) {
           const id = ids[i];
           const isCluster = network.isCluster(id);
-          const node = nodes.get(id);
-          let bounds = network.getBoundingBox(id);
-
-          if (isCluster) {
-            const center = viewPositions[id];
-            const w = 175;
-            const h = 75;
-            bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
-          }
+          //let bounds = network.getBoundingBox(id);
+          const center = viewPositions[id];
+          const w = isCluster ? 175 : 250;
+          const h = isCluster ? 75 : 50;
+          const bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return id;
           }
