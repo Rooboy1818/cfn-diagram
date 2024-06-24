@@ -124,7 +124,7 @@
       let filtersOpen = false;
       let searchOpen = false;
       let fitScale;
-      //let clusteredNodeIds = null;
+      let clusteredNodeIds = null;
       let nodesDataSet = null;
       let viewPositions = null;
       const clusterWidth = 175;
@@ -332,7 +332,7 @@
         network.on("click", function (params) {
           const id = getNodeAt(params.pointer.canvas);
           if (id && network.isCluster(id)) {
-            const clusteredNodeIds = network.getNodesInCluster(id);
+            clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             if (shiftedOffsetX === -1) {
