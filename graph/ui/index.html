@@ -159,10 +159,12 @@
                 // Draw rectangle
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
-                ctx.strokeStyle = isSelected ? "#FF206A": "#2B7CE9";
+                //ctx.strokeStyle = isSelected ? "#FF206A": "#2B7CE9";
+                ctx.strokeStyle = isSelected ? "#FF206A": "#dad8da";
                 ctx.lineWidth = isSelected ? 5 : 1;
                 ctx.stroke();
-                ctx.fillStyle = "#D2E5FF";
+                //ctx.fillStyle = "#D2E5FF";
+                ctx.fillStyle = "white";
                 ctx.fill();
 
                 const truncateText = (text, maxWidth) => {
@@ -198,7 +200,7 @@
                 const nodeBBox = network.getBoundingBox(node.id);
                 const nodeImage = new Image();
                 nodeImage.src = node.image;
-                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 7, y - imageSize / 2, imageSize, imageSize);
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 8, y - imageSize / 2, imageSize, imageSize);
               };
               return {
                 drawNode,
