@@ -6,6 +6,10 @@
         width: 100%;
         height: 100vh;
       }
+      #mynetwork2 {
+        width: 50%;
+        height: 50vh;
+      }
       
       .body {
         font-family: Arial, Helvetica, sans-serif;
@@ -84,7 +88,7 @@
     <script src="./data.js"></script>
 
     <script type="text/javascript">
-      let network;
+      let network, network2;
       let nodesView;
       let filteredTypes = types;
       let filtersOpen = false;
@@ -278,9 +282,11 @@
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
-  
-            nodesDataSet.clear();
-            nodesDataSet.add(clusteredNodes);
+            //nodesDataSet.clear();
+            //nodesDataSet.add(clusteredNodes);
+
+            draw2(clusteredNodes);
+            
             //network.stabilize();
             //fitLayut();
   
@@ -294,6 +300,94 @@
         });
       }
 
+      function draw2(nodes2) {
+        // create a network
+        var container = document.getElementById("mynetwork2");
+        nodes2.forEach((node => {
+          node2.title = preTitle(node.title);
+        }));
+
+        var data = {
+          nodes: nodes,
+          edges: edges,
+        };
+        var options = {
+          layout: {
+            randomSeed: 2
+          },
+          nodes: {
+            shape: "custom",
+            size: 1,
+            ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
+              const node = nodes.get(id);
+              const isSelected = network.getSelectedNodes().includes(node.id);
+              const w = 250;
+              const h = 50;
+              const drawNode = () => {
+                const imageSize = 35;
+
+                // Draw rectangle
+                ctx.beginPath();
+                ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
+                ctx.strokeStyle = isSelected ? "#26A6DF": "darkGray";
+                ctx.lineWidth = isSelected ? 6 : 3;
+                ctx.stroke();
+                ctx.fillStyle = "#f2f2f2";
+                ctx.fill();
+
+                // Draw type text
+                ctx.beginPath();
+                ctx.font = "14px Arial";
+                ctx.fillStyle = "darkGray";
+                ctx.textBaseline = "bottom";
+                ctx.fillText(truncateText(ctx, getSubType(node.type), w - imageSize - 10), x - w / 2 + 5, y - 2);
+
+                // Draw name text
+                ctx.beginPath();
+                ctx.font = "bold 16px Arial";
+                ctx.fillStyle = "black";
+                ctx.textBaseline = "top";
+                ctx.fillText(truncateText(ctx, node.label, w - imageSize - 10), x - w / 2 + 5, y + 2);
+                
+                // Draw image
+                const nodeBBox = network.getBoundingBox(node.id);
+                const nodeImage = new Image();
+                nodeImage.src = node.image;
+                ctx.drawImage(nodeImage, x + w / 2 - imageSize - 8, y - imageSize / 2, imageSize, imageSize);
+              };
+              return {
+                drawNode,
+                nodeDimensions: { width: w, height: h },
+              };
+            }
+          },
+          physics: {
+            forceAtlas2Based: {
+              gravitationalConstant: -26,
+              centralGravity: 0.005,
+              springLength: 230,
+              springConstant: 0.18,
+              avoidOverlap: 0.1
+            },
+            maxVelocity: 146,
+            solver: "forceAtlas2Based",
+            timestep: 0.35,
+            //stabilization: { iterations: 150 },
+          }
+        };
+
+        network2 = new vis.Network(container, data, options);
+
+        network2.once('stabilizationIterationsDone', function() {
+          /*// Animate the initial loading
+          fitScale = network.getScale();
+          network.moveTo({
+            scale : 1.25
+          });
+          fitLayout();*/
+        });
+      }
+      
       function populateFilters(containerName, data, checked, checkboxes, func) {
         var container = document.getElementById(containerName);
         if (!data.length) {
@@ -411,11 +505,11 @@
 
         setClusters();
 
-        nodesDataSet.forEach(node => {
+        /*nodesDataSet.forEach(node => {
           var positions = network.getPositions(node.id);
           node.positionX = positions[node.id].x;
           node.positionY = positions[node.id].y;
-        });
+        });*/
       }
 
       function setClusters() {
@@ -485,6 +579,7 @@
 
   <body>
     <div id="mynetwork"></div>
+    <div id="mynetwork2"></div>
     <a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
     <div id="filtersContainer">
       <div id="resource-types">
