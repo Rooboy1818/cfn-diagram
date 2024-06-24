@@ -24,7 +24,7 @@
         top: unset;
         bottom: 0px;
         width: 40%;
-        height: 30vh;
+        height: 20vh;
        }         
 
       #network2 #network2Container, #nodeInfo #nodeInfoContainer {
@@ -139,6 +139,7 @@
       let clusteredNodeIds = null;
       let nodesDataSet = null;
       let viewPositions = null;
+      let viewPositions2 = null;
       const clusterWidth = 175;
       const nodeWidth = 250;
       const clusterHeight = 75;
@@ -171,18 +172,17 @@
         return container;
       }
 
-      function getNodesWidth(nodes) {
-        const bounds = Object.keys(viewPositions).map((id) => {
-          const b = getNodeBounds(id);
-          //const b = network.getBoundingBox(node.id);
+      function getNodesWidth(positioms) {
+        const bounds = Object.keys(positioms).map((id) => {
+          const b = getNodeBounds(id, positioms);
           return [b.left, b.right];
         });
         return [Math.min(...bounds[0]), Math.max(...bounds[1])];
       }
 
-      function getOffsetX(nodes) {
+      function getOffsetX(nodes, positioms) {
         const container = document.getElementById("network");
-        const bounds = getNodesWidth();
+        const bounds = getNodesWidth(positioms);
         return container.offsetWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
@@ -204,18 +204,18 @@
         return '';
       }
 
-      function getNodeBounds(id) {
+      function getNodeBounds(id, positioms) {
         const isCluster = network.isCluster(id);
-        const center = viewPositions[id];
+        const center = positioms[id];
         const w = isCluster ? clusterWidth : nodeWidth;
         const h = isCluster ? clusterHeight : nodeHeight;
         return { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
       }
       
-      function getNodeAt({x, y}) {
-        const ids = Object.keys(viewPositions);
+      function getNodeAt({x, y}, positioms) {
+        const ids = Object.keys(positions);
         for (let i = 0; i < ids.length; i++) {
-          const bounds = getNodeBounds(ids[i]);
+          const bounds = getNodeBounds(ids[i], positioms);
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return ids[i];
           }
@@ -342,13 +342,13 @@
         });
 
         network.on("click", function (params) {
-          selectedNodeId = getNodeAt(params.pointer.canvas);
+          selectedNodeId = getNodeAt(params.pointer.canvas, viewPositions);
           if (selectedNodeId && network.isCluster(selectedNodeId)) {
             clusteredNodeIds = network.getNodesInCluster(selectedNodeId);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             if (shiftedOffsetX === -1) {
-              shiftedOffsetX = getOffsetX(nodes);
+              shiftedOffsetX = getOffsetX(nodes, viewPositions);
               network.moveTo({
                 offset: {
                   x: -shiftedOffsetX,
@@ -472,19 +472,21 @@
               easingFunction: 'linear'
             }
           });
+
+          viewPositions2 = network2.getPositions();
         });
 
         network2.on("click", function (params) {
-          /*selectedNodeId = getNodeAt(params.pointer.canvas);
-          if (selectedNodeId) {
-            const node = nodes.get(selectedNodeId);
+          selectedNodeId2 = getNodeAt(params.pointer.canvas, viewPositions2);
+          if (selectedNodeId2) {
+            const node = nodes.get(selectedNodeId2);
             const nodeInfo = document.getElementById("nodeInfo");
             nodeInfo.style.display = "block";
             const contentNodeInfo = document.getElementById("contentNodeInfo");
             contentNodeInfo.innerText = node.title;
           } else {
             closeNodeInfo();
-          }*/
+          }
         });
       }
       
