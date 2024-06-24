@@ -247,6 +247,18 @@
             nodesView.refresh();
             network.openCluster(params.nodes[0]);
             network.fit();
+            const scale = network.getScale();
+            network.moveTo({
+              position: {
+                x: 0,
+                y: 0
+              },
+              scale: scale,
+              animation: {
+                duration: 1000,
+                easingFunction: 'linear'
+              }
+            });
 
             /*network.moveTo({
               position: {
