@@ -152,9 +152,9 @@
               const node = nodes.get(id);
               const isSelected = network.getSelectedNodes().includes(node.id);
               const w = 250;
-              const h = 45;
+              const h = 50;
               const drawNode = () => {
-                const imageSize = 35;
+                const imageSize = 30;
 
                 // Draw rectangle
                 ctx.beginPath();
@@ -187,14 +187,14 @@
                 ctx.textBaseline = "bottom";
                 const types = node.type.split('(')[0].split('::');
                 const type = types[0] + (types.length > 1 ? ' ' + types[1] : '');
-                ctx.fillText(truncateText(type.trim(), w - imageSize - 10), x - w / 2 + 5, y - 3);
+                ctx.fillText(truncateText(type.trim(), w - imageSize - 5), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
                 ctx.font = "16px Arial";
                 ctx.fillStyle = "black";
                 ctx.textBaseline = "top";
-                ctx.fillText(truncateText(node.label, w - imageSize - 10), x - w / 2 + 5, y + 3);
+                ctx.fillText(truncateText(node.label, w - imageSize - 5), x - w / 2 + 5, y + 2);
                 
                 // Draw image
                 const nodeBBox = network.getBoundingBox(node.id);
