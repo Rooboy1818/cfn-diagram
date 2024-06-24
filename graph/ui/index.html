@@ -127,8 +127,8 @@
         return container.offsetWidth - network.canvasToDOM({x: bounds[1] - bounds[0], y: 0}).x;
       }
 
-      function getSubType(node) {
-        const types = node.type.split('(')[0].split('::');
+      function getSubType(type) {
+        const types = type.split('(')[0].split('::');
         return types[0] + (types.length > 1 ? ' ' + types[1] : '');
       }
 
@@ -197,7 +197,7 @@
                 ctx.font = "14px Arial";
                 ctx.fillStyle = "darkGray";
                 ctx.textBaseline = "bottom";
-                ctx.fillText(truncateText(getSubType(node), w - imageSize - 10), x - w / 2 + 5, y - 2);
+                ctx.fillText(truncateText(getSubType(node.type), w - imageSize - 10), x - w / 2 + 5, y - 2);
 
                 // Draw name text
                 ctx.beginPath();
@@ -243,22 +243,14 @@
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
             clusteredNodeIds = network.getNodesInCluster('cluster1');
             console.log('marcel clusteredNodeIds', clusteredNodeIds);
-            network.openCluster(params.nodes[0], {
-              releaseFunction: (clusterPosition, containedNodesPositions) => {
-                var newPositions = {};
-                // clusterPosition = {x:clusterX, y:clusterY};
-                // containedNodesPositions = {nodeId:{x:nodeX,y:nodeY}, nodeId2....}
-                newPositions[nodeId] = {x:newPosX, y:newPosY};
-                return newPositions;
-              }
-            });
+            network.openCluster(params.nodes[0]);
             nodesView.refresh();
           }
         });
-        const clusterByType = {
+        /*const clusterByType = {
           joinCondition: function (element) {
             //console.log('marcel cluster check', childOptions);
-            return element.type && getSubType(element) === 'AWS EC2';
+            return element.type && getSubType(element.type) === 'AWS EC2';
           },
           clusterNodeProperties: {
             id: "cluster1",
@@ -266,7 +258,36 @@
             shape: "database",
           },
         };
-        network.cluster(clusterByType);
+        network.cluster({
+          joinCondition: function (element) {
+            return element.type && getSubType(element.type) === 'AWS EC2';
+          },
+          clusterNodeProperties: {
+            id: "cluster1",
+            borderWidth: 3,
+            shape: "database",
+          },
+        });
+        */
+        const subTypes = typeImages.map(d => {
+          const subType = getSubType(d.name);
+          return {
+            subType,
+            image: d.image
+          }
+        });
+        subTypes.forEach(subType => {
+          network.cluster({
+            joinCondition: function (element) {
+              return element.type && getSubType(element.type) === subType;
+            },
+            clusterNodeProperties: {
+              id: subType,
+              borderWidth: 3,
+              shape: "database"
+            },
+          });
+        });
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
