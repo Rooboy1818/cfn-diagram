@@ -248,18 +248,9 @@
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             //nodesView.setData(clusteredNodes);
-
-            const container = document.getElementById("mynetwork");
-            const bounds1 = getNodesWidth(nodes.get());
-            const offset1 = container.offsetWidth - network.canvasToDOM({x: bounds1[1] - bounds1[0], y: 0}).x;
-
             nodesView.refresh();
-            const ds = nodesView.getDataSet();
-
-            const bounds2 = getNodesWidth(clusteredNodes);
-            const offset2 = container.offsetWidth - network.canvasToDOM({x: bounds2[1] - bounds2[0], y: 0}).x;
-
             network.openCluster(params.nodes[0]);
+            fitLayout();
             
             //network.setData({ nodes: clusteredNodes, edges: edges });
 /*
