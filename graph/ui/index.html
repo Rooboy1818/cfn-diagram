@@ -127,7 +127,7 @@
       function preTitle(text) {
         console.log('marcel preTitle', text);
         const container = document.createElement("pre");
-        container.innerText = /*text*/'This is dummy text';
+        container.innerText = text;
         container.style = "font-size: 10px";
         return container;
       }
@@ -419,16 +419,16 @@
 
         network2.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          const scale = network2.getScale();
+          /*const scale = network2.getScale();
           network2.moveTo({
             scale : 1.25
-          });
+          });(/
           network2.moveTo({
             position: {
               x: 0,
               y: 0
             },
-            scale: scale,
+            //scale: scale,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
