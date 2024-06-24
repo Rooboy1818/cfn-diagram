@@ -303,8 +303,8 @@
       function draw2(nodes2) {
         // create a network
         var container = document.getElementById("mynetwork2");
-        nodes2.forEach((node => {
-          node2.title = preTitle(node.title);
+        nodes2.forEach((node2 => {
+          node2.title = preTitle(node2.title);
         }));
 
         var data = {
@@ -319,8 +319,8 @@
             shape: "custom",
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-              const node = nodes.get(id);
-              const isSelected = network.getSelectedNodes().includes(node.id);
+              const node = nodes2.get(id);
+              const isSelected = network2.getSelectedNodes().includes(node.id);
               const w = 250;
               const h = 50;
               const drawNode = () => {
