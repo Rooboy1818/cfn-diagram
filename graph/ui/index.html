@@ -17,13 +17,19 @@
         background-color: #f1f1f1;
         border: 2px solid #d3d3d3;
         box-shadow: 4px 4px #d3d3d3;
-        z-index: 8;
+        z-index: 9;
       }
 
+      #mynetwork2 #mynetwork2Container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      
       #mynetwork2 #closeNetwork2 {
-        float: right;
-        display: inline-block;
-        padding: 2px 5px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
         background: #ccc;
         z-index: 10;
       }
@@ -40,7 +46,6 @@
         width: 100%;
         height: 100%;
         background-color: #f1f1f1;
-        z-index: 9;
       }
 
       .body {
@@ -657,8 +662,10 @@
   <body>
     <div id="mynetwork"></div>
     <div id="mynetwork2">
-      <div id="closeNetwork2" onclick="closeNetwork2()">x</div>
-      <div id="contentNetwork2"></div>
+      <div id="mynetwork2Container">
+        <div id="closeNetwork2" onclick="closeNetwork2()">x</div>
+        <div id="contentNetwork2"></div>
+      </div>
     </div>
     <a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
     <div id="filtersContainer">
