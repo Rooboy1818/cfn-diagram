@@ -165,7 +165,14 @@
         for (let i = 0; i < ids.length; i++) {
           const isCluster = network.isCluster(ids[i]);
           const node = nodes.get(ids[i]);
-          const bounds = network.getBoundingBox(ids[i]);
+          let bounds = network.getBoundingBox(ids[i]);
+
+          if (isCluster) {
+            const center = viewPositions[ids[i]];
+            const w = 175;
+            const h = 75;
+            bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y - h / 2 });
+          }
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
             return node;
           }
