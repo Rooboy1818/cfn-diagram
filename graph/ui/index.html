@@ -7,7 +7,7 @@
         height: 100vh;
       }
       
-      #networkClustered {
+      #networkClustered, #nodeInfo {
         position: absolute;
         right: 0px;
         top: 0px;
@@ -20,13 +20,20 @@
         z-index: 9;
       }
 
-      #networkClustered #networkClusteredContainer {
+      #nodeInfo {
+        top: unset;
+        bottom: 0px;
+        width: 40%;
+        height: 30vh;
+       }         
+
+      #networkClustered #networkClusteredContainer, #nodeInfo #nodeInfoContainer {
         width: 100%;
         height: 100%;
         position: relative;
       }
       
-      #networkClustered #closeNetworkClustered {
+      #networkClustered #closeNetworkClustered, #nodeInfo #nodeInfoContainer {
         position: absolute;
         right: 5px;
         top: 0;
@@ -36,7 +43,7 @@
         cursor: pointer;
       }
       
-      #networkClustered #contentNetworkClustered {
+      #networkClustered #contentNetworkClustered, #nodeInfo #contentNodeInfo {
         width: 100%;
         height: 100%;
       }
@@ -352,6 +359,11 @@
             draw2(clusteredNodes);
           } else {
             closeNetworkClustered();
+
+            const nodeInfo = document.getElementById("nodeInfo");
+            nodeInfo.style.display = "block";
+            const contentNodeInfo = document.getElementById("contentNodeInfo");
+            contentNodeInfo.innerText = "Hello";
           }
         });
       }
@@ -659,6 +671,11 @@
         }
       }
 
+      function closeNodeInfo() {
+        const nodeInfo = document.getElementById("nodeInfo");
+        nodeInfo.style.display = "none";
+      }
+
     </script>
   </head>
 
@@ -668,6 +685,12 @@
       <div id="networkClusteredContainer">
         <div id="contentNetworkClustered"></div>
         <div id="closeNetworkClustered" onclick="closeNetworkClustered()">x</div>
+      </div>
+    </div>
+    <div id="nodeInfo">
+      <div id="nodeInfoContainer">
+        <pre id="contentNodeInfo"></pre>
+        <div id="closeNodeInfo" onclick="closeNodeInfo()">x</div>
       </div>
     </div>
     <!--<a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
