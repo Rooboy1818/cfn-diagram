@@ -125,7 +125,6 @@
       };
 
       function preTitle(text) {
-        console.log('marcel preTitle', text);
         const container = document.createElement("pre");
         container.innerText = text;
         container.style = "font-size: 10px";
@@ -307,7 +306,6 @@
         network.on("click", function (params) {
           const id = getNodeAt(params.pointer.canvas);
           if (id && network.isCluster(id)) {
-            console.log('marcel clicked cluster', id);
             const clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             draw2(clusteredNodes);
@@ -316,7 +314,6 @@
 
         // Cluster on type
         /*network.on("selectNode", function (params) {
-          console.log('marcel selectNode', params);
           if (params.nodes.length == 1 && network.isCluster(params.nodes[0])) {
             clusteredNodeIds = network.getNodesInCluster(params.nodes[0]);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
@@ -419,8 +416,8 @@
 
         network2.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          /*const scale = network2.getScale();
-          network2.moveTo({
+          //const scale = network2.getScale();
+          /*network2.moveTo({
             scale : 1.25
           });*/
           /*network2.moveTo({
@@ -434,10 +431,7 @@
               easingFunction: 'linear'
             }
           });*/
-          network.moveTo({
-            scale : 1.25
-          });
-          fitLayout();
+          network2.fit();
         });
       }
       
