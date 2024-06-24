@@ -258,7 +258,7 @@
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
             nodesDataSet.clear();
-            nodesDataSet.add(nodes.get());
+            nodesDataSet.add(clusteredNodes);
             network.stabilize();
 
             //nodesView.setData(clusteredNodes);
