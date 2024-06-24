@@ -163,18 +163,19 @@
       function getNodeAt({x, y}) {
         const ids = Object.keys(viewPositions);
         for (let i = 0; i < ids.length; i++) {
-          const isCluster = network.isCluster(ids[i]);
-          const node = nodes.get(ids[i]);
-          let bounds = network.getBoundingBox(ids[i]);
+          const id = ids[i];
+          const isCluster = network.isCluster(id);
+          const node = nodes.get(id);
+          let bounds = network.getBoundingBox(id);
 
           if (isCluster) {
-            const center = viewPositions[ids[i]];
+            const center = viewPositions[id];
             const w = 175;
             const h = 75;
             bounds = { left: center.x - w / 2, top: center.y - h / 2, right: center.x + w / 2, bottom: center.y + h / 2 };
           }
           if (x > bounds.left && x < bounds.right && y > bounds.top && y < bounds.bottom) {
-            return node;
+            return id;
           }
         }
         return false;
@@ -305,8 +306,8 @@
         });
 
         network.on("click", function (params) {
-          const node = getNodeAt(params.pointer.canvas);
-          console.log('marcel click', params, node);
+          const id = getNodeAt(params.pointer.canvas);
+          console.log('marcel click', params, id);
         });
 
         // Cluster on type
