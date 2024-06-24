@@ -143,11 +143,7 @@
         };
         var options = {
           layout: {
-            //randomSeed: 2,
-            hierarchical: {
-              enabled: true,
-              shakeTowards: 'root'
-            }
+            randomSeed: 2
           },
           nodes: {
             shape: "custom",
@@ -228,6 +224,19 @@
         network = new vis.Network(container, data, options);
 
         network.body.emitter.emit("_dataChanged");
+
+        // Cluster on type
+        const clusterByType = {
+          joinCondition: function (childOptions) {
+            return childOptions.node == 'AWS::ElasticLoadBalancingV2';
+          },
+          clusterNodeProperties: {
+            id: "cluster1",
+            borderWidth: 3,
+            shape: "database",
+          },
+        };
+        network.cluster(clusterByType);
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
