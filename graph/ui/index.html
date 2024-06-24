@@ -328,7 +328,7 @@
 
           viewPositions = network.getPositions();
 
-          const clusteredNodeIds = nodes.get().filter(n => network.isCluster(n)).reduce((total,m) => [...total, ...network.getNodesInCluster(n.id)], []);
+          const clusteredNodeIds = nodes.get().filter(n => network.isCluster(n)).reduce((total, n) => [...total, ...network.getNodesInCluster(n.id)], []);
           console.log('marcel', clusteredNodeIds);
 
         });
