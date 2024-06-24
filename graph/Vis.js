@@ -146,7 +146,7 @@ function addnodes(
       type: type,
       label: resource,
       image: createImage(type),
-      title: `${
+      tooltip: `${
         useJson
           ? JSON.stringify(resourceObject, null, 2)
           : yamlDump(resourceObject).replace(/>/g, "").replace(/</g, "")
