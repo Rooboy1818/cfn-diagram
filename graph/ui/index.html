@@ -331,7 +331,7 @@
             const clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
-            const offsetX = getOffsetX(nodes.get());
+            const offsetX = getOffsetX(nodes);
             network2.moveTo({
               offset: {
                 x: offsetX,
