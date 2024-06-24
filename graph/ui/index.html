@@ -312,7 +312,7 @@
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          //fitScale = network.getScale();
+          fitScale = network.getScale();
           network.moveTo({
             scale : 1.25
           });
