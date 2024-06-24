@@ -445,13 +445,7 @@
 
         network2.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
-          //const scale = network2.getScale();
-          /*network2.moveTo({
-            scale : 1.25
-          });*/
-          //network2.fit();
-          const scale = network2.getScale();
-
+          network2.fit();
           network2.moveTo({
             scale : 1.25
           });
@@ -460,13 +454,12 @@
               x: 0,
               y: 0
             },
-            scale: scale,
+            scale: 1,
             animation: {
               duration: 1000,
               easingFunction: 'linear'
             }
           });
-          //network2.fit();
         });
       }
       
