@@ -360,10 +360,13 @@
           } else {
             closeNetworkClustered();
 
-            const nodeInfo = document.getElementById("nodeInfo");
-            nodeInfo.style.display = "block";
-            const contentNodeInfo = document.getElementById("contentNodeInfo");
-            contentNodeInfo.innerText = "Hello";
+            if (selectedNodeId) {
+              const node = network.get(selectedNodeId);
+              const nodeInfo = document.getElementById("nodeInfo");
+              nodeInfo.style.display = "block";
+              const contentNodeInfo = document.getElementById("contentNodeInfo");
+              contentNodeInfo.innerText = node.title;
+            }
           }
         });
       }
