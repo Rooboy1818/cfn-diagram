@@ -221,9 +221,9 @@
       function draw() {
         // create a network
         var container = document.getElementById("network");
-        nodes.forEach((node => {
+        /*nodes.forEach((node => {
           node.title = preTitle(node.title);
-        }));
+        }));*/
 
         /*nodesView = new vis.DataView(nodes, {
           filter: (node) => {
@@ -692,7 +692,7 @@
     </div>
     <div id="nodeInfo">
       <div id="nodeInfoContainer">
-        <div id="contentNodeInfo"></div>
+        <pre id="contentNodeInfo"></pre>
         <div id="closeNodeInfo" onclick="closeNodeInfo()">x</div>
       </div>
     </div>
