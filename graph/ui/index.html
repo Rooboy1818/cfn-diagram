@@ -689,7 +689,7 @@
     </div>
     <div id="nodeInfo">
       <div id="nodeInfoContainer">
-        <pre id="contentNodeInfo"></pre>
+        <div id="contentNodeInfo"></div>
         <div id="closeNodeInfo" onclick="closeNodeInfo()">x</div>
       </div>
     </div>
@@ -773,8 +773,9 @@
 
         draw();
 
-        // Make the cluster panel draggable
+        // Make the panels draggable
         dragElement(document.getElementById("networkClustered"));
+        dragElement(document.getElementById("nodeInfo"));
         function dragElement(elmnt) {
           var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
           elmnt.onmousedown = dragMouseDown;
