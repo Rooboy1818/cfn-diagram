@@ -110,13 +110,13 @@ function addEdges(from, to, dependencyNode, fromNode) {
             scaleFactor: 1,
             type: "image",
             src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVR4nN1U3U7CYAxdNPp6EnUavUJM8Osu1m83th83u0Z8DEMCvojxBcCgD4F4j+kmo8DYX7yiSZOFdeeUc9p63kGHH8engHxtLA3B8tQg/0gmz5aGD/bxSmoagZuQLgD5CywvS/IT0J1X79r3jwH5uQLwUqdBGsRxfFRKsA1ukOeAPAqs4wCpLQkRO0AeJ+82iZ7KZdHglt4g4rsA+SYv5V1So0nQtYoMzTSXD01It/vAVyk1msQgzXKNl2nZkKWg82Anex1jaS0Xsr8rTzqKq4JRdXBO5bI8Xn9PL7sESB9KHq5NELFTXkzz/sEiKwjryMOZ4arBRTFBLf0580ERzAslSmf+/yUaKpPHtQmQXgtNlsPVdEwhcveA/K0UuMxfNDlczRbtXS9at9s98fJCruL2qQiw1ynqXIOn3dNZLrgye7BFMpclCkLXk/FNRlieRXMly1/3fa8s5OTKVWxwrvuVzrWSqyV6VgCelcqyL8QsOVwydoA0kWVMFhJpIr/JtOw19GDiF4GtmCV8ud05AAAAAElFTkSuQmCC"
-          },
+          }/*,
           from: {
             enabled: true,
             scaleFactor: 1,
             type: "image",
             src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABiUlEQVR4nN1U3U7CYAxdNPp6EnUavUJM8Osu1m83th83u0Z8DEMCvojxBcCgD4F4j+kmo8DYX7yiSZOFdeeUc9p63kGHH8engHxtLA3B8tQg/0gmz5aGD/bxSmoagZuQLgD5CywvS/IT0J1X79r3jwH5uQLwUqdBGsRxfFRKsA1ukOeAPAqs4wCpLQkRO0AeJ+82iZ7KZdHglt4g4rsA+SYv5V1So0nQtYoMzTSXD01It/vAVyk1msQgzXKNl2nZkKWg82Anex1jaS0Xsr8rTzqKq4JRdXBO5bI8Xn9PL7sESB9KHq5NELFTXkzz/sEiKwjryMOZ4arBRTFBLf0580ERzAslSmf+/yUaKpPHtQmQXgtNlsPVdEwhcveA/K0UuMxfNDlczRbtXS9at9s98fJCruL2qQiw1ynqXIOn3dNZLrgye7BFMpclCkLXk/FNRlieRXMly1/3fa8s5OTKVWxwrvuVzrWSqyV6VgCelcqyL8QsOVwydoA0kWVMFhJpIr/JtOw19GDiF4GtmCV8ud05AAAAAElFTkSuQmCC"
-          },
+          },*/
         },
         smooth: {
           roundness: 1
