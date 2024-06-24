@@ -159,12 +159,10 @@
                 // Draw rectangle
                 ctx.beginPath();
                 ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
-                //ctx.strokeStyle = isSelected ? "#FF206A": "#2B7CE9";
-                ctx.strokeStyle = isSelected ? "#FF206A": "darkGray";
-                ctx.lineWidth = isSelected ? 5 : 2;
+                ctx.strokeStyle = isSelected ? "#26A6DF": "darkGray";
+                ctx.lineWidth = isSelected ? 6 : 3;
                 ctx.stroke();
-                //ctx.fillStyle = "#D2E5FF";
-                ctx.fillStyle = "#fafafa";
+                ctx.fillStyle = "#f2f2f2";
                 ctx.fill();
 
                 const truncateText = (text, maxWidth) => {
