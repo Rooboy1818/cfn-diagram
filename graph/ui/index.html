@@ -132,6 +132,19 @@
         return types[0] + (types.length > 1 ? ' ' + types[1] : '');
       }
 
+      function truncateText(text, maxWidth) {
+        const width = ctx.measureText(text).width;
+        const ellipsis = width > maxWidth ? '...' : '';
+        const length = text.length;
+        for (let i = length; i > 0; i--) {
+          const str = text.substr(0, i) + ellipsis;
+          if (ctx.measureText(str).width <= maxWidth) {
+            return str;
+          }
+        }
+        return '';
+      }
+
       function draw() {
         // create a network
         var container = document.getElementById("mynetwork");
@@ -178,19 +191,6 @@
                 ctx.stroke();
                 ctx.fillStyle = "#f2f2f2";
                 ctx.fill();
-
-                const truncateText = (text, maxWidth) => {
-                  const width = ctx.measureText(text).width;
-                  const ellipsis = width > maxWidth ? '...' : '';
-                  const length = text.length;
-                  for (let i = length; i > 0; i--) {
-                    const str = text.substr(0, i) + ellipsis;
-                    if (ctx.measureText(str).width <= maxWidth) {
-                      return str;
-                    }
-                  }
-                  return '';
-                };
 
                 // Draw type text
                 ctx.beginPath();
@@ -287,17 +287,35 @@
               //shape: "database"
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
-                const node = nodes.get(id);
+                const w = 200;
+                const h = 75;
                 const drawNode = () => {
                   const imageSize = 60;
-                  const nodeBBox = network.getBoundingBox(node.id);
+
+                  // Draw rectangle
+                  ctx.beginPath();
+                  ctx.roundRect(x - w / 2, y - h / 2, w, h, [10]);
+                  ctx.strokeStyle = isSelected ? "#26A6DF": "darkGray";
+                  ctx.lineWidth = isSelected ? 6 : 3;
+                  ctx.stroke();
+                  ctx.fillStyle = "#f2f2f2";
+                  ctx.fill();
+  
+                  // Draw name text
+                  ctx.beginPath();
+                  ctx.font = "bold 16px Arial";
+                  ctx.fillStyle = "black";
+                  ctx.textBaseline = "middle";
+                  ctx.fillText(truncateText(d.subType, w - imageSize - 10), x - w / 2 + 5, y);
+                  
+                  // Draw image
                   const nodeImage = new Image();
-                  nodeImage.src = node.image;
-                  ctx.drawImage(nodeImage, x, y, imageSize, imageSize);
+                  nodeImage.src = d.image;
+                  ctx.drawImage(nodeImage, x + w / 2 - imageSize - 8, y - imageSize / 2, imageSize, imageSize);
                 };
                 return {
                   drawNode,
-                  nodeDimensions: { width: 60, height: 60 },
+                  nodeDimensions: { width: w, height: h },
                 };
               }
             },
