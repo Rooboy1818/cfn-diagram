@@ -224,7 +224,7 @@
               centralGravity: 0.005,
               springLength: 230,
               springConstant: 0.18,
-              avoidOverlap: 0.5
+              avoidOverlap: 0.25
             },
             maxVelocity: 146,
             solver: "forceAtlas2Based",
@@ -247,28 +247,7 @@
             nodesView.refresh();
           }
         });
-        /*const clusterByType = {
-          joinCondition: function (element) {
-            //console.log('marcel cluster check', childOptions);
-            return element.type && getSubType(element.type) === 'AWS EC2';
-          },
-          clusterNodeProperties: {
-            id: "cluster1",
-            borderWidth: 3,
-            shape: "database",
-          },
-        };
-        network.cluster({
-          joinCondition: function (element) {
-            return element.type && getSubType(element.type) === 'AWS EC2';
-          },
-          clusterNodeProperties: {
-            id: "cluster1",
-            borderWidth: 3,
-            shape: "database",
-          },
-        });
-        */
+
         const subTypes = typeImages.map(d => {
           const subType = getSubType(d.name);
           return {
