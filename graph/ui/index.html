@@ -332,6 +332,8 @@
             const clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
             draw2(clusteredNodes);
+          } else {
+            closeNetwork2();
           }
         });
 
