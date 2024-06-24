@@ -132,6 +132,8 @@
       const nodeWidth = 250;
       const clusterHeight = 75;
       const nodeHeight = 50;
+      let shiftedOffsetX = -1;
+
       const rule = {
         EventPattern: '{"source":["aws.events"]}',
         EventBusName: "default",
@@ -331,10 +333,10 @@
             const clusteredNodeIds = network.getNodesInCluster(id);
             const clusteredNodes = nodes.get({ filter: (n) => clusteredNodeIds.includes(n.id) });
 
-            const offsetX = getOffsetX(nodes);
+            shiftedOffsetX = getOffsetX(nodes);
             network.moveTo({
               offset: {
-                x: offsetX,
+                x: -shiftedOffsetX,
                 y: 0
               }
             });
@@ -657,6 +659,13 @@
       function closeNetwork2() {
         const mynetwork2 = document.getElementById("mynetwork2");
         mynetwork2.style.display = "none";
+       
+        network.moveTo({
+          offset: {
+            x: shiftedOffsetX,
+            y: 0
+          }
+        });
       }
 
     </script>
