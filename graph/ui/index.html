@@ -380,9 +380,6 @@
         var mynetwork2 = document.getElementById("mynetwork2");
         mynetwork2.style.display = 'block';
         var container = document.getElementById("contentNetwork2");
-        nodes2.forEach((node2 => {
-          node2.title = preTitle(node2.title);
-        }));
         var data = {
           nodes: nodes2,
           edges: edges
