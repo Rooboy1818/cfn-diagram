@@ -242,9 +242,10 @@
             size: 1,
             ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
               const node = nodes.get(id);
-              const selection = network.getSelectedNodes();
-              const subType = getSubType(node.type);
-              const isSelected = network.getSelectedNodes().includes(node.id || subType);
+              //const selection = network.getSelectedNodes();
+              //const subType = getSubType(node.type);
+              //const isSelected = network.getSelectedNodes().includes(node.id || subType);
+              const isSelected = false;
               const w = 250;
               const h = 50;
               const drawNode = () => {
