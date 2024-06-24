@@ -284,7 +284,7 @@
         });
 
         network.on("click", function (params) {
-          console.log('marcel click', params);
+          console.log('marcel click', params, network.getNodeAt(params.pointer.DOM));
         });
 
         // Cluster on type
