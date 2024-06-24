@@ -252,6 +252,10 @@
             network.openCluster(params.nodes[0]);
             network.setData({ nodes: clusteredNodes, edges: edges });
             //nodesView.refresh();
+
+            network.moveTo({
+              scale : 1.25
+            });
             fitLayout();
           }
         });
