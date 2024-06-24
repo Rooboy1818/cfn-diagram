@@ -161,7 +161,8 @@
 
       function getNodesWidth(nodes) {
         const bounds = nodes.map((node) => {
-          const b = network.getBoundingBox(node.id);
+          const b = getNodeBounds(node.id);
+          //const b = network.getBoundingBox(node.id);
           return [b.left, b.right];
         });
         return [Math.min(...bounds[0]), Math.max(...bounds[1])];
@@ -326,6 +327,10 @@
           });*/
 
           viewPositions = network.getPositions();
+
+          const clusteredNodeIds = nodes.get().filter(n => network.isCluster(n)).reduce((total,m) => [...total, ...network.getNodesInCluster(n.id)], []);
+          console.log('marcel', clusteredNodeIds);
+
         });
 
         network.on("click", function (params) {
