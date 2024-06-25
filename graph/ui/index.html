@@ -84,7 +84,7 @@
     <script src="./data.js"></script>
 
     <script type="text/javascript">
-      let network, network2;
+      let network, network2 = null;
       let nodesView;
       let filteredTypes = types;
       let filtersOpen = false;
@@ -305,8 +305,8 @@
 
       function draw2(nodes2) {
         // create a network
-        var network2 = document.getElementById("network2");
-        network2.style.display = 'block';
+        var network2Elem = document.getElementById("network2");
+        network2Elem.style.display = 'block';
         const network2Title = document.getElementById("network2Title");
         network2Title.innerText = selectedNodeId;
         var container = document.getElementById("network2Content");
@@ -380,7 +380,7 @@
         };
 
         if (network2) {
-          console.log('marcel destroy'); 
+          console.log('marcel destroy', network2); 
           network2.destroy();
         }
         network2 = new vis.Network(container, data, options);
