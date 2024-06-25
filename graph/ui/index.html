@@ -389,8 +389,8 @@
         network2.style.display = 'block';
 
         const network2Title = document.getElementById("network2Title");
-        const selectedCluster = nodes2.find(n => n.id === selectedNodeId);
-        network2Title.innerText = selectedCluster.type;
+        const selectedCluster = nodes2.find(n => getSubType(n.type) === selectedNodeId);
+        network2Title.innerText = selectedNodeId;
         
         var container = document.getElementById("contentNetwork2");
         var data = {
