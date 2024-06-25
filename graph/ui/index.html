@@ -299,10 +299,7 @@
                 drawNode,
                 nodeDimensions: { width: w, height: h },
               };
-            },
-            //widthConstraint: 500,
-            //heightConstraint: 500
-            margin: 50
+            }
           },
           physics: {
             forceAtlas2Based: {
@@ -323,7 +320,7 @@
 
         //network.body.emitter.emit("_dataChanged");
 
-        //setClusters();
+        setClusters();
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
@@ -365,8 +362,9 @@
               });
             }
 
+            nodes.update({ id: selectedNodeId, size: 500 });
             closeNodeInfo();
-            draw2(clusteredNodes);
+            //draw2(clusteredNodes);
           } else {
             closeNetwork2();
 
