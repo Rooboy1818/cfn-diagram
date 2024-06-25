@@ -34,7 +34,7 @@
         overflow: auto;
       }
       
-      #network2 #cetwork2Close, #nodeInfo #nodeInfoClose {
+      #network2 #network2Close, #nodeInfo #nodeInfoClose {
         position: absolute;
         right: 0;
         top: 0;
@@ -68,66 +68,6 @@
 
       .body {
         font-family: Arial, Helvetica, sans-serif;
-      }
-      
-      #filtersContainer, #searchContainer {
-        left: 20px;
-        top: 25px;
-        background-color: #e6f0ff;
-        border: 2px solid darkGray;
-        box-shadow: 4px 4px lightGray;
-        padding: 10px;
-        z-index: 2999;
-        position: absolute;
-        overflow: auto;
-        visibility: hidden;
-        font-family: Arial;
-        max-height: 600px;
-        max-width: 600px;
-      }
-
-      #filtersContainer label, #searchContainer label {
-        line-height: 25px;
-      }
-
-      #filtersContainer label:hover, #searchContainer label:hover {
-        font-weight: bold;
-      }
-      
-      #showFilterTypes, #showSearchNodes, #fitLayout, #resetLayout {
-        position: absolute;
-        left: 10px;
-        top: 0;
-        z-index: 2999;
-        color: blue;
-        background-color: white;
-        cursor: pointer;
-      }
-
-      #searchContainer {
-        left: 120px;
-      }
-
-      #showSearchNodes {
-        left: 110px;
-      }
-
-      #fitLayout {
-        left: 220px;
-      }
-
-      #resetLayout {
-        left: 330px;
-      }
-
-      .filter-row {
-        display: flex;
-        align-items: center;
-        line-height: 30px;
-      }
-
-      .filter-row > * {
-        margin: 0 2px 0 5px;
       }
 
       #nested-stacks {
@@ -240,26 +180,8 @@
       function draw() {
         // create a network
         var container = document.getElementById("network");
-        /*nodes.forEach((node => {
-          node.title = preTitle(node.title);
-        }));*/
-
-        /*nodesView = new vis.DataView(nodes, {
-          filter: (node) => {
-            if (!filteredTypes.includes(node.type)) {
-              return false;
-            }
-            if (clusteredNodeIds && !clusteredNodeIds.includes(node.id)) {
-              return false;
-            }
-            return true;
-          }
-        });*/
-
         nodesDataSet = new vis.DataSet(nodes.get());
-        
         var data = {
-          //nodes: nodesView,
           nodes: nodesDataSet,
           edges: edges,
         };
@@ -342,15 +264,6 @@
           });
           fitLayout();
 
-          /*// Reset the avoid overlap
-          network.setOptions({
-            physics: {
-              forceAtlas2Based: {
-                avoidOverlap: 0
-              }
-            }
-          });*/
-
           viewPositions = network.getPositions();
         });
 
@@ -374,17 +287,16 @@
               });
             }
 
-            nodeInfoClose();
+            closeNodeInfo();
             draw2(clusteredNodes);
           } else {
-            cetwork2Close();
+            closeNetwork2();
 
             if (selectedNodeId) {
-              const contentNodeInfo = document.getElementById("contentNodeInfo");
               const node = nodes.get(selectedNodeId);
-              contentNodeInfo.innerText = node.tooltip;
+              showNodeInfo(node);
             } else {
-              nodeInfoClose();
+              closeNodeInfo();
             }
           }
         });
@@ -469,11 +381,6 @@
         network2 = new vis.Network(container, data, options);
 
         network2.once('stabilizationIterationsDone', function() {
-          // Animate the initial loading
-          //network2.fit();
-          /*network2.moveTo({
-            scale : 1.25
-          });*/
           network2.moveTo({
             position: {
               x: 0,
@@ -493,14 +400,18 @@
           selectedNodeId2 = getNodeAt(params.pointer.canvas, viewPositions2);
           if (selectedNodeId2) {
             const node = nodes.get(selectedNodeId2);
-            const nodeInfo = document.getElementById("nodeInfo");
-            nodeInfo.style.display = "block";
-            const contentNodeInfo = document.getElementById("contentNodeInfo");
-            contentNodeInfo.innerText = node.tooltip;
+            showNodeInfo(node);
           } else {
-            nodeInfoClose();
+            closeNodeInfo();
           }
         });
+      }
+
+      function showNodeInfo(node) {
+        const nodeInfo = document.getElementById("nodeInfo");
+        nodeInfo.style.display = "block";
+        const contentNodeInfo = document.getElementById("contentNodeInfo");
+        contentNodeInfo.innerText = node.tooltip;
       }
       
       function populateFilters(containerName, data, checked, checkboxes, func) {
@@ -598,7 +509,6 @@
         network.moveTo({
           position: {
             x: 0,
-            //y: 40
             y: 0
           },
           scale: fitScale,
@@ -607,25 +517,12 @@
             easingFunction: 'linear'
           }
         });
-        //network.fit();
       }
 
       function resetLayout() {
-        /*clusteredNodeIds = null;
-        nodesView.refresh();
-        setClusters();
-        //fitLayout();*/
         nodesDataSet.clear();
         nodesDataSet.add(nodes.get());
-        //network.stabilize();
-
         setClusters();
-
-        /*nodesDataSet.forEach(node => {
-          var positions = network.getPositions(node.id);
-          node.positionX = positions[node.id].x;
-          node.positionY = positions[node.id].y;
-        });*/
       }
 
       function setClusters() {
@@ -691,7 +588,7 @@
         });
       }
 
-      function cetwork2Close() {
+      function closeNetwork2() {
         const network2 = document.getElementById("network2");
         network2.style.display = "none";
 
@@ -710,7 +607,7 @@
         }
       }
 
-      function nodeInfoClose() {
+      function closeNodeInfo() {
         const nodeInfo = document.getElementById("nodeInfo");
         nodeInfo.style.display = "none";
       }
@@ -724,93 +621,18 @@
       <div id="network2Container">
         <div id="network2Title"></div>
         <div id="network2Content"></div>
-        <div id="cetwork2Close" onclick="cetwork2Close()"></div>
+        <div id="network2Close" onclick="closeNetwork2()"></div>
       </div>
     </div>
     <div id="nodeInfo">
       <div id="nodeInfoContainer">
         <pre id="contentNodeInfo"></pre>
-        <div id="nodeInfoClose" onclick="nodeInfoClose()"></div>
+        <div id="nodeInfoClose" onclick="closeNodeInfo()"></div>
       </div>
     </div>
-    <!--<a id="showFilterTypes" onclick="showFilterTypes()">Filter Types</a>
-    <div id="filtersContainer">
-      <div id="resource-types">
-        <strong>Resource Types</strong><br />
-      </div>
-      <div id="nested-stacks">
-        <hr />
-        <strong>Nested Stack(s)</strong><br />
-      </div>
-    </div>
-    <a id="showSearchNodes" onclick="showSearchNodes()">Search Nodes</a>
-    <div id="searchContainer">
-      <div id="search-nodes">
-        <strong>Node Names</strong><br />
-      </div>
-    </div>
-    <a id="fitLayout" onclick="fitLayout()">Fit Layout</a>
-    <a id="resetLayout" onclick="resetLayout()">Reset Layout</a>-->
     <script>
       window.onload = function (event) {
-        /*populateFilters("nested-stacks", nested, renderAll, true, (x) => {
-          const ns = nodes.get({ filter: (p) => p.prefix === x.target.value });
-          for (const n of ns) {
-            nodes.update({ id: n.id, hidden: !x.target.checked });
-          }
-          network.redraw();
-        });*/
-
-        /*populateFilters("resource-types", typeImages, true, true, (x) => {
-          const { value, checked } = x.target;
-          if (checked) {
-            filteredTypes = [...filteredTypes.filter(t => t !== value), value];
-          } else {
-            filteredTypes = filteredTypes.filter(t => t !== value);
-          }
-          nodesView.refresh();
-        });
-
-        const clearSelectionText = 'Clear selection';
-        const searchNodes = [{
-          name: clearSelectionText
-        }, ...nodes.map((node) => ({
-          name: node.label,
-          image: node.image
-        }))].sort((a, b) => a.name.localeCompare(b.name));
-        populateFilters("search-nodes", searchNodes, true, false, (x) => {
-          // Release focused node
-          network.releaseNode();
-
-          // Select and focus node
-          const label = x.target.textContent;
-          if (label !== clearSelectionText) {
-            const node = nodes.get({
-              filter: function (node) {
-                return (node.label === label);
-              }
-            });
-            if (node.length) {
-              network.selectNodes([node[0].id]);
-              network.focus(node[0].id, {
-                scale: 1.25,
-                animation: {
-                  duration: 1000,
-                  easingFunction: 'linear'
-                }
-              });
-            }
-          } else {
-            network.unselectAll();
-            fitLayout();
-          }
-
-          // Close search
-          const searchContainer = document.getElementById("searchContainer");
-          searchContainer.style.visibility = "hidden";
-          searchOpen = false;
-        });*/
-
+        // Draw the network
         draw();
 
         // Make the panels draggable
@@ -823,29 +645,24 @@
           function dragMouseDown(e) {
             e = e || window.event;
             e.preventDefault();
-            // get the mouse cursor position at startup:
             pos3 = e.clientX;
             pos4 = e.clientY;
             document.onmouseup = closeDragElement;
-            // call a function whenever the cursor moves:
             document.onmousemove = elementDrag;
           }
         
           function elementDrag(e) {
             e = e || window.event;
             e.preventDefault();
-            // calculate the new cursor position:
             pos1 = pos3 - e.clientX;
             pos2 = pos4 - e.clientY;
             pos3 = e.clientX;
             pos4 = e.clientY;
-            // set the element's new position:
             elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
             elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
           }
         
           function closeDragElement() {
-            /* stop moving when mouse button is released:*/
             document.onmouseup = null;
             document.onmousemove = null;
           }
