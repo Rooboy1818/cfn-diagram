@@ -380,10 +380,8 @@
             cetwork2Close();
 
             if (selectedNodeId) {
-              const node = nodes.get(selectedNodeId);
-              const nodeInfo = document.getElementById("network2Title");
-              nodeInfo.style.display = "block";
               const contentNodeInfo = document.getElementById("contentNodeInfo");
+              const node = nodes.get(selectedNodeId);
               contentNodeInfo.innerText = node.tooltip;
             } else {
               nodeInfoClose();
