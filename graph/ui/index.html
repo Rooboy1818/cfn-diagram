@@ -300,11 +300,7 @@
                 nodeDimensions: { width: w, height: h },
               };
             },
-            widthConstraint: {
-              enabled: true,
-              minimum: 100,
-              maximum: 100
-            }
+            widthConstraint: 100
           },
           physics: {
             forceAtlas2Based: {
@@ -325,7 +321,7 @@
 
         //network.body.emitter.emit("_dataChanged");
 
-        setClusters();
+        //setClusters();
 
         network.once('stabilizationIterationsDone', function() {
           // Animate the initial loading
