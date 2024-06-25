@@ -382,7 +382,7 @@
         network2 = new vis.Network(container, data, options);
 
         network2.once('stabilizationIterationsDone', function() {
-          network2.moveTo({
+          /*network2.moveTo({
             position: {
               x: 0,
               y: 0
@@ -392,7 +392,8 @@
               duration: 1000,
               easingFunction: 'linear'
             }
-          });
+          });*/
+          network2.fit();
 
           viewPositions2 = network2.getPositions();
         });
