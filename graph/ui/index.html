@@ -635,8 +635,8 @@
               shape: "custom",
               ctxRenderer: ({ ctx, id, x, y, state: { selected, hover }, style }) => {
                 const isSelected = id === selectedNodeId;
-                const w = clusterWidth * 3;
-                const h = clusterHeight * 3;
+                const w = clusterWidth;
+                const h = clusterHeight;
                 const drawNode = () => {
                   const imageSize = 60;
 
