@@ -300,7 +300,11 @@
                 nodeDimensions: { width: w, height: h },
               };
             },
-            size: 200
+            widthConstraint: {
+              enabled: true,
+              minimum: 100,
+              maximum: 100
+            }
           },
           physics: {
             forceAtlas2Based: {
