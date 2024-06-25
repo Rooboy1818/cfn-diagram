@@ -9,8 +9,8 @@
       
       #network2, #nodeInfo {
         position: absolute;
-        right: 0px;
-        top: 0px;
+        right: 5px;
+        top: 5px;
         width: 50%;
         height: 70vh;
         display: none;
@@ -42,7 +42,7 @@
         cursor: pointer;
         width: 50px;
         height: 50px;
-        transform: scale(0.7);
+        transform: scale(0.6);
         background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABa0lEQVR4nO2aS27CQAyG/0s04nGkcBG6bssB6LXoIWDBOQos6MrVVI4URSl4HvEY4U+KxMKJ/MmZ8UQGcBwnlRWAHYALAKp8nTmXNlbi00Dy9M+1jalEuOEK4A3AHPWZA3jnnEhamS8ODhLW+ODcwmt2lzMHz2CPGed2kgR376JVSJqfiyhBXhFjkFfkDmsADdJp+BlSJqnIK8ceEmUavpf4WdVEXgDsOf4YeZwZ3ittwJOtkRSZVInJF3uMTI6Eyq4lkcmVUNt+b8mUkFDtI2MypSTUG2J/Wz0Mfuf0nCqdvV+FEpUwJVLis5n81YpkbGHnnABMbL/9NVFKhrQb4tjCLiFDmkeUW7tTrgxpHRolW2yODGkc42P6RKoM+YfVM3zq1oBcxBjkFTEGPV1FThxoYeQ2ZMm5fUPAjoPDzM4am5jRW9sbhoaZ3QL1WbDED+cmHlNvByPhhxxPd7Rcwm44+pB/GHAcB3/8AsupkxGNr4djAAAAAElFTkSuQmCC)
       }
       
@@ -372,7 +372,7 @@
 
             if (selectedNodeId) {
               const node = nodes.get(selectedNodeId);
-              const nodeInfo = document.getElementById("nodeInfo");
+              const nodeInfo = document.getElementById("network2Title");
               nodeInfo.style.display = "block";
               const contentNodeInfo = document.getElementById("contentNodeInfo");
               contentNodeInfo.innerText = node.tooltip;
@@ -387,6 +387,11 @@
         // create a network
         var network2 = document.getElementById("network2");
         network2.style.display = 'block';
+
+        const network2Title = document.getElementById("network2Title");
+        const selectedCluster = nodes2.find(n => n.id === selectedNodeId);
+        network2Title.innerText = selectedCluster.type;
+        
         var container = document.getElementById("contentNetwork2");
         var data = {
           nodes: nodes2,
@@ -713,6 +718,7 @@
     <div id="network"></div>
     <div id="network2">
       <div id="network2Container">
+        <div id="network2Title"></div>
         <div id="contentNetwork2"></div>
         <div id="closeNetwork2" onclick="closeNetwork2()"></div>
       </div>
